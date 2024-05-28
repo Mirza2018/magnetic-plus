@@ -19,7 +19,7 @@ const Header = () => {
                                 <li><NavLink className={({ isActive }) => (isActive ? "btn  rounded-lg  border-0 text-white  bg-orange-400 m-2" : "btn  border-0 btn-outline rounded-lg border-b-4 bg-orange-400  m-2")} to='/'>sub 2 </NavLink></li>
                             </ul>
                         </li>
-                        <li><NavLink className={({ isActive }) => (isActive ? "btn  rounded-lg  border-0 text-white  bg-orange-400 m-2" : "btn  border-0 btn-outline rounded-lg border-b-4 bg-orange-400  m-2")} to='/'>About </NavLink></li>
+                        <li><NavLink className={({ isActive }) => (isActive ? "btn  rounded-lg  border-0 text-white  bg-orange-400 m-2" : "btn  border-0 btn-outline rounded-lg border-b-4 bg-orange-400  m-2")} to='/about'>About </NavLink></li>
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-xl">Magnetic-plus</a>
@@ -43,7 +43,7 @@ const Header = () => {
                             </ul>
                         </details>
                     </li>
-                    <li><NavLink className={({ isActive }) => (isActive ? "btn  rounded-lg  border-0 text-white  bg-orange-400 m-2" : "btn  border-0 btn-outline rounded-lg border-b-4 bg-orange-400  m-2")} to='/'>About </NavLink></li>
+                    <li><NavLink className={({ isActive }) => (isActive ? "btn  rounded-lg  border-0 text-white  bg-orange-400 m-2" : "btn  border-0 btn-outline rounded-lg border-b-4 bg-orange-400  m-2")} to='/about'>About </NavLink></li>
                 </ul>
             </div>
             <div className="navbar-end">
