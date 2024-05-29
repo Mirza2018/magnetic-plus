@@ -9,6 +9,8 @@ import {
 import Home from './Pages/Home/Home.jsx';
 import Categories from './Component/Category/Categories.jsx';
 import About from './Pages/About/About.jsx';
+import HomePage from './Pages/HomePage/HomePage.jsx';
+import SingleProductPage from './Component/Products/SingleProductPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -16,8 +18,16 @@ const router = createBrowserRouter([
     element: <Home></Home>,
     children: [
       {
+        path: "/",
+        element: <HomePage></HomePage>
+      },
+      {
         path: "/category",
         element: <Categories></Categories>
+      },
+      {
+        path: "/category/:id",
+        element: <SingleProductPage></SingleProductPage>
       },
       {
         path: "/about",
