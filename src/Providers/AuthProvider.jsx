@@ -34,15 +34,46 @@ const AuthProvider = ({children}) => {
         // stop observing while unmounting 
         return () =>{
             return unsubscribe();
-        }
+        }       
     }, [])
+
+// Products
+
+const [products,setProducts]=useState([])
+    useEffect(()=>{
+        fetch("http://localhost:5000/products")
+        .then(res=>res.json())
+        .then(data=>setProducts(data))
+    },[])
+
+
+//post add to cart
+
+
+const [addToCart,setAddToCart]=useState([])
+    useEffect(()=>{
+        fetch("http://localhost:5000/addtocart")
+        .then(res=>res.json())
+        .then(data=>setAddToCart(data))
+    },[])
+
+
+
+
+
+
+
 
     const authInfo = {
         user,
         loading,
         createUser,
         signIn,
-        logOut
+        logOut,
+        products,
+        setProducts,
+        addToCart,
+        setAddToCart
     }
 
     return (

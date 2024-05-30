@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Header = () => {
+    const {user,addToCart,logOut}=useContext(AuthContext)
+    // console.log("my cart",addToCart);
     return (
         <div className="navbar bg-slate-500">
             <div className="navbar-start">
@@ -47,7 +50,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <a onClick={()=>{logOut()}} className="btn">Logout</a>
             </div>
         </div>
     );

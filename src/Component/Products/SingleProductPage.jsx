@@ -1,11 +1,10 @@
-import React from 'react';
-
-
+import React, { useContext } from 'react';
 import { useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
+import PrivateRoute from '../../route/PrivateRoute';
 // import { StarIcon } from '@heroicons/react/20/solid'
 // import { Radio, RadioGroup } from '@headlessui/react'
-
 
 
 const product = {
@@ -60,18 +59,37 @@ const product = {
   details:
     'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
 }
-const reviews = { href: '#', average: 4, totalCount: 117 }
+// const reviews = { href: '#', average: 4, totalCount: 117 }
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+// function classNames(...classes) {
+//   return classes.filter(Boolean).join(' ')
+// }
 
 const SingleProductPage = () => {
-
-
+  const navigate = useNavigate()
+  const { user,addToCart } = useContext(AuthContext)
 
   const { id } = useParams()
-  console.log(id);
+  
+  console.log("add to cart",addToCart);
+
+
+
+
+  const handleAddCart = (e) => {
+    e.preventDefault()
+    console.log(e.target.id);
+    const itemId = e.target.id
+    const addtocart = { itemId, user: user.email }
+    fetch("http://localhost:5000/addtocart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(addtocart)
+    })
+  }
+
 
 
 
@@ -179,12 +197,19 @@ const SingleProductPage = () => {
             <form className="mt-10">
 
 
-              <button
-                type="submit"
-                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
-                Add to bag
-              </button>
+              <PrivateRoute>
+                < button
+
+                  onClick={handleAddCart}
+                  id={id}
+                  className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                  Add to bag
+                </button>
+              </PrivateRoute>
+
+
+
+
             </form>
           </div>
 

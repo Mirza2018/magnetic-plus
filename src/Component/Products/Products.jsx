@@ -1,9 +1,19 @@
-import React from 'react';
-import data from '../../../public/Products.json'
+import React, { useContext, useEffect, useState } from 'react';
 import Product from './Product';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Products = () => {
-    const products = data;
+const {products}=useContext(AuthContext)
+    // const [products,setProducts]=useState([])
+    // useEffect(()=>{
+    //     fetch('http://localhost:5000/products')
+    //     .then(res=>res.json())
+    //     .then(data=>setProducts(data))
+    // },[])
+
+
+    // const products = data;
+
     return (
         <div className="bg-white">
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
