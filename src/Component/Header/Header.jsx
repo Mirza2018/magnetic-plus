@@ -51,7 +51,7 @@ const Header = () => {
                     </li>
                     <li><NavLink className={({ isActive }) => (isActive ? "btn  rounded-lg  border-0 text-white  bg-orange-400 m-2" : "btn  border-0 btn-outline rounded-lg border-b-4 bg-orange-400  m-2")} to='/about'>About </NavLink></li>
 
-                    {user && <li><NavLink className={({ isActive }) => (isActive ? "btn  rounded-lg  border-0 text-white " : "btn  border-0 btn-outline rounded-lg border-b-4 m-2")} to='/'>
+                    {user && <li><NavLink className={({ isActive }) => (isActive ? "btn  rounded-lg  border-0 text-white " : "btn  border-0 btn-outline rounded-lg border-b-4 m-2")} to='dashboard'>
                         <button className="btn">
                             <FaShoppingCart />
                             <div className="badge badge-secondary">+{addToCart.length}</div>
