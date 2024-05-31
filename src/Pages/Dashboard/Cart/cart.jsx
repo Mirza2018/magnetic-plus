@@ -1,28 +1,42 @@
 import { FaTrashAlt } from "react-icons/fa";
 import useCart from "../../../Hooks/useCart";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 
 const cart = () => {
-    const [addToCart] = useCart()
+    const [addToCart, refatch] = useCart()
     const totalPrice = addToCart.reduce((total, item) => (total + item.price), 0);
+    const axiosSecure = useAxiosSecure();
+
 
     const handleDelete = id => {
-console.log("Delete",id);
-
-Swal.fire({
-    title: 'Delete!!',
-    text: 'Are you want to delete this item',
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, Delete!'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      console.log("delete");
-    }
-  })
+        Swal.fire({
+            title: 'Delete!!',
+            text: 'Are you want to delete this item',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Delete!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/addtocart/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            refatch()
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: `Deleted`,
+                                showConfirmButton: false,
+                                timer: 700
+                            })
+                            
+                        }
+                    })
+            }
+        })
 
     }
 
@@ -85,8 +99,8 @@ Swal.fire({
                                     <td>{item.price}</td>
                                     <th>
                                         <button
-                                        onClick={()=>handleDelete(item._id)}
-                                        className="btn btn-ghost btn-lg text-red-600"><FaTrashAlt /></button>
+                                            onClick={() => handleDelete(item._id)}
+                                            className="btn btn-ghost btn-lg text-red-600"><FaTrashAlt /></button>
                                     </th>
                                 </tr>
                             )

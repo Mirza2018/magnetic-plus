@@ -2,10 +2,12 @@ import { useContext, useState } from 'react';
 // import img from '../../assets/images/login/login.svg';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
+import useAxiousPublic from '../../Hooks/useAxiousPublic';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext)
-
+    const { createUser, updateProfile } = useContext(AuthContext)
+    const axiouPublic = useAxiousPublic();
 
     const [show, setShow] = useState(false)
 
@@ -15,11 +17,39 @@ const Register = () => {
         const password = e.target.password.value;
         const email = e.target.email.value;
         const name = e.target.name.value;
-        console.log(password, email, name);
+        const photo = "https://scontent.fdac45-1.fna.fbcdn.net/v/t39.30808-6/305215262_473556804784990_4532781082980495912_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEWrJzoIqprNL8MZB1Fse13mxRq-q5AckybFGr6rkByTMrm4POfPkmKyVhgCiakg93CGXQIfNp0SUZATozaMvea&_nc_ohc=rU6gOdxNZd0Q7kNvgFu23PL&_nc_ht=scontent.fdac45-1.fna&oh=00_AYDp9Huwj5VghLa1W0aK1_VIxU40hSGCx6ICslPtRTDIzw&oe=665CF6A3";
 
         createUser(email, password)
             .then(result => {
-                console.log(result.user);
+                const loggedUser = result.user;
+                updateProfile(name, photo)
+                    .then(() => {
+                        const userInfo = {
+                            name, email
+                        }
+
+                        axiouPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log(loggedUser);
+
+                                   e.target.reset()
+
+                                    Swal.fire({
+                                        position: 'center',
+                                        icon: 'success',
+                                        title: `WellCome to Magneti-Plus ${name}`,
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                }
+                            })
+
+
+
+
+                    })
+
             })
             .catch(error => {
                 console.log(error);

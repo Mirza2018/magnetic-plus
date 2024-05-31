@@ -119,32 +119,7 @@ const SingleProductPage = () => {
           }
         })
 
-      // fetch('http://localhost:5000/addtocart', {
-      //   method: 'POST',
-      //   headers: {
-      //     'content-type': 'application/json'
-      //   },
-      //   body: JSON.stringify(addtocart)
-      // })
-      //   .then(res => res.json())
-      //   .then(data => {
-      //     console.log("ok2",data);
-      //     if (data.insertedId) {
-
-      //       // refetch() 
-      //       //refetch the items in the cart
-
-      //       Swal.fire({
-      //         position: 'center',
-      //         icon: 'success',
-      //         title: 'Added to Cart',
-      //         showConfirmButton: false,
-      //         timer: 1500
-
-      //       })
-      //       console.log("ok3")
-      //     }
-      //   })
+   
     }
 
 

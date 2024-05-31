@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import app from '../Firebase/firebase.config';
 
 export const AuthContext = createContext(null);
@@ -22,6 +22,12 @@ const AuthProvider = ({children}) => {
     
     const logOut = () =>{
         return signOut(auth);
+    }
+
+    const updateUserProfile = (name, url) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: url
+        })
     }
 
     // observer user auth state 
@@ -50,19 +56,12 @@ const [products,setProducts]=useState([])
 //post add to cart
 
 
-
-
-
-
-
-
-
-
     const authInfo = {
         user,
         loading,
         createUser,
         signIn,
+        updateProfile,
         logOut,
         products,
         setProducts,
