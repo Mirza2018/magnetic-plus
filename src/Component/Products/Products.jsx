@@ -11,7 +11,7 @@ const {products}=useContext(AuthContext)
     //     .then(data=>setProducts(data))
     // },[])
 
-
+ 
     // const products = data;
 
     return (

@@ -11,11 +11,17 @@ import Categories from './Component/Category/Categories.jsx';
 import About from './Pages/About/About.jsx';
 import HomePage from './Pages/HomePage/HomePage.jsx';
 import SingleProductPage from './Component/Products/SingleProductPage.jsx';
+// import snp from './Component/Products/snp.jsx';
+// import single from './Component/Products/snp.jsx';
 import Register from './Pages/Login/Register.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
 import Login from './Pages/Login/Login.jsx';
 import PrivateRoute from './route/PrivateRoute.jsx';
-
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +40,11 @@ const router = createBrowserRouter([
         element: <SingleProductPage></SingleProductPage>
         // element: <PrivateRoute><SingleProductPage></SingleProductPage></PrivateRoute> 
       },
+      // {
+      //   path: "/category/:id",
+      //   element: <Single></Single>
+      //   // element: <PrivateRoute><SingleProductPage></SingleProductPage></PrivateRoute> 
+      // },
       {
         path: "/about",
         element: <About></About>
@@ -53,7 +64,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+     <RouterProvider router={router} />
+    </QueryClientProvider>
     </AuthProvider>
   </React.StrictMode>
 );

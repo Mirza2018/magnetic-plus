@@ -50,12 +50,6 @@ const [products,setProducts]=useState([])
 //post add to cart
 
 
-const [addToCart,setAddToCart]=useState([])
-    useEffect(()=>{
-        fetch("http://localhost:5000/addtocart")
-        .then(res=>res.json())
-        .then(data=>setAddToCart(data))
-    },[])
 
 
 
@@ -72,8 +66,6 @@ const [addToCart,setAddToCart]=useState([])
         logOut,
         products,
         setProducts,
-        addToCart,
-        setAddToCart
     }
 
     return (

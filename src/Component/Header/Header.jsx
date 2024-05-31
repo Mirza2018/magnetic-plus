@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { FaShoppingCart } from 'react-icons/fa';
+import useCart from '../../Hooks/useCart';
 
 const Header = () => {
-    const {user,addToCart,logOut}=useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
+    const [addToCart]=useCart()
     // console.log("my cart",addToCart);
     return (
         <div className="navbar bg-slate-500">
@@ -16,7 +19,7 @@ const Header = () => {
 
                         <li><NavLink className={({ isActive }) => (isActive ? "btn  rounded-lg  border-0 text-white  bg-orange-400 m-2" : "btn  border-0 btn-outline rounded-lg border-b-4 bg-orange-400  m-2")} to='/'>Home </NavLink></li>
                         <li>
-                        <NavLink className={({ isActive }) => (isActive ? "btn  rounded-lg  border-0 text-white  bg-orange-400 m-2" : "btn  border-0 btn-outline rounded-lg border-b-4 bg-orange-400  m-2")} to='/'>parcent </NavLink>
+                            <NavLink className={({ isActive }) => (isActive ? "btn  rounded-lg  border-0 text-white  bg-orange-400 m-2" : "btn  border-0 btn-outline rounded-lg border-b-4 bg-orange-400  m-2")} to='/'>parcent </NavLink>
                             <ul className="p-2">
                                 <li><NavLink className={({ isActive }) => (isActive ? "btn  rounded-lg  border-0 text-white  bg-orange-400 m-2" : "btn  border-0 btn-outline rounded-lg border-b-4 bg-orange-400  m-2")} to='/'>sub 1 </NavLink></li>
                                 <li><NavLink className={({ isActive }) => (isActive ? "btn  rounded-lg  border-0 text-white  bg-orange-400 m-2" : "btn  border-0 btn-outline rounded-lg border-b-4 bg-orange-400  m-2")} to='/'>sub 2 </NavLink></li>
@@ -47,10 +50,18 @@ const Header = () => {
                         </details>
                     </li>
                     <li><NavLink className={({ isActive }) => (isActive ? "btn  rounded-lg  border-0 text-white  bg-orange-400 m-2" : "btn  border-0 btn-outline rounded-lg border-b-4 bg-orange-400  m-2")} to='/about'>About </NavLink></li>
+
+                    {user && <li><NavLink className={({ isActive }) => (isActive ? "btn  rounded-lg  border-0 text-white " : "btn  border-0 btn-outline rounded-lg border-b-4 m-2")} to='/'>
+                        <button className="btn">
+                            <FaShoppingCart />
+                            <div className="badge badge-secondary">+{addToCart.length}</div>
+                        </button> </NavLink></li>}
+
+
                 </ul>
             </div>
             <div className="navbar-end">
-                <a onClick={()=>{logOut()}} className="btn">Logout</a>
+                <a onClick={() => { logOut() }} className="btn">Logout</a>
             </div>
         </div>
     );
