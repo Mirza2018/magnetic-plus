@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 import useAxiousPublic from '../../Hooks/useAxiousPublic';
+import SocialLogin from './SocialLogin';
 
 const Register = () => {
-    const { createUser, updateProfile } = useContext(AuthContext)
+    const { createUser, updateUserProfile } = useContext(AuthContext)
     const axiouPublic = useAxiousPublic();
 
     const [show, setShow] = useState(false)
@@ -17,13 +18,13 @@ const Register = () => {
         const password = e.target.password.value;
         const email = e.target.email.value;
         const name = e.target.name.value;
-        const photo = "https://scontent.fdac45-1.fna.fbcdn.net/v/t39.30808-6/305215262_473556804784990_4532781082980495912_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEWrJzoIqprNL8MZB1Fse13mxRq-q5AckybFGr6rkByTMrm4POfPkmKyVhgCiakg93CGXQIfNp0SUZATozaMvea&_nc_ohc=rU6gOdxNZd0Q7kNvgFu23PL&_nc_ht=scontent.fdac45-1.fna&oh=00_AYDp9Huwj5VghLa1W0aK1_VIxU40hSGCx6ICslPtRTDIzw&oe=665CF6A3";
-
+    
         createUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                updateProfile(name, photo)
+                updateUserProfile(name)
                     .then(() => {
+                        
                         const userInfo = {
                             name, email
                         }
@@ -67,6 +68,8 @@ const Register = () => {
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <h1 className="text-4xl font-bold text-center">Register Now?</h1>
+                        <SocialLogin></SocialLogin>
+                        <div className="divider"></div>
                         <form onSubmit={handleForm}>
                             <div className="form-control">
                                 <label className="label">

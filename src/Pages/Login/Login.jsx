@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 // import img from '../../assets/images/login/login.svg';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import SocialLogin from './SocialLogin';
 
 
 const Login = () => {
@@ -17,7 +18,7 @@ const Login = () => {
         const email = e.target.email.value;
         console.log(password, email);
 
-
+ 
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
@@ -27,16 +28,16 @@ const Login = () => {
                 console.log(error);
             })
     }
-    const popUphandel = () => {
-        googlePopup()
-            .then(result => {
-                console.log(result.user);
-                navigate(from, { replace: true })
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
+    // const popUphandel = () => {
+    //     googlePopup()
+    //         .then(result => {
+    //             console.log(result.user);
+    //             navigate(from, { replace: true })
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         })
+    // }
 
 
     return (
@@ -75,9 +76,8 @@ const Login = () => {
                                 <input className="btn btn-primary" type="submit" value="Submit" />
                             </div>
                         </form>
-                        <div className="form-control mt-6">
-                            <input onClick={popUphandel} className="btn btn-primary" type="submit" value="Sign in with Google" />
-                        </div>
+                        <div className="divider"></div>
+                       <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>

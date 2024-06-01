@@ -7,7 +7,7 @@ import useCart from '../../Hooks/useCart';
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
     const [addToCart]=useCart()
-    // console.log("my cart",addToCart);
+    // console.log("user user",user);
     return (
         <div className="navbar bg-slate-500">
             <div className="navbar-start">
