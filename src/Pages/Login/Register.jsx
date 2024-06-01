@@ -34,7 +34,7 @@ const Register = () => {
                                 if (res.data.insertedId) {
                                     console.log(loggedUser);
 
-                                   e.target.reset()
+                                //    e.target.reset()
 
                                     Swal.fire({
                                         position: 'center',
@@ -54,6 +54,14 @@ const Register = () => {
             })
             .catch(error => {
                 console.log(error);
+                Swal.fire({
+                    position: 'center',
+                    icon: 'warning',
+                    title: `User is already Created`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+
             })
 
 

@@ -1,16 +1,23 @@
-import { FaTrashAlt } from "react-icons/fa";
-import useCart from "../../../Hooks/useCart";
-import Swal from "sweetalert2";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import { FaTrashAlt, FaUsers } from 'react-icons/fa';
+import Swal from 'sweetalert2';
+
+const Allusers = () => {
+    const axiosSecure = useAxiosSecure()
+    const { data: users = [] ,refetch} = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/users');
+            return res.data;
+        }
+    })
+
+    const handleUserRole = (id) => {
+        console.log(id)
 
 
-const cart = () => {
-    const [addToCart, refetch] = useCart()
-    const totalPrice = addToCart.reduce((total, item) => (total + item.price), 0);
-    const axiosSecure = useAxiosSecure();
-
-
-    const handleDelete = id => {
         Swal.fire({
             title: 'Delete!!',
             text: 'Are you want to delete this item',
@@ -21,7 +28,7 @@ const cart = () => {
             confirmButtonText: 'Yes, Delete!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.delete(`/addtocart/${id}`)
+                axiosSecure.delete(`/users/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             refetch()
@@ -38,24 +45,38 @@ const cart = () => {
             }
         })
 
+
     }
 
+    const handleMakeAdmin=(id)=>{
+        axiosSecure.patch(`/users/admin/${id}`)
+        .then(res=>{
+            if(res.data.modifiedCount>0){
+                refetch()
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Update role to admin',
+                    showConfirmButton: false,
+                    timer: 700
+                })
+            }
+        })
+    }
 
     return (
         <div>
             <div className="flex justify-evenly">
                 <h2 className="text-4xl">
-                    Items:{addToCart.length}
+                    All user
                 </h2>
                 <h2 className="text-4xl">
-                    Total Price:{totalPrice}
+                    Total user: {users.length}
                 </h2>
-                <button className="btn btn-primary">Pay</button>
+
             </div>
 
-
-
-            <div className="overflow-x-auto mb-8">
+            <div className="overflow-x-auto my-8">
                 <table className="table">
                     {/* head */}
                     <thead>
@@ -67,15 +88,16 @@ const cart = () => {
                             </th> */}
                             <th>#</th>
                             <th>Name</th>
-                            <th>price</th>
-                            <th>Quantity</th>
-                            <th></th>
+                            <th>email</th>
+                            <th>Role</th>
+                            <th>Action</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            addToCart.map((item, index) =>
-                                <tr key={item._id}>
+                            users.map((user, index) =>
+                                <tr key={user._id}>
                                     {/* <th>
                                 <label>
                                     <input type="checkbox" className="checkbox" />
@@ -86,21 +108,30 @@ const cart = () => {
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={item.img} />
+                                                    <img src={user?.photo} />
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className="font-bold">{item.name}</div>
+                                                <div className="font-bold">{user.name}</div>
 
                                             </div>
                                         </div>
                                     </td>
 
-                                    <td>{item.price}</td>
+                                    <td>{user.email}</td>
+                                    <td>
+                                       {user.role==='admin'?'Admin': <button
+                                            onClick={() => handleMakeAdmin(user._id)}
+                                            className="btn btn-ghost btn-lg bg-orange-400"><FaUsers className='text-2xl text-white' />
+                                        </button>}
+
+
+                                    </td>
                                     <th>
                                         <button
-                                            onClick={() => handleDelete(item._id)}
-                                            className="btn btn-ghost btn-lg text-red-600"><FaTrashAlt /></button>
+                                            onClick={() => handleUserRole(user._id)}
+                                            className="btn btn-ghost btn-lg text-red-600"><FaTrashAlt />
+                                        </button>
                                     </th>
                                 </tr>
                             )
@@ -112,8 +143,10 @@ const cart = () => {
                 </table>
             </div>
 
+
         </div>
+
     );
 };
 
-export default cart;
+export default Allusers;
