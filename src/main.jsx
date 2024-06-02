@@ -24,6 +24,8 @@ import {
 import Dashboard from './Layout/Dashboard.jsx';
 import Cart from './Pages/Dashboard/Cart/cart.jsx'
 import Allusers from './Pages/Dashboard/AllUsers/Allusers.jsx';
+import AddItems from './Pages/Dashboard/AddItems/AddItems.jsx';
+import AdminRoute from './route/AdminRoute.jsx';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -74,6 +76,10 @@ const router = createBrowserRouter([
       {
         path:'allUsers',
         element:<Allusers></Allusers>
+      },
+      {
+        path:'addItems',
+        element:<AdminRoute><AddItems></AddItems></AdminRoute>
       }
     ]
   }
