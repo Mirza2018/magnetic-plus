@@ -12,7 +12,7 @@ const useAxiosSecure = () => {
 
     axiosSecure.interceptors.request.use(function (config) {
         const token = localStorage.getItem('access-token')
-        console.log('request stopped by interseptors', token);
+        // console.log('request stopped by interseptors', token);
         config.headers.authorization = `Bearer ${token}`;
         return config;
     }, function (err) {
@@ -30,7 +30,7 @@ const useAxiosSecure = () => {
             await logOut();
             navigate('/login')
         }
-        console.log('status error', status);
+        // console.log('status error', status);
         return Promise.reject(err);
     })
 

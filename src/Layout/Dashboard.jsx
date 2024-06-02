@@ -1,26 +1,27 @@
-import React, { useContext } from 'react';
+// import React, { useContext } from 'react';
 import { FaAd, FaCalendar, FaFileContract, FaHome, FaList, FaListAlt, FaSearch, FaShoppingCart, FaUsers, FaUtensils } from 'react-icons/fa';
 import { NavLink, Outlet } from 'react-router-dom';
 import useCart from '../Hooks/useCart';
-import { AuthContext } from '../Providers/AuthProvider';
-import { useQuery } from '@tanstack/react-query';
-import useAxiosSecure from '../Hooks/useAxiosSecure';
+import useAdmin from '../Hooks/useAdmin';
+// import { AuthContext } from '../Providers/AuthProvider';
+// import { useQuery } from '@tanstack/react-query';
+// import useAxiosSecure from '../Hooks/useAxiosSecure';
 
 const Dashboard = () => {
-    const { user } = useContext(AuthContext)
-    const axiosSecure = useAxiosSecure()
 
 
-    const { data: users = [], refetch } = useQuery({
-        queryKey: ['users'],
-        queryFn: async () => {
-            const res = await axiosSecure.get('/users');
-            return res.data;
-        }
-    })
 
-    const userEmail = users.find(u => u.email === user.email)
-    const isAdmin = userEmail?.role==='admin'
+    // const { data: users = [], refetch } = useQuery({
+    //     queryKey: ['users'],
+    //     queryFn: async () => {
+    //         const res = await axiosSecure.get('/users');
+    //         return res.data;
+    //     }
+    // })
+
+    // const userEmail = users.find(u => u.email === user.email)
+    // const isAdmin = userEmail?.role==='admin'
+    const [isAdmin] = useAdmin()
 
     const [addToCart] = useCart()
 
