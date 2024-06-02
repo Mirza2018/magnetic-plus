@@ -8,4 +8,4 @@ const useAxiousPublic = () => {
     return axiousPublic
 };
 
-export default useAxiousPublic;
+export default useAxiousPublic; 
