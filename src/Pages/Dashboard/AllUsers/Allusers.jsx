@@ -13,7 +13,7 @@ const Allusers = () => {
             return res.data;
         }
     })
-
+ 
     const handleUserRole = (id) => {
         console.log(id)
 

@@ -1,17 +1,22 @@
-import { useState } from 'react';
-import SectionTitle from '../../../Component/SectionTitle/SectionTitle';
-import { FaUserCircle } from 'react-icons/fa';
-import { MdOutlineAddPhotoAlternate } from 'react-icons/md';
-import useAxiousPublic from '../../../Hooks/useAxiousPublic';
-import useAxiosSecure from '../../../Hooks/useAxiosSecure';
-import Swal from 'sweetalert2';
+import { useLoaderData, useNavigate } from "react-router-dom";
+import SectionTitle from "../../../Component/SectionTitle/SectionTitle";
+import { useState } from "react";
+import useAxiousPublic from "../../../Hooks/useAxiousPublic";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { MdOutlineAddPhotoAlternate } from "react-icons/md";
+import Swal from "sweetalert2";
+
+
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTIG_KEY;
 
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-const AddItems = () => {
+const UpdateItem = () => {
+    const item = useLoaderData()
+    const navigate=useNavigate()
+
     const [imgPreview, setImgPreview] = useState(null);
     const axiousPublic = useAxiousPublic()
     const axiosSecure = useAxiosSecure()
@@ -38,66 +43,114 @@ const AddItems = () => {
         const name = formData.get('name');
         const price = formData.get('price');
         const desc = formData.get('desc');
-        const image = formData.get('img');
-        const imageFile = new FormData()
-        imageFile.append('image', image)
 
         let cat = formData.getAll('cat[]')
         let categories;
 
         //category update
         if (cat.length == 0) {
-            return Swal.fire({
-                icon: "error",
-                title: "Please Select Category",
-                text: "You can choose multiple categories"
-              });
+            categories = item.categories
         }
         else {
             categories = formData.getAll('cat[]')
         }
 
 
-        // setDataProcessing(<progress className="progress w-56"></progress>)
+        const imgName = e.target.img.value
+   
+        ///Img check
+
+        if (imgName) {
+            console.log("asi");
+            const image = formData.get('img');
+            const imageFile = new FormData()
+            imageFile.append('image', image)
+
+            const product = {
+                name, desc, price: parseFloat(price), categories, img: imageFile
+            }
+
+            console.log(product);
+            // setDataProcessing(<progress className="progress w-56"></progress>)
 
 
-        console.log(imageFile);
-        const res = await axiousPublic.post(image_hosting_api, imageFile, {
-            headers: {
-                'content-type': 'multipart/form-data'
+            const res = await axiousPublic.post(image_hosting_api, imageFile, {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            });
+            if (res.data.success) {
+                console.log(res.data);
+                const product = {
+                    name, desc, price: parseFloat(price), categories, img: res.data.data.url
+                }
+                console.log(product);
+
+                const itemRes = await axiosSecure.patch(`/item/${item._id}`, product)
+                console.log(itemRes.data);
+                if (itemRes.data.matchedCount>0) {
+                    //show pop up
+                   
+
+                    // setDataProcessing(<></>)
+                    setImgPreview(null)
+                    Swal.fire({
+                        position: "center",
+                        title: `     ${name} is Update & Added To list`,
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    navigate('/dashboard/manageItems')
+                }
             }
-        });
-        if (res.data.success) {
-            const item = {
-                name, desc, price: parseFloat(price), categories, img: res.data.data.url
+
+
+        } else {
+
+            const product = {
+                name, desc, price: parseFloat(price), categories, img: item.img
             }
-            console.log(item);
-            const itemRes = await axiosSecure.post('/items', item)
+            console.log(product);
+
+            const itemRes = await axiosSecure.patch(`item/${item._id}`, product)
             console.log(itemRes.data);
-            if (itemRes.data.insertedId) {
+            if (itemRes.data.matchedCount>0) {
                 //show pop up
                 e.target.reset()
+
                 // setDataProcessing(<></>)
                 setImgPreview(null)
                 Swal.fire({
                     position: "center",
-                    title: `     ${name} is added To list`,
+                    title: `     ${name} is Update & Added To list`,
                     icon: "success",
                     showConfirmButton: false,
                     timer: 1500
                 });
+                navigate('/dashboard/manageItems')
             }
+
         }
+
+
+
 
 
 
     };
 
+
     return (
         <div>
-            <div>
-                <SectionTitle heading="add an item" subHeading="What's new?"></SectionTitle>
-            </div>
+            <SectionTitle
+                heading="Update Item"
+                subHeading="Refresh info"
+            >
+            </SectionTitle>
+
+
+
 
             <form onSubmit={ProductData}>
                 <div className="space-y-12">
@@ -117,7 +170,7 @@ const AddItems = () => {
                                             autoComplete="name"
                                             required
                                             className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                            placeholder="Give a name"
+                                            defaultValue={item.name}
                                         />
                                     </div>
                                 </div>
@@ -135,7 +188,7 @@ const AddItems = () => {
                                             required
                                             autoComplete="price"
                                             className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                            placeholder="price"
+                                            defaultValue={item.price}
                                         />
                                     </div>
                                 </div>
@@ -152,7 +205,7 @@ const AddItems = () => {
                                         required
                                         rows={3}
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                        defaultValue={''}
+                                        defaultValue={item.desc}
                                     />
                                 </div>
                                 <p className="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about the Product.</p>
@@ -166,7 +219,7 @@ const AddItems = () => {
                                     {imgPreview ? (
                                         <img src={imgPreview} alt="Preview" className="h-20 w-20 object-cover" />
                                     ) : (
-                                        <FaUserCircle className="h-12 w-12 text-gray-300" aria-hidden="true" />
+                                        <img src={item.img} alt="Preview" className="h-20 w-20 object-cover" />
                                     )}
                                 </div>
                                 <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
@@ -178,7 +231,7 @@ const AddItems = () => {
                                                 className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                                             >
                                                 <span>Upload a file</span>
-                                                <input id="img" required name="img" type="file" className="sr-only" onChange={handleImageChange} />
+                                                <input id="img" name="img" type="file" className="sr-only" onChange={handleImageChange} />
                                             </label>
                                             <p className="pl-1">or drag and drop</p>
                                         </div>
@@ -193,7 +246,6 @@ const AddItems = () => {
                         <div className="mt-10 space-y-10">
                             <fieldset >
                                 <legend className="text-sm font-semibold leading-6 text-gray-900">Product Category</legend>
-
                                 <div><input type="checkbox" id="Chandeliers lights" name="cat[]" value="Chandeliers lights" /> Chandeliers lights</div>
                                 <div><input type="checkbox" id="Wall lights" name="cat[]" value="Wall lights" /> Wall lights</div>
                                 <div><input type="checkbox" id="Pendant lights" name="cat[]" value="Pendant lights" /> Pendant lights</div>
@@ -222,8 +274,9 @@ const AddItems = () => {
                     </button>
                 </div>
             </form>
+
         </div>
     );
 };
 
-export default AddItems;
+export default UpdateItem;

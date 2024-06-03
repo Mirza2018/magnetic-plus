@@ -9,7 +9,7 @@ const axiosSecure = axios.create({
 const useAxiosSecure = () => {
     const navigate = useNavigate();
     const {logOut}=useContext(AuthContext)
-
+ 
     axiosSecure.interceptors.request.use(function (config) {
         const token = localStorage.getItem('access-token')
         // console.log('request stopped by interseptors', token);

@@ -34,7 +34,7 @@ const Register = () => {
                                 if (res.data.insertedId) {
                                     console.log(loggedUser);
 
-                                //    e.target.reset()
+                                   e.target.reset()
 
                                     Swal.fire({
                                         position: 'center',

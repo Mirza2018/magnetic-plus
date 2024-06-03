@@ -26,6 +26,8 @@ import Cart from './Pages/Dashboard/Cart/cart.jsx'
 import Allusers from './Pages/Dashboard/AllUsers/Allusers.jsx';
 import AddItems from './Pages/Dashboard/AddItems/AddItems.jsx';
 import AdminRoute from './route/AdminRoute.jsx';
+import ManageItems from './Pages/Dashboard/ManageItems/ManageItems.jsx';
+import UpdateItem from './Pages/Dashboard/UpdateItem/UpdateItem.jsx';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -80,7 +82,16 @@ const router = createBrowserRouter([
       {
         path:'addItems',
         element:<AdminRoute><AddItems></AddItems></AdminRoute>
-      }
+      },
+      {
+        path:'manageItems',
+        element:<AdminRoute><ManageItems></ManageItems></AdminRoute>
+      },
+      {
+        path:'updateItem/:id',
+        element:<AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/item/${params.id}`)
+      },
     ]
   }
 ]);
