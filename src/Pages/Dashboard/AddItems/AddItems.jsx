@@ -2,9 +2,18 @@ import { useState } from 'react';
 import SectionTitle from '../../../Component/SectionTitle/SectionTitle';
 import { FaUserCircle } from 'react-icons/fa';
 import { MdOutlineAddPhotoAlternate } from 'react-icons/md';
+import useAxiousPublic from '../../../Hooks/useAxiousPublic';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+
+
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTIG_KEY;
+
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const AddItems = () => {
     const [imgPreview, setImgPreview] = useState(null);
+    const axiousPublic = useAxiousPublic()
+    const axiosSecure = useAxiosSecure()
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -19,22 +28,38 @@ const AddItems = () => {
         }
     };
 
-    const ProductData = (e) => {
+
+    const ProductData = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const name = formData.get('name');
         const price = formData.get('price');
-        const img = formData.get('img');
         const desc = formData.get('desc');
-        const categories = formData.getAll('cat[]'); // Collects all selected categories
+        const categories = formData.getAll('cat[]');
+        const image = formData.get('img');
+        const imageFile = new FormData()
+        imageFile.append('image', image)
 
-        console.log({
-            name,
-            price,
-            img,
-            desc,
-            categories
+        console.log(imageFile);
+        const res = await axiousPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
         });
+        if (res.data.success) {
+            const item = {
+                name, desc, price: parseFloat(price), categories, img: res.data.data.url
+            }
+            console.log(item);
+            const itemRes=await axiosSecure.post('/items',item)
+            console.log(itemRes.data);
+            if(itemRes.data.insertedId){
+                //show pop up
+            }
+        }
+
+
+
     };
 
     return (
@@ -122,7 +147,7 @@ const AddItems = () => {
                                             </label>
                                             <p className="pl-1">or drag and drop</p>
                                         </div>
-                                        <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 5MB</p>
+                                        <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 32MB</p>
                                     </div>
                                 </div>
                             </div>
