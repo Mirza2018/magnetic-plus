@@ -1,101 +1,24 @@
 import React, { useContext } from 'react';
-import { useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
-import PrivateRoute from '../../route/PrivateRoute';
 import Swal from 'sweetalert2';
-import axios from 'axios';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useCart from '../../Hooks/useCart';
-// import { StarIcon } from '@heroicons/react/20/solid'
-// import { Radio, RadioGroup } from '@headlessui/react'
-
-
-const product = {
-  name: 'Basic Tee 6-Pack',
-  price: '$192',
-  href: '#',
-  breadcrumbs: [
-    { id: 1, name: 'Men', href: '#' },
-    { id: 2, name: 'Clothing', href: '#' },
-  ],
-  images: [
-    {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg',
-      alt: 'Two each of gray, white, and black shirts laying flat.',
-    },
-    {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg',
-      alt: 'Model wearing plain black basic tee.',
-    },
-    {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg',
-      alt: 'Model wearing plain gray basic tee.',
-    },
-    {
-      src: 'https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg',
-      alt: 'Model wearing plain white basic tee.',
-    },
-  ],
-  colors: [
-    { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
-    { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
-    { name: 'Black', class: 'bg-gray-900', selectedClass: 'ring-gray-900' },
-  ],
-  sizes: [
-    { name: 'XXS', inStock: false },
-    { name: 'XS', inStock: true },
-    { name: 'S', inStock: true },
-    { name: 'M', inStock: true },
-    { name: 'L', inStock: true },
-    { name: 'XL', inStock: true },
-    { name: '2XL', inStock: true },
-    { name: '3XL', inStock: true },
-  ],
-  description:
-    'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
-  highlights: [
-    'Hand cut and sewn locally',
-    'Dyed with our proprietary colors',
-    'Pre-washed & pre-shrunk',
-    'Ultra-soft 100% cotton',
-  ],
-  details:
-    'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
-}
-// const reviews = { href: '#', average: 4, totalCount: 117 }
-
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(' ')
-// }
+import useItems from '../../Hooks/useItems';
 
 const SingleProductPage = () => {
   const { id } = useParams()
+  const { user } = useContext(AuthContext)
+  const [items]=useItems()
   const navigate = useNavigate()
   const location = useLocation()
-  const { user,  products } = useContext(AuthContext)
 
-  const item = products.find(i => i._id === id)
+  const item = items.find(i => i._id === id)
 
   const axiosSecure = useAxiosSecure()
   const [,refatch]=useCart()
 
-  // const handleAddCart = (e) => {
-  //   e.preventDefault()
-  //   console.log(e.target.id);
-  //   const itemId = e.target.id
-  //   const addtocart = { itemId:itemId, user: user.email }
-  //   fetch("http://localhost:5000/addtocart", {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json"
-  //     },
-  //     body: JSON.stringify(addtocart)
-  //   })
-  // }
-
   const handleAddToCart = () => {
-
 
     if (user && user.email) {
       const addToCart = { ItemId: item._id, name: item.name, img: item.img, price: item.price, email: user.email }
@@ -121,9 +44,6 @@ const SingleProductPage = () => {
 
    
     }
-
-
-
     else {
       Swal.fire({
         title: 'You are not Logged In',
@@ -139,19 +59,7 @@ const SingleProductPage = () => {
         }
       })
     }
-
-
-
-
-
-
-
-
-
-
-
   }
-
 
   return (
 
@@ -304,8 +212,8 @@ const SingleProductPage = () => {
 
 
     <div className="card w-96 bg-base-100 shadow-xl">
-      <figure><img src="https://scontent.fdac45-1.fna.fbcdn.net/v/t39.30808-6/350505712_509682027931354_8825000770997443477_n.jpg?stp=dst-jpg_p600x600&_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHhYoqLC8KdfzW-41vwqDLCrv7SwRS3dsiu_tLBFLd2yKqRTpU7G5uRYqOAJX9wIJLSxChv3C_vOMhm-WB09ENi&_nc_ohc=mMYTQxg5AnQQ7kNvgHicCPu&_nc_ht=scontent.fdac45-1.fna&oh=00_AYCmJxFC2SBHVSFxMS8v1VmDLnH0TiIpFhyxpztfljpYTg&oe=665D05BA" alt="Shoes" /></figure>
-      <p className='bg-slate-900 text-white absolute right-0 px-4 mt-4 mr-4'>{item?.price}</p>
+      <figure><img src={item?.img} alt="Shoes" /></figure>
+      <p className='bg-slate-900 text-white absolute right-0 px-4 mt-4 mr-4'>{ "\u09F3"}{item?.price}</p>
       <div className="card-body  flex flex-col items-center">
         <h2 className="card-title">{item?.name}</h2>
         <p>{item?.desc}</p>

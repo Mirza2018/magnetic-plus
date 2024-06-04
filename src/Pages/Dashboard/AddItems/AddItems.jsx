@@ -51,7 +51,7 @@ const AddItems = () => {
                 icon: "error",
                 title: "Please Select Category",
                 text: "You can choose multiple categories"
-              });
+            });
         }
         else {
             categories = formData.getAll('cat[]')
@@ -202,7 +202,11 @@ const AddItems = () => {
                                 <div><input type="checkbox" id="Outdoor lights" name="cat[]" value="Outdoor lights" /> Outdoor lights</div>
                                 <div><input type="checkbox" id="Floor lights" name="cat[]" value="Floor lights" /> Floor lights</div>
                                 <div><input type="checkbox" id="Table Lamp" name="cat[]" value="Table Lamp" /> Table Lamp</div>
+                                <div><input type="checkbox" id="Desk Lamp" name="cat[]" value="Desk Lamp" /> Desk Lamp</div>
+                                <div><input type="checkbox" id="spot light" name="cat[]" value="spot light" /> spot light</div>
                                 <div><input type="checkbox" id="Basin Light" name="cat[]" value="Basin Light" /> Basin Light</div>
+                                <div><input type="checkbox" id="LED Fan" name="cat[]" value="LED Fan" /> LED Fan</div>
+                                <div><input type="checkbox" id="Clock Light" name="cat[]" value="Clock Light" />Clock Light</div>
                                 <div><input type="checkbox" id="Remote Control LED" name="cat[]" value="Remote Control LED" /> Remote Control LED</div>
                                 <div><input type="checkbox" id="3D LED Lamp" name="cat[]" value="3D LED Lamp" /> 3D LED Lamp</div>
                             </fieldset>

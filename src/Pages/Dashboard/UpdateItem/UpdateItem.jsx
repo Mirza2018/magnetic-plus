@@ -15,7 +15,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const UpdateItem = () => {
     const item = useLoaderData()
-    const navigate=useNavigate()
+    const navigate = useNavigate()
 
     const [imgPreview, setImgPreview] = useState(null);
     const axiousPublic = useAxiousPublic()
@@ -57,7 +57,7 @@ const UpdateItem = () => {
 
 
         const imgName = e.target.img.value
-   
+
         ///Img check
 
         if (imgName) {
@@ -88,9 +88,9 @@ const UpdateItem = () => {
 
                 const itemRes = await axiosSecure.patch(`/item/${item._id}`, product)
                 console.log(itemRes.data);
-                if (itemRes.data.matchedCount>0) {
+                if (itemRes.data.matchedCount > 0) {
                     //show pop up
-                   
+
 
                     // setDataProcessing(<></>)
                     setImgPreview(null)
@@ -115,7 +115,7 @@ const UpdateItem = () => {
 
             const itemRes = await axiosSecure.patch(`item/${item._id}`, product)
             console.log(itemRes.data);
-            if (itemRes.data.matchedCount>0) {
+            if (itemRes.data.matchedCount > 0) {
                 //show pop up
                 e.target.reset()
 
@@ -254,7 +254,11 @@ const UpdateItem = () => {
                                 <div><input type="checkbox" id="Outdoor lights" name="cat[]" value="Outdoor lights" /> Outdoor lights</div>
                                 <div><input type="checkbox" id="Floor lights" name="cat[]" value="Floor lights" /> Floor lights</div>
                                 <div><input type="checkbox" id="Table Lamp" name="cat[]" value="Table Lamp" /> Table Lamp</div>
+                                <div><input type="checkbox" id="Desk Lamp" name="cat[]" value="Desk Lamp" /> Desk Lamp</div>
+                                <div><input type="checkbox" id="spot light" name="cat[]" value="spot light" /> spot light</div>
                                 <div><input type="checkbox" id="Basin Light" name="cat[]" value="Basin Light" /> Basin Light</div>
+                                <div><input type="checkbox" id="LED Fan" name="cat[]" value="LED Fan" /> LED Fan</div>
+                                <div><input type="checkbox" id="Clock Light" name="cat[]" value="Clock Light" />Clock Light</div>
                                 <div><input type="checkbox" id="Remote Control LED" name="cat[]" value="Remote Control LED" /> Remote Control LED</div>
                                 <div><input type="checkbox" id="3D LED Lamp" name="cat[]" value="3D LED Lamp" /> 3D LED Lamp</div>
                             </fieldset>
