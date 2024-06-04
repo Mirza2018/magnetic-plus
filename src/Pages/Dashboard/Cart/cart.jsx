@@ -2,13 +2,18 @@ import { FaTrashAlt } from "react-icons/fa";
 import useCart from "../../../Hooks/useCart";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 
 
 const cart = () => {
+    const { user } = useContext(AuthContext)
     const axiosSecure = useAxiosSecure();
     const [addToCart, refetch] = useCart()
-
+    const navigate = useNavigate()
+    console.log(user);
 
     let totalPrice = addToCart.reduce((acc, item) => {
         // Use a default quantity of 1 if quantity is not provided or is zero
@@ -47,7 +52,6 @@ const cart = () => {
     }
 
     const handleOrder = async () => {
-        // const OrderDetails = addToCart;
 
         const { value: formValues } = await Swal.fire({
             title: "Give Some Information",
@@ -72,38 +76,43 @@ const cart = () => {
 
         console.log("Mobile Number:", mobileNumber);
         console.log("Delivery Address:", deliveryAddress);
-        if (mobileNumber.length>11 && deliveryAddress.length>10){
-            console.log("ok");
+        if (mobileNumber.length > 10 && deliveryAddress.length > 10) {
+            const orderDetails = {
+                email: user.email, name: user.displayName, photo: user?.photoURL, orderItems: addToCart,
+                mobileNumber, deliveryAddress,
+            }
+            console.log(orderDetails);
+            const orderRes = await axiosSecure.post('/orders', orderDetails)
+
+            if (orderRes.data.insertedId) {
+                Swal.fire({
+                    position: "center",
+                    title: `আপনার Order টি সম্পন্ন হয়েছে`,
+                    text: ` Order ID ${orderRes.data.insertedId}. 
+                    আমাদের প্রতিনিধি কিছুক্ষনের মধ্যে আপনার সাথে যোগাযোগ করবে। Magnetic-Plus এর সাথে থাকার জন্য ধন্যবাদ।
+                    `,
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 15000
+                });
 
 
+                addToCart.map(cart => {
+                    axiosSecure.delete(`/addtocart/${cart._id}`)
+                        .then(res => {
+                            if (res.data.deletedCount > 0) {
+                                navigate("/dashboard/orders")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
+                            }
+                        })
+                })
+            }
         }
-        else{
+        else {
             console.log("no");
         }
 
     }
-
 
     return (
         <div>

@@ -29,6 +29,7 @@ import AdminRoute from './route/AdminRoute.jsx';
 import ManageItems from './Pages/Dashboard/ManageItems/ManageItems.jsx';
 import UpdateItem from './Pages/Dashboard/UpdateItem/UpdateItem.jsx';
 import Category from './Component/Category/Category.jsx';
+import Order from './Pages/Dashboard/Order/Order.jsx';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
       {
         path:'cart',
         element:<Cart></Cart>
+      },
+      {
+        path:'orders',
+        element:<Order></Order>
       },
       // Admin route
       {

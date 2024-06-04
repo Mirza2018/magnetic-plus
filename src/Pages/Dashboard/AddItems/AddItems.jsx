@@ -71,7 +71,7 @@ const AddItems = () => {
             const item = {
                 name, desc, price: parseFloat(price), categories, img: res.data.data.url
             }
-            console.log(item);
+            // console.log(item);
             const itemRes = await axiosSecure.post('/items', item)
             console.log(itemRes.data);
             if (itemRes.data.insertedId) {
