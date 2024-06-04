@@ -4,11 +4,17 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 
-const cart = () => {
-    const [addToCart, refetch] = useCart()
-    const totalPrice = addToCart.reduce((total, item) => (total + item.price), 0);
-    const axiosSecure = useAxiosSecure();
 
+const cart = () => {
+    const axiosSecure = useAxiosSecure();
+    const [addToCart, refetch] = useCart()
+
+
+    let totalPrice = addToCart.reduce((acc, item) => {
+        // Use a default quantity of 1 if quantity is not provided or is zero
+        const quantity = item.quantity || 1;
+        return acc + (item.price * quantity);
+    }, 0);
 
     const handleDelete = id => {
         Swal.fire({
@@ -32,11 +38,69 @@ const cart = () => {
                                 showConfirmButton: false,
                                 timer: 700
                             })
-                            
+
                         }
                     })
             }
         })
+
+    }
+
+    const handleOrder = async () => {
+        // const OrderDetails = addToCart;
+
+        const { value: formValues } = await Swal.fire({
+            title: "Give Some Information",
+            html: `
+            <p>Mobile Number</p>
+              <input  type="text" id="mobile" placeholder="017--" class="swal2-input">
+              <p>Delivery address</p>
+              <input  type="text" id="address" placeholder="জেলা,থানা, জায়গার নাম, রোড নং, বাড়ির  নাম " class="swal2-input">
+            `,
+            showCancelButton: true,
+            confirmButtonText: "Make a Order",
+            preConfirm: () => {
+                return [
+                    { va1: document.getElementById("mobile").value },
+                    { va2: document.getElementById("address").value }
+                ];
+            }
+        });
+
+        const mobileNumber = formValues[0].va1;
+        const deliveryAddress = formValues[1].va2;
+
+        console.log("Mobile Number:", mobileNumber);
+        console.log("Delivery Address:", deliveryAddress);
+        if (mobileNumber.length>11 && deliveryAddress.length>10){
+            console.log("ok");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        }
+        else{
+            console.log("no");
+        }
 
     }
 
@@ -45,13 +109,14 @@ const cart = () => {
         <div>
             <div className="flex justify-evenly">
                 <h2 className="text-4xl">
-                    Items:{addToCart.length}
+                    Total Item: {addToCart.length} Items
                 </h2>
                 <h2 className="text-4xl">
-                    Total Price:{totalPrice}
+                    Total Price:{totalPrice} Tk
                 </h2>
-                <button className="btn btn-primary">Pay</button>
+                <button className="btn btn-primary" onClick={handleOrder}>Order</button>
             </div>
+
 
 
 
@@ -69,6 +134,8 @@ const cart = () => {
                             <th>Name</th>
                             <th>price</th>
                             <th>Quantity</th>
+                            <th>Total</th>
+                            <th>delete</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -96,7 +163,14 @@ const cart = () => {
                                         </div>
                                     </td>
 
-                                    <td>{item.price}</td>
+
+                                    <td>{item.price} Tk</td><td>{item?.quantity} Pcs</td>
+                                    <td>
+                                        {item.price} * {item?.quantity}={item.price * item?.quantity} Tk
+                                    </td>
+
+
+
                                     <th>
                                         <button
                                             onClick={() => handleDelete(item._id)}
