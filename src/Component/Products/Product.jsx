@@ -36,7 +36,7 @@ const Product = ({ item }) => {
     // </div>
 
     <div   onClick={() => {navigate(`/category/${_id}`) }}  className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
-                    <a href="#">
+                    <a >
                         <img src={img}
                             alt="Product" className="h-80 w-72 object-cover rounded-t-xl" />
                         <div className="px-4 py-3 w-72">

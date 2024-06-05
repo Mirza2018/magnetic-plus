@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import useItems from "../../Hooks/useItems";
 import Product from "../Products/Product";
 
-
+ 
 const Category = () => {
     const category = useParams();
     const [items] = useItems()

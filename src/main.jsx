@@ -32,6 +32,8 @@ import Category from './Component/Category/Category.jsx';
 import Order from './Pages/Dashboard/Order/Order.jsx';
 import Orders from './Pages/Dashboard/Order/Orders.jsx';
 import ManageOrders from './Pages/Dashboard/ManageOrders/ManageOrders.jsx';
+import Product from './Component/Products/Product.jsx';
+import Products from './Component/Products/Products.jsx';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -45,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/:category",
         element: <Category></Category>
+      },
+      {
+        path: "/shop",
+        element: <Products></Products>
       },
       {
         path: "/category/:id",
