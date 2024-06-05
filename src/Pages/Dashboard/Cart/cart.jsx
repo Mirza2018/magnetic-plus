@@ -15,6 +15,17 @@ const cart = () => {
     const navigate = useNavigate()
     console.log(user);
 
+    let date = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+
+
+
+
+
+
+
+
+
+
     let totalPrice = addToCart.reduce((acc, item) => {
         // Use a default quantity of 1 if quantity is not provided or is zero
         const quantity = item.quantity || 1;
@@ -79,7 +90,7 @@ const cart = () => {
         if (mobileNumber.length > 10 && deliveryAddress.length > 10) {
             const orderDetails = {
                 email: user.email, name: user.displayName, photo: user?.photoURL, orderItems: addToCart,
-                mobileNumber, deliveryAddress,
+                mobileNumber, deliveryAddress,date,totalPrice
             }
             console.log(orderDetails);
             const orderRes = await axiosSecure.post('/orders', orderDetails)
@@ -116,14 +127,15 @@ const cart = () => {
 
     return (
         <div>
-            <div className="flex justify-evenly">
-                <h2 className="text-4xl">
+            <div className="flex lg:justify-evenly justify-evenly sm:flex-col">
+
+                <h2 className="text-4xl sm:m-4 sm:text-2xl">
                     Total Item: {addToCart.length} Items
                 </h2>
-                <h2 className="text-4xl">
+                <h2 className="text-4xl  sm:m-4 sm:text-2xl">
                     Total Price:{totalPrice} Tk
                 </h2>
-                <button className="btn btn-primary" onClick={handleOrder}>Order</button>
+                <button className="btn btn-primary  sm:btn-sm" onClick={handleOrder}>Order</button>
             </div>
 
 
@@ -141,8 +153,8 @@ const cart = () => {
                             </th> */}
                             <th>#</th>
                             <th>Name</th>
-                            <th>price</th>
-                            <th>Quantity</th>
+                            <th className="sm:invisible">price</th>
+                            <th className="sm:invisible">Quantity</th>
                             <th>Total</th>
                             <th>delete</th>
                             <th></th>
@@ -158,7 +170,8 @@ const cart = () => {
                                 </label>
                             </th> */}
                                     <th>{index + 1}</th>
-                                    <td>
+                                    <th>
+                                        
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">
@@ -170,11 +183,12 @@ const cart = () => {
 
                                             </div>
                                         </div>
-                                    </td>
+                                    </th>
 
 
-                                    <td>{item.price} Tk</td><td>{item?.quantity} Pcs</td>
-                                    <td>
+                                    <td className="sm:invisible">{item.price} Tk</td>
+                                    <td className="sm:invisible">{item?.quantity} Pcs</td>
+                                    <td >
                                         {item.price} * {item?.quantity}={item.price * item?.quantity} Tk
                                     </td>
 
