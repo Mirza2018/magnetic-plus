@@ -226,14 +226,11 @@ const SingleProductPage = () => {
 
     // </div>
 
-
-
-    
       <div className="bg-white dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
          {/* <span className="w-20 h-2 bg-gray-800 dark:bg-white mb-12">
             </span> */}
-        <div className="container mx-auto px-6 flex flex-col-reverse sm:flex-row relative py-16">
-          <div className="sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
+        <div className="container  px-6 flex flex-col-reverse sm:flex-row relative py-16 mx-auto">
+          <div className="sm:w-2/3 lg:w-2/5 flex flex-col relative z-20 mx-auto">
            
             <h1 className="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex leading-none dark:text-white text-gray-800">
 
@@ -255,7 +252,7 @@ const SingleProductPage = () => {
             </div>
           </div>
 
-          <div className=" sm:block sm:w-1/3 lg:w-3/5 relative">
+          <div className=" sm:block sm:w-1/3 lg:w-3/5 relative sm:me-20">
             <img src={item?.img} className="max-w-xs md:max-w-sm m-auto" />
           </div>
         </div>
