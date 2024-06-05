@@ -31,6 +31,7 @@ import UpdateItem from './Pages/Dashboard/UpdateItem/UpdateItem.jsx';
 import Category from './Component/Category/Category.jsx';
 import Order from './Pages/Dashboard/Order/Order.jsx';
 import Orders from './Pages/Dashboard/Order/Orders.jsx';
+import ManageOrders from './Pages/Dashboard/ManageOrders/ManageOrders.jsx';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
       {
         path:'manageItems',
         element:<AdminRoute><ManageItems></ManageItems></AdminRoute>
+      },
+      {
+        path:'manageOrders',
+        element:<AdminRoute><ManageOrders></ManageOrders></AdminRoute>
       },
       {
         path:'updateItem/:id',

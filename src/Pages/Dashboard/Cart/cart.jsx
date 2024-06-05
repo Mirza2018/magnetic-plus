@@ -90,7 +90,7 @@ const cart = () => {
         if (mobileNumber.length > 10 && deliveryAddress.length > 10) {
             const orderDetails = {
                 email: user.email, name: user.displayName, photo: user?.photoURL, orderItems: addToCart,
-                mobileNumber, deliveryAddress,date,totalPrice
+                mobileNumber, deliveryAddress,date,totalPrice,status:"waiting for confirmation"
             }
             console.log(orderDetails);
             const orderRes = await axiosSecure.post('/orders', orderDetails)
