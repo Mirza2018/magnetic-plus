@@ -9,14 +9,14 @@ import useItems from '../../Hooks/useItems';
 const SingleProductPage = () => {
   const { id } = useParams()
   const { user } = useContext(AuthContext)
-  const [items]=useItems()
+  const [items] = useItems()
   const navigate = useNavigate()
   const location = useLocation()
 
   const item = items.find(i => i._id === id)
 
   const axiosSecure = useAxiosSecure()
-  const [,refatch]=useCart()
+  const [, refatch] = useCart()
 
   const handleAddToCart = () => {
 
@@ -26,8 +26,10 @@ const SingleProductPage = () => {
 
       axiosSecure.post('/addtocart', addToCart)
         .then(res => {
-          console.log("ok2");
-          if (res.data.insertedId) {
+          console.log("ok2"); console.log(res.data);
+          if (res.data.insertedId ||
+            res.data.modifiedCount) {
+
             console.log("ok3");
             Swal.fire({
               position: 'top-end',
@@ -42,7 +44,7 @@ const SingleProductPage = () => {
           }
         })
 
-   
+
     }
     else {
       Swal.fire({
@@ -211,18 +213,54 @@ const SingleProductPage = () => {
     // </div>
 
 
-    <div className="card w-96 bg-base-100 shadow-xl">
-      <figure><img src={item?.img} alt="Shoes" /></figure>
-      <p className='bg-slate-900 text-white absolute right-0 px-4 mt-4 mr-4'>{ "\u09F3"}{item?.price}</p>
-      <div className="card-body  flex flex-col items-center">
-        <h2 className="card-title">{item?.name}</h2>
-        <p>{item?.desc}</p>
-        <div className="card-actions justify-end">
-          <button onClick={ handleAddToCart} className="btn btn-outline border-0 rounded-lg border-b-4 border-orange-400 bg-slate-200">Add to cart</button>
+    // <div className="card w-96 bg-base-100 shadow-xl">
+    //   <figure><img src={item?.img} alt="Shoes" /></figure>
+    //   <p className='bg-slate-900 text-white absolute right-0 px-4 mt-4 mr-4'>{ "\u09F3"}{item?.price}</p>
+    //   <div className="card-body  flex flex-col items-center">
+    //     <h2 className="card-title">{item?.name}</h2>
+    //     <p>{item?.desc}</p>
+    //     <div className="card-actions justify-end">
+    //       <button onClick={ handleAddToCart} className="btn btn-outline border-0 rounded-lg border-b-4 border-orange-400 bg-slate-200">Add to cart</button>
+    //     </div>
+    //   </div>
+
+    // </div>
+
+
+
+    
+      <div className="bg-white dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
+         {/* <span className="w-20 h-2 bg-gray-800 dark:bg-white mb-12">
+            </span> */}
+        <div className="container mx-auto px-6 flex flex-col-reverse sm:flex-row relative py-16">
+          <div className="sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
+           
+            <h1 className="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex leading-none dark:text-white text-gray-800">
+
+              <span className="text-xl sm:text-5xl pt-7 sm:pt-0">
+               Name: {item?.name}
+              </span>
+            </h1>
+            <p className="text-sm sm:text-base text-gray-700 dark:text-white py-4">
+              {item?.desc}
+            </p>
+            <div className="flex mt-8">
+              <a href="#" className="uppercase py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
+                Price:  {item?.price} Tk
+              </a>
+              <a onClick={handleAddToCart} href="#" className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-pink-500 text-pink-500 dark:text-white hover:bg-pink-500 hover:text-white text-md">
+                Add to cart
+              </a>
+
+            </div>
+          </div>
+
+          <div className=" sm:block sm:w-1/3 lg:w-3/5 relative">
+            <img src={item?.img} className="max-w-xs md:max-w-sm m-auto" />
+          </div>
         </div>
       </div>
-
-    </div>
+ 
 
 
   );
