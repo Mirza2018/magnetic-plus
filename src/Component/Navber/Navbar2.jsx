@@ -78,12 +78,13 @@ const Navbar2 = () => {
                             <div className="flex h-16 items-center justify-between">
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0">
-                                        <Link to='/' >
+                                        <Link to='/' className='flex items-center'>
                                             <img
                                                 className="h-10 w-10 rounded-full"
                                                 src={logo}
                                                 alt="Your Company"
                                             />
+                                            <p className='ps-2 text-xl font-bold text-gray-600'> Magnetic Plus</p>
                                         </Link>
 
                                     </div>
