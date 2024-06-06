@@ -35,6 +35,9 @@ import ManageOrders from './Pages/Dashboard/ManageOrders/ManageOrders.jsx';
 import Product from './Component/Products/Product.jsx';
 import Products from './Component/Products/Products.jsx';
 import ItemPage from './Component/ItemPage/ItemPage.jsx';
+import BestProducts from './Pages/Dashboard/BestProducts/BestProducts.jsx';
+import TopSelling from './Pages/Dashboard/TopSelling/TopSelling.jsx';
+import PopularProducts from './Pages/Dashboard/PopularProducts/PopularProducts.jsx';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -56,13 +59,7 @@ const router = createBrowserRouter([
       {
         path: "/category/:id",
         element: <ItemPage></ItemPage>
-        // element: <PrivateRoute><SingleProductPage></SingleProductPage></PrivateRoute> 
       },
-      // {
-      //   path: "/category/:id",
-      //   element: <Single></Single>
-      //   // element: <PrivateRoute><SingleProductPage></SingleProductPage></PrivateRoute> 
-      // },
       {
         path: "/about",
         element: <About></About>
@@ -105,6 +102,18 @@ const router = createBrowserRouter([
       {
         path:'manageOrders',
         element:<AdminRoute><ManageOrders></ManageOrders></AdminRoute>
+      },
+      {
+        path:'bestProducts',
+        element:<AdminRoute><BestProducts></BestProducts></AdminRoute>
+      },
+      {
+        path:'propularProducts',
+        element:<AdminRoute><TopSelling></TopSelling></AdminRoute>
+      },
+      {
+        path:'Topselling',
+        element:<AdminRoute><PopularProducts></PopularProducts></AdminRoute>
       },
       {
         path:'updateItem/:id',

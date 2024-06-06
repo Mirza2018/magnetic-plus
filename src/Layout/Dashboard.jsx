@@ -44,9 +44,20 @@ const Dashboard = () => {
                             <li>
                                 <NavLink to="/dashboard/manageOrders"><FaAd />Manage Orders</NavLink>
                             </li>
+
                             <li>
                                 <NavLink to="/dashboard/allUsers"><FaUsers />All Users</NavLink>
                             </li>
+                            <li>
+                                <NavLink to="/dashboard/bestProducts"><FaUsers />Best Products</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/propularProducts"><FaUsers />Top Selling</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/Topselling"><FaUsers />Propular Product</NavLink>
+                            </li>
+
                         </>
                             : <>
                                 <li>
