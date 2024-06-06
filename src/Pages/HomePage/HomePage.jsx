@@ -5,6 +5,7 @@ import Poster2 from '../../Component/Poster/Poster2';
 import Products from '../../Component/Products/Products';
 import UserBestProducts from '../UserBestProducts/UserBestProducts';
 import UserTopSellingProducts from '../UserTopSellingProducts/UserTopSellingProducts';
+import UserPopulatSection from '../userPopularSection/UserPopulatSection';
 
 const HomePage = () => {
     return (
@@ -14,6 +15,7 @@ const HomePage = () => {
             <Categories></Categories>
             <UserBestProducts></UserBestProducts>
             <UserTopSellingProducts></UserTopSellingProducts>
+            <UserPopulatSection></UserPopulatSection>
         </>
     );
 };

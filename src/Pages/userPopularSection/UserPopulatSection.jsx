@@ -4,20 +4,23 @@ import useItems from '../../Hooks/useItems';
 import { useQuery } from '@tanstack/react-query';
 import FeaturedProducts from '../FeaturedProducts/FeaturedProducts';
 
-const UserTopSellingProducts = () => {
+
+const UserPopulatSection = () => {
+
+
     const axiousPublic = useAxiousPublic()
     const [items] = useItems()
 
-    const { data: topProducts = [] } =
+    const { data: popularProducts = [] } =
         useQuery({
-            queryKey: ['topProducts'],
+            queryKey: ['popularProducts'],
             queryFn: async () => {
-                const res = await axiousPublic.get("/topProducts");
+                const res = await axiousPublic.get("/popularProducts");
                 return res.data;
 
             }
         })
-    const dataArray = topProducts[0]?.data
+    const dataArray = popularProducts[0]?.data
     const filterItems = [];
 
     dataArray?.forEach(d => {
@@ -33,7 +36,7 @@ const UserTopSellingProducts = () => {
         <div>
             <div className="text-center max-w-screen-2xl container mx-auto xl:px-28 px-4">
                 <h2 className="text-2xl font-bold capitalize flex mb-5">
-                    Top Selling Products:
+                    Propular Products:
                 </h2>
             </div>
             <FeaturedProducts products={filterItems} ></FeaturedProducts>
@@ -42,4 +45,4 @@ const UserTopSellingProducts = () => {
     );
 };
 
-export default UserTopSellingProducts;
+export default UserPopulatSection;
