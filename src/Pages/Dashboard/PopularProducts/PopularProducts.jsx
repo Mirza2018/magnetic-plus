@@ -23,7 +23,7 @@ const PopularProducts = () => {
         }
 
 
-            axiosSecure.post(`/popullarProducts`, cat)
+            axiosSecure.post(`/popularProducts`, cat)
                 .then(res => {
 
                     if (res.data.insertedId) {
@@ -63,7 +63,7 @@ const PopularProducts = () => {
 <div className="border-b border-gray-900/10 pb-12">
     <div className="mt-10 space-y-10">
         <fieldset >
-            <legend className="text-base font-bold leading-6 text-gray-900 ">Select Best Products List </legend>
+            <legend className="text-base font-bold leading-6 text-blue-700 ">Select Popular Products List </legend>
 
 
             {

@@ -9,8 +9,6 @@ const Home = () => {
 
     return (
         <div>
-            {/* <Header></Header>
-            <Navber></Navber> */}
             <Navbar2></Navbar2>
             <Outlet></Outlet>
             <FooterSection></FooterSection>

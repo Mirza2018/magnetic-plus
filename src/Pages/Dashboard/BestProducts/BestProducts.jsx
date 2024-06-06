@@ -49,7 +49,7 @@ const BestProducts = () => {
 
 
                 <div className="mt-6 flex items-center justify-end gap-x-6">
-                    <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
+                    <button type="button" className="text-sm font-semibold leading-6 text-gray-700">
                         Cancel
                     </button>
                     <button
