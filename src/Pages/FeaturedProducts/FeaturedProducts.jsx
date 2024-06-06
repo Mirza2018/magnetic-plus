@@ -12,7 +12,7 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Link, Navigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Product from '../../Component/Products/Product';
+
 
 
 
@@ -35,7 +35,6 @@ const FeaturedProducts = ({ products }) => {
     return (
         <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4">
             
-
             {/* best seller products card */}
             <div className='mb-16'>
                 <Swiper
