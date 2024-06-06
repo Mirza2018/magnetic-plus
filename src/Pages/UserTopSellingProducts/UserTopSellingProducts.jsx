@@ -1,23 +1,23 @@
 import React from 'react';
 import useAxiousPublic from '../../Hooks/useAxiousPublic';
-import { useQuery } from '@tanstack/react-query';
 import useItems from '../../Hooks/useItems';
+import { useQuery } from '@tanstack/react-query';
 import FeaturedProducts from '../FeaturedProducts/FeaturedProducts';
 
-const UserBestProducts = () => {
+const UserTopSellingProducts = () => {
     const axiousPublic = useAxiousPublic()
     const [items] = useItems()
 
-    const { data: bestProducts = [] } =
+    const { data: topProducts = [] } =
         useQuery({
-            queryKey: ['bestProducts'],
+            queryKey: ['topProducts'],
             queryFn: async () => {
-                const res = await axiousPublic.get("/bestProducts");
+                const res = await axiousPublic.get("/topProducts");
                 return res.data;
 
             }
         })
-    const dataArray = bestProducts[0]?.data
+    const dataArray = topProducts[0]?.data
     const filterItems = [];
 
     dataArray?.forEach(d => {
@@ -42,4 +42,4 @@ const UserBestProducts = () => {
     );
 };
 
-export default UserBestProducts;
+export default UserTopSellingProducts;

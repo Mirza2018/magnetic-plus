@@ -4,6 +4,7 @@ import Poster from '../../Component/Poster/Poster';
 import Poster2 from '../../Component/Poster/Poster2';
 import Products from '../../Component/Products/Products';
 import UserBestProducts from '../UserBestProducts/UserBestProducts';
+import UserTopSellingProducts from '../UserTopSellingProducts/UserTopSellingProducts';
 
 const HomePage = () => {
     return (
@@ -12,6 +13,7 @@ const HomePage = () => {
             <Poster2></Poster2>
             <Categories></Categories>
             <UserBestProducts></UserBestProducts>
+            <UserTopSellingProducts></UserTopSellingProducts>
         </>
     );
 };
