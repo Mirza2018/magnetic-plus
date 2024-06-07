@@ -98,9 +98,9 @@ const SingleProductPage = ({ id, item }) => {
             <a href="#" className="uppercase py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400">
               Price:  {item?.price} Tk
             </a>
-            <a onClick={handleAddToCart} href="#" className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-pink-500 text-pink-500 dark:text-white hover:bg-pink-500 hover:text-white text-md">
+            <button onClick={handleAddToCart} className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-pink-500 text-pink-500 dark:text-white hover:bg-pink-500 hover:text-white text-md">
               Add to cart
-            </a>
+            </button>
 
           </div>
         </div>

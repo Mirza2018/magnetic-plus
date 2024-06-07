@@ -8,9 +8,6 @@ import useAdmin from '../Hooks/useAdmin';
 // import useAxiosSecure from '../Hooks/useAxiosSecure';
 
 const Dashboard = () => {
-
-
-
     // const { data: users = [], refetch } = useQuery({
     //     queryKey: ['users'],
     //     queryFn: async () => {
@@ -63,18 +60,18 @@ const Dashboard = () => {
 
                         </>
                             : <>
-                                <li>
+                                {/* <li>
                                     <NavLink to="/dashboard/userHome"><FaHome />user Home</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/reservation"><FaCalendar /> user Reservation</NavLink>
-                                </li>
+                                </li> */}
                                 <li>
                                     <NavLink to="/dashboard/cart"><FaShoppingCart /> My Cart    ({addToCart.length})</NavLink>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <NavLink to="/dashboard/review"><FaAd />Review</NavLink>
-                                </li>
+                                </li> */}
                                 <li>
                                     <NavLink to="/dashboard/orders"><FaList />Orders</NavLink>
                                 </li>
