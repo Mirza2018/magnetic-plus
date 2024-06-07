@@ -1,80 +1,97 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FaAd, FaCalendar, FaFileContract, FaHome, FaList, FaListAlt, FaSearch, FaShoppingCart, FaUsers, FaUtensils, FaBars, FaTimes } from 'react-icons/fa';
+import { NavLink, Outlet } from 'react-router-dom';
+import useCart from '../Hooks/useCart';
+import useAdmin from '../Hooks/useAdmin';
+import {Logo } from '../assets/logo.jpg'; // replace with your actual logo path
 
 const DashBoard2 = () => {
+    const [isAdmin] = useAdmin();
+    const [addToCart, againFetch] = useCart();
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    againFetch();
+
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    };
+
     return (
-        <div className="flex h-screen bg-gray-100">
-
-    {/* <!-- sidebar --> */}
-
-
-    <div className="hidden md:flex flex-col w-64 bg-gray-800">
-        <div className="flex items-center justify-center h-16 bg-gray-900">
-            <span className="text-white font-bold uppercase">Sidebar</span>
-        </div>
-        <div className="flex flex-col flex-1 overflow-y-auto">
-            <nav className="flex-1 px-2 py-4 bg-gray-800">
-                <a href="#" className="flex items-center px-4 py-2 text-gray-100 hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                    Dashboard
-                </a>
-                <a href="#" className="flex items-center px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                            d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                    Messages
-                </a>
-                <a href="#" className="flex items-center px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                            d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                    Settings
-                </a>
-            </nav>
-        </div>
-    </div>
-
-    {/* <!-- Main content --> */}
-
-
-    <div className="flex flex-col flex-1 overflow-y-auto">
-        <div className="flex items-center justify-between h-16 bg-white border-b border-gray-200">
-            <div className="flex items-center px-4">
-                <button className="text-gray-500 focus:outline-none focus:text-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-                <input className="mx-4 w-full border rounded-md px-4 py-2" type="text" placeholder="Search" />
+        <div className='flex'>
+            {/* Sidebar */}
+            <div className={`w-64 min-h-screen bg-orange-400 transition-transform transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 fixed lg:relative z-20`}>
+                <div className='flex items-center p-4'>
+                    <Logo className='w-8 h-8' />
+                    <span className='ml-2 text-xl font-bold'>Website Name</span>
+                </div>
+                <ul className='menu p-4'>
+                    {isAdmin ? (
+                        <>
+                            <li>
+                                <NavLink to="/dashboard/adminHome"><FaHome />Admin Home</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/addItems"><FaUtensils />Add Items</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/manageItems"><FaListAlt />Manage Items</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/manageOrders"><FaAd />Manage Orders</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/orderHistory"><FaAd />Order History</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/allUsers"><FaUsers />All Users</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/bestProducts"><FaUsers />Best Products</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/propularProducts"><FaUsers />Top Selling</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/Topselling"><FaUsers />Popular Product</NavLink>
+                            </li>
+                        </>
+                    ) : (
+                        <>
+                            <li>
+                                <NavLink to="/dashboard/cart"><FaShoppingCart />My Cart ({addToCart.length})</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/orders"><FaList />Orders</NavLink>
+                            </li>
+                        </>
+                    )}
+                    <div className="divider"></div>
+                    <li>
+                        <NavLink to="/"><FaHome />Home</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/shop"><FaSearch />Shop</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/contact"><FaFileContract />Contact</NavLink>
+                    </li>
+                </ul>
             </div>
-            <div className="flex items-center pr-4">
 
-                <button
-                    className="flex items-center text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                            d="M12 19l-7-7 7-7m5 14l7-7-7-7" />
-                    </svg>
-                </button>
+            {/* Main Content */}
+            <div className='flex-1 lg:ml-64 p-8'>
+                <div className='flex justify-between items-center mb-4 lg:hidden'>
+                    <Logo className='w-8 h-8' />
+                    <button onClick={toggleSidebar} className='text-2xl'>
+                        {isSidebarOpen ? <FaTimes /> : <FaBars />}
+                    </button>
+                </div>
+                <Outlet />
             </div>
+
+            {/* Overlay for mobile view */}
+            {isSidebarOpen && <div className='fixed inset-0 bg-black opacity-50 lg:hidden' onClick={toggleSidebar}></div>}
         </div>
-        <div className="p-4">
-            <h1 className="text-2xl font-bold">Welcome to my dashboard!</h1>
-            <p className="mt-2 text-gray-600">This is an example dashboard using Tailwind CSS.</p>
-        </div>
-    </div>
-    
-</div>
     );
 };
 

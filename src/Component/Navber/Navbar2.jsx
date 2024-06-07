@@ -84,7 +84,7 @@ const Navbar2 = () => {
                                             <img
                                                 className="h-10 w-10 rounded-full"
                                                 src={logo}
-                                                alt="Your Company"
+                                                alt="Magnetic plus"
                                             />
                                             <p className='ps-2 text-xl font-bold text-gray-600'> Magnetic Plus</p>
                                         </Link>

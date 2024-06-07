@@ -7,8 +7,6 @@ import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import Swal from "sweetalert2";
 
 
-
-
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTIG_KEY;
 
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
