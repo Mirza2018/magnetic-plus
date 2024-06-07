@@ -1,69 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import useAxiosSecure from '../../../Hooks/useAxiosSecure';
-import { useQuery } from '@tanstack/react-query';
-import { FaTrashAlt, FaUsers } from 'react-icons/fa';
-import { FcBusinessman } from 'react-icons/fc';
-import Swal from 'sweetalert2';
-
-const ManageOrders = () => {
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { FcBusinessman } from "react-icons/fc";
 
 
-    const [optionValue, setOptionValue] = useState("")
+const OrderHistory = () => {
 
     const axiosSecure = useAxiosSecure()
-    const { data: allOrders = [], refetch } = useQuery({
-        queryKey: ['allOrders'],
+    const { data: orderHistory = [], refetch } = useQuery({
+        queryKey: ['orderHistory'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/allOrders');
+            const res = await axiosSecure.get('/orderHistory');
             return res.data;
         }
     })
 
-    const handleRole = (e, order) => {
-        e.preventDefault()
-        const status = e.target.roll.value;
-        setOptionValue("")
-        console.log(status, order.status);
-
-        axiosSecure.patch(`/orders/admin/${order._id}?status=${status}`)
-            .then(res => {
-
-                if (res.data.modifiedCount > 0) {
-                    console.log("1", res.data);
-
-                    if (status == "Delivered" || status == "Cancel") {
-
-                        axiosSecure.delete(`/orders/admin/${order._id}`)
-                            .then(res => {
-                                // console.log("2", res.data);
-                                refetch()
-
-                            })
-                    }
-                    refetch()
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: `Update ${order._id} Status to ${status}`,
-                        showConfirmButton: false,
-                        timer: 2000
-                    })
+    orderHistory.sort((a, b) => {
+        if (b.status < a.status) return -1;
+        if (b.status > a.status) return 1;
+        return 0;
+      });
 
 
-
-                }
-            })
-    }
-
-
+      
+    console.log(orderHistory.length);
     return (
         <div>
             <div className="flex justify-evenly">
                 <h2 className="text-4xl">
-                    All Orders
+                    All Delevierd or canceled Order History
                 </h2>
                 <h2 className="text-4xl">
-                    Total order: {allOrders.length}
+                    Total: {orderHistory.length}
                 </h2>
 
             </div>
@@ -89,7 +56,7 @@ const ManageOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            allOrders.map((order, index) =>
+                            orderHistory.map((order, index) =>
                                 <tr key={order._id}>
                                     {/* <th>
                                 <label>
@@ -156,35 +123,11 @@ const ManageOrders = () => {
 
 
                                     <td>
-                                        {
-                                            order.status == ""
-
-                                        }
                                         <button className={`btn
-                                            ${order.status == "Payment successful" && "bg-sky-500"}
-                                            ${order.status == "Out for Delivery" && "bg-lime-500"}
-                                            ${order.status == "waiting for confirmation" && "btn-warning"}
+                                            ${order.status == "Delivered" && "bg-green-500"}
+                                            ${order.status == "Cancel" && "bg-red-500"}
+                                            
                                           btn-success font-semibold`} >{order.status}</button>
-
-
-                                        <form onSubmit={(e) => handleRole(e, order)}>
-                                            <select name="roll" onChange={() => setOptionValue(order._id)} className="select select-success w-full max-w-xs">
-
-                                                <option disabled selected value="Update Status?" >Update Status?</option>
-                                                <option className='bg-sky-400 font-bold text-white' value="Payment successful">Payment successful</option>
-                                                <option className='bg-lime-500 font-bold text-white' value="Out for Delivery">Out for Delivery</option>
-                                                <option className='bg-green-400 font-bold text-white' value="Delivered">Delivered</option>
-                                                <option className='bg-red-500 font-bold text-white' value="Cancel">Cancel</option>
-                                            </select>
-                                            {
-                                                optionValue === order._id ? <button className="btn btn-primary">submit </button> : ""
-                                            }
-
-                                        </form>
-
-
-
-
 
                                     </td>
                                     {/* <th>
@@ -208,4 +151,4 @@ const ManageOrders = () => {
     );
 };
 
-export default ManageOrders;
+export default OrderHistory;

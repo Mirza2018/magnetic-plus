@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 const cart = () => {
     const { user } = useContext(AuthContext)
     const axiosSecure = useAxiosSecure();
-    const [addToCart, refetch] = useCart()
+    const [addToCart, againFetch] = useCart()
     const navigate = useNavigate()
     console.log(user);
 
@@ -46,7 +46,7 @@ const cart = () => {
                 axiosSecure.delete(`/addtocart/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
-                            refetch()
+                            againFetch()
                             Swal.fire({
                                 position: 'center',
                                 icon: 'success',

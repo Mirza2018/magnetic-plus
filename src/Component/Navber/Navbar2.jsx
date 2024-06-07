@@ -31,11 +31,11 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 const Navbar2 = () => {
 
     const { user, logOut } = useContext(AuthContext)
-    const [addToCart] = useCart()
+    const [addToCart, againFetch] = useCart()
 
-
+    againFetch()
     const axiosSecure = useAxiosSecure()
-    const { data: users = [], refetch } = useQuery({
+    const { data: users = [] } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get('/users');
@@ -44,13 +44,7 @@ const Navbar2 = () => {
     })
 
 
-    const { data: allOrders = [], } = useQuery({
-        queryKey: ['allOrders'],
-        queryFn: async () => {
-            const res = await axiosSecure.get('/allOrders');
-            return res.data;
-        }
-    })
+
 
     // console.log(allOrders);
 
@@ -59,6 +53,14 @@ const Navbar2 = () => {
     const isAdmin = findUser?.role === "admin"
 
 
+    const { data: allOrders = [], refetch } = useQuery({
+        queryKey: ['allOrders'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/allOrders');
+            return res.data;
+        }
+    })
+    refetch()
     // console.log(findUser, isAdmin);
 
     // console.log(users);

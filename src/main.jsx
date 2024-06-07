@@ -38,6 +38,7 @@ import ItemPage from './Component/ItemPage/ItemPage.jsx';
 import BestProducts from './Pages/Dashboard/BestProducts/BestProducts.jsx';
 import TopSelling from './Pages/Dashboard/TopSelling/TopSelling.jsx';
 import PopularProducts from './Pages/Dashboard/PopularProducts/PopularProducts.jsx';
+import OrderHistory from './Pages/Dashboard/OrderHistory/OrderHistory.jsx';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -102,6 +103,10 @@ const router = createBrowserRouter([
       {
         path:'manageOrders',
         element:<AdminRoute><ManageOrders></ManageOrders></AdminRoute>
+      },
+      {
+        path:'orderHistory',
+        element:<AdminRoute><OrderHistory></OrderHistory></AdminRoute>
       },
       {
         path:'bestProducts',

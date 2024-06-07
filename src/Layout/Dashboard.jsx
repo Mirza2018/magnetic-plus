@@ -23,9 +23,9 @@ const Dashboard = () => {
     // const isAdmin = userEmail?.role==='admin'
     const [isAdmin] = useAdmin()
 
-    const [addToCart] = useCart()
+    const [addToCart,againFetch] = useCart()
 
-
+    againFetch()
     return (
         <div className='flex'>
             <div className='w-64 min-h-screen bg-orange-400'>
@@ -43,6 +43,9 @@ const Dashboard = () => {
                             </li>
                             <li>
                                 <NavLink to="/dashboard/manageOrders"><FaAd />Manage Orders</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/orderHistory"><FaAd />Order History</NavLink>
                             </li>
 
                             <li>

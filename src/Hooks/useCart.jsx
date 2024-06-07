@@ -7,7 +7,7 @@ import { AuthContext } from "../Providers/AuthProvider";
 const useCart = () => {
     const axiosSecure=useAxiosSecure();
     const {user}=useContext(AuthContext);
-    const {refetch, data: addToCart = [] } = useQuery(
+    const {refetch:againFetch, data: addToCart = [] } = useQuery(
         {
             queryKey: ['cart',user?.email],
             queryFn: async () => {
@@ -16,7 +16,7 @@ const useCart = () => {
             }
         }
     )
-    return [addToCart,refetch ]
+    return [addToCart,againFetch ]
 };
 
 export default useCart;

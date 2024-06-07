@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 // Import Swiper React components
 // import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -10,7 +10,7 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 
@@ -20,7 +20,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 
 const FeaturedProducts = ({ products }) => {
-    console.log(products);
+
+    // console.log(products);
 
     const [items, setItems] = useState([]);
     useEffect(() => {
@@ -30,7 +31,7 @@ const FeaturedProducts = ({ products }) => {
     }, [products])
 
 
-    console.log(items);
+    // console.log(items);
 
     return (
         <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4">
