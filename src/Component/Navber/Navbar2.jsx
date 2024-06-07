@@ -5,7 +5,7 @@ import {
     DisclosurePanel,
     Menu,
     MenuButton,
-    MenuItem,
+
     MenuItems,
     Transition,
 } from '@headlessui/react'
@@ -18,10 +18,9 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import logo from '../../assets/logo.jpg'
 
 import useCart from '../../Hooks/useCart';
-// import useAxiosSecure from '../../Hooks/useAxiosSecure';
+
 import { useQuery } from '@tanstack/react-query';
-import useAdmin from '../../Hooks/useAdmin';
-import useAxiousPublic from '../../Hooks/useAxiousPublic';
+
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 
@@ -90,6 +89,7 @@ const Navbar2 = () => {
                                         </Link>
 
                                     </div>
+                                    
 
                                     {/* Big menu hom */}
                                     <div className="hidden md:block">
@@ -442,9 +442,6 @@ const Navbar2 = () => {
                     </>
                 )}
             </Disclosure>
-            <main>
-                <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">{/* Your content */}</div>
-            </main>
         </div>
 
 

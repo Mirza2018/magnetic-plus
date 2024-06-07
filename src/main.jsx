@@ -1,18 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import Home from './Pages/Home/Home.jsx';
-import Categories from './Component/Category/Categories.jsx';
 import About from './Pages/About/About.jsx';
 import HomePage from './Pages/HomePage/HomePage.jsx';
-import SingleProductPage from './Component/Products/SingleProductPage.jsx';
-// import snp from './Component/Products/snp.jsx';
-// import single from './Component/Products/snp.jsx';
 import Register from './Pages/Login/Register.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
 import Login from './Pages/Login/Login.jsx';
@@ -29,10 +24,8 @@ import AdminRoute from './route/AdminRoute.jsx';
 import ManageItems from './Pages/Dashboard/ManageItems/ManageItems.jsx';
 import UpdateItem from './Pages/Dashboard/UpdateItem/UpdateItem.jsx';
 import Category from './Component/Category/Category.jsx';
-import Order from './Pages/Dashboard/Order/Order.jsx';
 import Orders from './Pages/Dashboard/Order/Orders.jsx';
 import ManageOrders from './Pages/Dashboard/ManageOrders/ManageOrders.jsx';
-import Product from './Component/Products/Product.jsx';
 import Products from './Component/Products/Products.jsx';
 import ItemPage from './Component/ItemPage/ItemPage.jsx';
 import BestProducts from './Pages/Dashboard/BestProducts/BestProducts.jsx';
