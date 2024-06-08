@@ -90,11 +90,11 @@ const router = createBrowserRouter([
       // Admin route
       {
         path:'allUsers',
-        element:<Allusers></Allusers>
+        element:<AdminRoute><Allusers></Allusers></AdminRoute>
       },
       {
         path:'adminHome',
-        element:<AdminHome></AdminHome>
+        element:<AdminRoute><AdminHome></AdminHome></AdminRoute>
       },
       {
         path:'addItems',

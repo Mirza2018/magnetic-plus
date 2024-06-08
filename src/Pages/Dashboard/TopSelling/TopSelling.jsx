@@ -13,11 +13,11 @@ const TopSelling = () => {
         e.preventDefault();
         const formData = new FormData(e.target)
         let cat = formData.getAll('cat[]')
-        if (cat.length <= 3){
+        if (cat.length <= 4){
             return  Swal.fire({
                 position: 'center',
                 icon: 'warning',
-                title: 'অন্তত চারটি Product নির্বাচন করুন',
+                title: 'অন্তত পাঁচটি Product নির্বাচন করুন',
                 showConfirmButton: false,
                 timer: 2000
             })
@@ -47,7 +47,7 @@ const TopSelling = () => {
             heading="Top Selling Products"
             subHeading="Add Top Selling"
             ></SectionTitle>
-
+ 
 
 <form onSubmit={ProductData}>
 

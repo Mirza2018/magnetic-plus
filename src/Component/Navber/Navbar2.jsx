@@ -34,18 +34,7 @@ const Navbar2 = () => {
     const [addToCart, againFetch] = useCart()
 
     againFetch()
-    // const axiosSecure = useAxiosSecure()
-    // const { data: users = [] } = useQuery({
-    //     queryKey: ['users'],
-    //     queryFn: async () => {
-    //         const res = await axiosSecure.get('/users');
-    //         return res.data;
-    //     }
-    // })
-
-    // const findUser = users.find(u => u.email == user?.email)
-
-    // const isAdmin = findUser?.role === "admin"
+ 
 const [isAdmin]=useAdmin()
 
     const { data: allOrders = [], refetch } = useQuery({
@@ -58,8 +47,6 @@ const [isAdmin]=useAdmin()
     refetch()
     // console.log(findUser, isAdmin);
 
-    // console.log(users);
-    // const isAdmin = true;
 
 
 
@@ -99,7 +86,7 @@ const [isAdmin]=useAdmin()
                                                 Shop
                                             </Link>
                                             <Link to='/aboutUs' className='text-black font-bold hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm '>
-                                                About us
+                                            Contact Us
                                             </Link>
 
 
@@ -280,7 +267,7 @@ const [isAdmin]=useAdmin()
                                 </DisclosureButton>
                                 <DisclosureButton className=" text-gray-950  hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
                                     <Link to='/aboutUs'>
-                                        About us
+                                    Contact us
                                     </Link>
                                 </DisclosureButton>
 

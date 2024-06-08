@@ -1,67 +1,71 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
-import { FaTrashAlt, FaUsers } from 'react-icons/fa';
+import {  FaUsers } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { FcBusinessman } from 'react-icons/fc';
 
 const Allusers = () => {
     const axiosSecure = useAxiosSecure()
-    const { data: users = [] ,refetch} = useQuery({
+    const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get('/users');
             return res.data;
         }
     })
- 
-    const handleUserRole = (id) => {
-        // console.log(id)
+
+    {/* For this time i am off the handleDelete , cause it is only delete mongoBD data not firebase data  */ }
+
+    // const handleDelete = (id) => {
 
 
-        Swal.fire({
-            title: 'Delete!!',
-            text: 'Are you want to delete this item',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, Delete!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                axiosSecure.delete(`/users/${id}`)
-                    .then(res => {
-                        if (res.data.deletedCount > 0) {
-                            refetch()
-                            Swal.fire({
-                                position: 'center',
-                                icon: 'success',
-                                title: `Deleted`,
-                                showConfirmButton: false,
-                                timer: 700
-                            })
-                            
-                        }
-                    })
-            }
-        })
- 
 
-    }
+    //     Swal.fire({
+    //         title: 'Delete!!',
+    //         text: 'Are you want to delete this item',
+    //         icon: 'warning',
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#3085d6',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Yes, Delete!'
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             axiosSecure.delete(`/users/${id}`)
+    //                 .then(res => {
+    //                     if (res.data.deletedCount > 0) {
+    //                         refetch()
+    //                         Swal.fire({
+    //                             position: 'center',
+    //                             icon: 'success',
+    //                             title: `Deleted`,
+    //                             showConfirmButton: false,
+    //                             timer: 700
+    //                         })
 
-    const handleMakeAdmin=(id)=>{
+    //                     }
+    //                 })
+    //         }
+    //     })
+
+    // }
+
+
+
+    const handleMakeAdmin = (id) => {
         axiosSecure.patch(`/users/admin/${id}`)
-        .then(res=>{
-            if(res.data.modifiedCount>0){
-                refetch()
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Update role to admin',
-                    showConfirmButton: false,
-                    timer: 700
-                })
-            }
-        })
+            .then(res => {
+                if (res.data.modifiedCount > 0) {
+                    refetch()
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Update role to admin',
+                        showConfirmButton: false,
+                        timer: 700
+                    })
+                }
+            })
     }
 
     return (
@@ -90,7 +94,9 @@ const Allusers = () => {
                             <th>Name</th>
                             <th>email</th>
                             <th>Role</th>
-                            <th>Action</th>
+
+
+                            {/* <th>Action</th> */}
 
                         </tr>
                     </thead>
@@ -108,7 +114,10 @@ const Allusers = () => {
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={user?.photo} />
+                                                {
+                                                        user?.photo ? <img src={user?.photo} /> : <FcBusinessman className='w-12 h-12' />
+                                                    }
+                                                    
                                                 </div>
                                             </div>
                                             <div>
@@ -120,19 +129,22 @@ const Allusers = () => {
 
                                     <td>{user.email}</td>
                                     <td>
-                                       {user.role==='admin'?'Admin': <button
+                                        {user.role === 'admin' ? 'Admin' : <button
                                             onClick={() => handleMakeAdmin(user._id)}
                                             className="btn btn-ghost btn-lg bg-orange-400"><FaUsers className='text-2xl text-white' />
                                         </button>}
 
 
                                     </td>
-                                    <th>
+
+                                    {/* For this time i am off the handleDelete , cause it is only delete mongoBD data not firebase data  */}
+
+                                    {/* <th>
                                         <button
-                                            onClick={() => handleUserRole(user._id)}
+                                            onClick={() => handleDelete(user._id)}
                                             className="btn btn-ghost btn-lg text-red-600"><FaTrashAlt />
                                         </button>
-                                    </th>
+                                    </th> */}
                                 </tr>
                             )
                         }

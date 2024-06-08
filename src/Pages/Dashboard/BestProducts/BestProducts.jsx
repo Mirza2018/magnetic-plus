@@ -12,11 +12,11 @@ const BestProducts = () => {
         e.preventDefault();
         const formData = new FormData(e.target)
         let cat = formData.getAll('cat[]')
-        if (cat.length <= 3){
+        if (cat.length <= 4){
             return  Swal.fire({
                 position: 'center',
                 icon: 'warning',
-                title: 'অন্তত চারটি Product নির্বাচন করুন',
+                title: 'অন্তত পাঁচটি Product নির্বাচন করুন',
                 showConfirmButton: false,
                 timer: 2000
             })
@@ -63,7 +63,7 @@ const BestProducts = () => {
                 <div className="border-b border-gray-900/10 pb-12">
                     <div className="mt-10 space-y-10">
                         <fieldset >
-                            <legend className="text-base font-bold leading-6 text-gray-900 ">Select Best Products List </legend>
+                            <legend className="text-base font-bold leading-6 text-indigo-700 ">Select Best Products List </legend>
 
 
                             {

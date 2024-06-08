@@ -14,6 +14,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 const UpdateItem = () => {
     const item = useLoaderData()
     const navigate = useNavigate()
+    
 
     const [imgPreview, setImgPreview] = useState(null);
     const axiousPublic = useAxiousPublic()
@@ -80,7 +81,7 @@ const UpdateItem = () => {
             if (res.data.success) {
                 // console.log(res.data);
                 const product = {
-                    name, desc, price: parseFloat(price), categories, img: res.data.data.url
+                    name, desc, price: parseFloat(price), categories, img: res.data.data.display_url
                 }
                 // console.log(product);
 

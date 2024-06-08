@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
-import { FaTrashAlt, FaUsers } from 'react-icons/fa';
+
 import { FcBusinessman } from 'react-icons/fc';
 import Swal from 'sweetalert2';
 
 const ManageOrders = () => {
- 
+
 
     const [optionValue, setOptionValue] = useState("")
 
@@ -23,7 +23,9 @@ const ManageOrders = () => {
         e.preventDefault()
         const status = e.target.roll.value;
         setOptionValue("")
-        // console.log(status, order.status);
+
+        // console.log("1", status, "2", order.name, "3", optionValue);
+
 
         axiosSecure.patch(`/orders/admin/${order._id}?status=${status}`)
             .then(res => {
@@ -31,16 +33,18 @@ const ManageOrders = () => {
                 if (res.data.modifiedCount > 0) {
                     // console.log("1", res.data);
 
-                    if (status == "Delivered" || status == "Cancel") {
-
+                    if ((status === "Delivered" || status === "Cancel")&&(res.data.modifiedCount > 0)) {
+                        // console.log("4",order._id);
                         axiosSecure.delete(`/orders/admin/${order._id}`)
                             .then(res => {
-                                // console.log("2", res.data);
+
                                 refetch()
 
                             })
                     }
+
                     refetch()
+                    // console.log("1",status,'2',order.name);
                     Swal.fire({
                         position: 'center',
                         icon: 'success',

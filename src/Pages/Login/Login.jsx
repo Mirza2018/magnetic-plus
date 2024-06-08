@@ -7,6 +7,7 @@ import logo from '../../assets/logo.jpg'
 
 import { FaEye, FaRegEyeSlash, FaGoogle, FaGithub, FaFacebook } from "react-icons/fa";
 import './Login.css'
+import Swal from 'sweetalert2';
 const Login = () => {
     const [show, setShow] = useState(false)
     const emailRef = useRef()
@@ -30,7 +31,14 @@ const Login = () => {
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                // console.log(error);
+                console.log(error);
+                Swal.fire({
+                    position: 'center',
+                    icon: 'warning',
+                    title: 'User is Not valid , Please Register',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             })
     }
 

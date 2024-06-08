@@ -62,7 +62,7 @@ const AddItems = () => {
             });
             if (res.data.success) {
                 const item = {
-                    name, desc, price: parseFloat(price), categories, img: res.data.data.url
+                    name, desc, price: parseFloat(price), categories, img: res.data.data.display_url
                 };
                 const itemRes = await axiosSecure.post('/items', item);
                 if (itemRes.data.insertedId) {
@@ -103,7 +103,7 @@ const AddItems = () => {
                                 id="name"
                                 autoComplete="name"
                                 required
-                               className="input input-bordered input-primary w-full max-w-xs"
+                                className="input input-bordered input-primary w-full max-w-xs"
                                 placeholder="Give a name"
                             />
                         </div>
@@ -178,7 +178,10 @@ const AddItems = () => {
                             </fieldset>
                         </div>
                     </div>
+
+
                     <div className="mt-6 flex justify-end">
+
                         <button
                             type="submit"
                             disabled={loading}

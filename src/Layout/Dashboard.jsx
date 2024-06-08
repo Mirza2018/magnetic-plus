@@ -86,7 +86,7 @@ const Dashboard = () => {
                         <NavLink to="/shop"><FaSearch />Shop</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/contact"><FaFileContract />Contact</NavLink>
+                        <NavLink to="/aboutUs"><FaFileContract />Contact</NavLink>
                     </li>
                 </ul>
             </div>
