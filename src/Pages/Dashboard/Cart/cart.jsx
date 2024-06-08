@@ -286,7 +286,7 @@ const cart = () => {
                                     <h2
                                         className="font-manrope text-4xl text-white font-semibold mb-5 lg:mb-2"
                                     >
-                                        You don`t Add any Product
+                                        You Don&#39;tAdd any Product
                                     </h2>
                                     <p className="text-xl text-indigo-100">
                                         Continue to shopping with Magnetic Plus
