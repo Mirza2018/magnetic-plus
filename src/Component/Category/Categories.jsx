@@ -19,7 +19,7 @@ const Categories = () => {
   const navigate = useNavigate();
 
   const handleNavigation = (category) => {
-    navigate(category);
+    navigate(`/shop/${category}`);
     window.scrollTo(0, 0);
   };
 

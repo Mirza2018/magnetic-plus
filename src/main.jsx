@@ -33,6 +33,8 @@ import PopularProducts from './Pages/Dashboard/PopularProducts/PopularProducts.j
 import OrderHistory from './Pages/Dashboard/OrderHistory/OrderHistory.jsx';
 import AdminHome from './Pages/AdminHome/AdminHome.jsx';
 import FooterSection from './Pages/FooterSection/FooterSection.jsx';
+import AboutUs from './Component/AboutUs/AboutUs.jsx';
+import ErrorPage from './Pages/ErrorPage/ErrorPage.jsx';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -44,20 +46,20 @@ const router = createBrowserRouter([
         element: <HomePage></HomePage>
       },
       {
-        path: "/:category",
+        path: "shop/:category",
         element: <Category></Category>
       },
       {
-        path: "/shop",
+        path: "shop",
         element: <Products></Products>
       },
       {
-        path: "/category/:id",
+        path: "shop/category/:id",
         element: <ItemPage></ItemPage>
       },
       {
-        path: "/about",
-        element: <FooterSection></FooterSection>
+        path: "aboutUs",
+        element: <AboutUs></AboutUs>
       },
       {
         path: "/register",
@@ -67,6 +69,11 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login></Login>
       },
+      {
+        path: "*",
+        element: <ErrorPage /> 
+      }
+      
     ]
   },
   {

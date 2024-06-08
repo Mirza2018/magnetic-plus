@@ -84,9 +84,9 @@ const SingleProductPage = ({ id, item }) => {
       <span className='ms-2'>
       <Link to="/" className='btn-link no-underline underline-offset-8'> Home </Link>
       <Link to="/shop" className='btn-link no-underline underline-offset-4'> /shop </Link>
-        <Link to={`/${item?.categories[0]}`} className='btn-link no-underline underline-offset-8'> /{item?.categories[0]}</Link>
-                {item?.categories[1] && <Link to={`/${item?.categories[1]}`} className='btn-link no-underline underline-offset-8'> /{item?.categories[1]} </Link>}
-                {item?.categories[2] && <Link to={`/${item?.categories[2]}`} className='btn-link no-underline underline-offset-8'> /{item?.categories[2]} </Link>}
+        <Link to={`/shop/${item?.categories[0]}`} className='btn-link no-underline underline-offset-8'> /{item?.categories[0]}</Link>
+                {item?.categories[1] && <Link to={`/shop/${item?.categories[1]}`} className='btn-link no-underline underline-offset-8'> /{item?.categories[1]} </Link>}
+                {item?.categories[2] && <Link to={`/shop/${item?.categories[2]}`} className='btn-link no-underline underline-offset-8'> /{item?.categories[2]} </Link>}
         </span>
 
 
@@ -105,9 +105,9 @@ const SingleProductPage = ({ id, item }) => {
             <p className='flex'>
               <span className='text-xl font-semibold font-mono '>Categories: </span>
               <span>
-                <Link to={`/${item?.categories[0]}`} className='btn-link no-underline underline-offset-8'> {item?.categories[0]}</Link>
-                {item?.categories[1] && <Link to={`/${item?.categories[1]}`} className='btn-link no-underline underline-offset-8'> /{item?.categories[1]} </Link>}
-                {item?.categories[2] && <Link to={`/${item?.categories[2]}`} className='btn-link no-underline underline-offset-8'> /{item?.categories[2]} </Link>}
+                <Link to={`/shop/${item?.categories[0]}`} className='btn-link no-underline underline-offset-8'> {item?.categories[0]}</Link>
+                {item?.categories[1] && <Link to={`/shop/${item?.categories[1]}`} className='btn-link no-underline underline-offset-8'> /{item?.categories[1]} </Link>}
+                {item?.categories[2] && <Link to={`/shop/${item?.categories[2]}`} className='btn-link no-underline underline-offset-8'> /{item?.categories[2]} </Link>}
               </span>
             </p>
           </div>

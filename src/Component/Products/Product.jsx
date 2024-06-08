@@ -8,7 +8,7 @@ const Product = ({ item }) => {
     const navigate = useNavigate()
 
     const handleNavigation = () => {
-        navigate(`/category/${_id}`);
+        navigate(`/shop/category/${_id}`);
         window.scrollTo(0, 0);
       };
 

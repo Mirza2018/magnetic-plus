@@ -25,7 +25,7 @@ const FeaturedProducts = ({ products }) => {
     }, [products])
 
     const handleNavigation = (id) => {
-        navigate(`/category/${id}`);
+        navigate(`/shop/category/${id}`);
         window.scrollTo(0, 0);
       };
 

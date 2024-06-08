@@ -83,7 +83,7 @@ const SearchBar = () => {
                         {searchResults.length > 0 ? (
                             searchResults.slice(0, 4).map((item) => (
                                 <li key={item._id} className="px-4 py-2 hover:bg-gray-100">
-                                    <Link to={`/category/${item._id}`} onClick={() => setShowResults(false)} className="block text-black">
+                                    <Link to={`/shop/category/${item._id}`} onClick={() => setShowResults(false)} className="block text-black">
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">
