@@ -81,7 +81,7 @@ const [isAdmin]=useAdmin()
                                                 src={logo}
                                                 alt="Magnetic plus"
                                             />
-                                            <p className='ps-2 text-xl font-bold text-gray-600'> Magnetic Plus</p>
+                                            <p className='ps-2 text-2xl font-semibold text-white font-sans'> Magnetic Plus</p>
                                         </Link>
 
                                     </div>
@@ -226,7 +226,7 @@ const [isAdmin]=useAdmin()
 
 
                                     :
-                                    <Link to='/Login' className='text-black font-bold hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm '>
+                                    <Link to='/Login' className='text-black font-bold hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm hidden md:block'>
                                         Login
                                     </Link>
 
@@ -250,11 +250,11 @@ const [isAdmin]=useAdmin()
 
 
 
-                                    <DisclosureButton className="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                    <DisclosureButton className="relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                         <span className="absolute -inset-0.5" />
                                         <span className="sr-only">Open main menu</span>
                                         {open ? (
-                                            <FaXmark className="block h-6 w-6" aria-hidden="true" />
+                                            <FaXmark className="block h-6 w-6 " aria-hidden="true" />
                                         ) : (
                                             <FaBars className="block h-6 w-6" aria-hidden="true" />
                                         )}

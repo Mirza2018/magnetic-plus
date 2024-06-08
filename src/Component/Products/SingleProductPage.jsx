@@ -47,7 +47,7 @@ const SingleProductPage = ({ id, item }) => {
         email: user.email,
         quantity, // Include quantity in the addToCart object
       };
-      console.log(addToCart);
+      // console.log(addToCart);
 
       axiosSecure.post('/addtocart', addToCart)
         .then(res => {
@@ -95,7 +95,7 @@ const SingleProductPage = ({ id, item }) => {
       <div className="container px-6 py-10 mx-auto flex flex-col-reverse sm:flex-row items-center justify-center">
         <div className="sm:w-2/3 lg:w-2/5 flex flex-col  relative text-center sm:text-left">
         
-          <h1 className="font-bebas-neue uppercase text-6xl sm:text-6xl font-black flex leading-none dark:text-white text-gray-800">
+          <h1 className="font-bebas-neue uppercase text-5xl sm:text-5xl font-black flex leading-none dark:text-white text-gray-800 mt-7">
             {item?.name}
           </h1>
           <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 py-4">
@@ -117,34 +117,7 @@ const SingleProductPage = ({ id, item }) => {
               <span className='font-bold'> {item?.price} Tk</span>
             </p>
 
-            {/* <div className='flex gap-6 mt-10'>
-              <div className="flex items-center space-x-2">
-                <button
-                  onClick={() => setQuantity((prev) => Math.max(prev - 1, 1))}
-                  className="px-2 py-1 bg-gray-300 rounded"
-                >
-                  -
-                </button>
-                <input
-                  type="number"
-                  value={quantity}
-                  onChange={(e) => setQuantity(Math.max(Number(e.target.value), 1))}
-                  className="w-12 text-center border rounded"
-                />
-                <button
-                  onClick={() => setQuantity((prev) => prev + 1)}
-                  className="px-2 py-1 bg-gray-300 rounded"
-                >
-                  +
-                </button>
-              </div>
-
-
-              <button onClick={handleAddToCart} className="uppercase py-4 px-5 rounded-lg  bg-indigo-100 text-indigo-600 dark:text-white  text-lg font-semibold transition-all duration-500 hover:bg-indigo-300 ease-in-out flex gap-2 justify-center items-center">
-                <CiShoppingCart className=' text-3xl' />
-                Add to cart
-              </button>
-            </div> */}
+  
 
 
 

@@ -15,7 +15,7 @@ const Allusers = () => {
     })
  
     const handleUserRole = (id) => {
-        console.log(id)
+        // console.log(id)
 
 
         Swal.fire({

@@ -66,17 +66,11 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
-    // Products
-
-    const [products, setProducts] = useState([])
-    useEffect(() => {
-        fetch("http://localhost:5000/products")
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
+   
+ 
 
 
-    //post add to cart
+
 
 
     const authInfo = {
@@ -86,8 +80,6 @@ const AuthProvider = ({ children }) => {
         signIn,
         updateUserProfile,
         logOut,
-        products,
-        setProducts,
         googleSignIn
     }
 

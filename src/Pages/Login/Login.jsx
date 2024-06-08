@@ -12,7 +12,7 @@ const Login = () => {
     const emailRef = useRef()
 
 
-    const { signIn, googlePopup } = useContext(AuthContext)
+    const { signIn } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/'
@@ -21,16 +21,16 @@ const Login = () => {
         e.preventDefault()
         const password = e.target.password.value;
         const email = e.target.email.value;
-        console.log(password, email);
+        // console.log(password, email);
 
 
         signIn(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
     }
 

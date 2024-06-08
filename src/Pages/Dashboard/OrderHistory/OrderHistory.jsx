@@ -22,7 +22,8 @@ const OrderHistory = () => {
 
 
       
-    console.log(orderHistory.length);
+    // console.log(orderHistory.length);
+
     return (
         <div>
             <div className="flex justify-evenly">

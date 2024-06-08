@@ -43,7 +43,7 @@ const Register = () => {
                         axiouPublic.post('/users', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
-                                    console.log(loggedUser);
+                                    // console.log(loggedUser);
 
                                     e.target.reset()
                                     setSuccess('Registration Successfully Done')

@@ -27,8 +27,8 @@ const Categories = () => {
   return (
     <div className="bg-gray-50 py-10">
       <div className="text-center max-w-screen-2xl container mx-auto xl:px-28 px-4">
-        <h2 className="text-3xl font-extrabold text-gray-800 mb-5">
-          Categories
+        <h2 className="text-3xl font-bold text-gray-800 mb-5">
+          Categories :
         </h2>
       </div>
       <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4">

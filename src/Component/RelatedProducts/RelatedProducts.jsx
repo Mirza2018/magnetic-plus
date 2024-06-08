@@ -18,7 +18,7 @@ const RelatedProducts = ({ finalItems }) => {
     }, [finalItems])
 
 
-    console.log(ramdomItems);
+    // console.log(ramdomItems);
 
 
 

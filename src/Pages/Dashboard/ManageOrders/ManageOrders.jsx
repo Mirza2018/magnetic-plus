@@ -23,13 +23,13 @@ const ManageOrders = () => {
         e.preventDefault()
         const status = e.target.roll.value;
         setOptionValue("")
-        console.log(status, order.status);
+        // console.log(status, order.status);
 
         axiosSecure.patch(`/orders/admin/${order._id}?status=${status}`)
             .then(res => {
 
                 if (res.data.modifiedCount > 0) {
-                    console.log("1", res.data);
+                    // console.log("1", res.data);
 
                     if (status == "Delivered" || status == "Cancel") {
 

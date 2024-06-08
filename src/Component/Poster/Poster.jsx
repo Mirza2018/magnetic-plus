@@ -10,8 +10,13 @@ const Poster = () => {
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2 animate-fadeIn">
                         <div className="text-center lg:text-left">
-                            <p className="text-base font-semibold tracking-wider text-blue-600 uppercase">Welcome to Magnetic-Plus</p>
-                            <h1 className="mt-4 text-4xl font-bold text-black lg:mt-8 sm:text-6xl xl:text-8xl">
+                            <p className="text-2xl font-semibold tracking-wider uppercase ">
+
+                                <span className='font-bold  '>Welcome to  </span>
+                                <span className='text-green-500'> Magnetic</span>
+                                <span className='text-red-500'> Plus</span>
+                            </p>
+                            <h1 className="mt-4 text-4xl font-bold text-black lg:mt-8 sm:text-4xl xl:text-4xl">
                                 We choose Quality Over Quantity
                             </h1>
                             <p className="mt-4 text-base lg:mt-8 sm:text-xl text-blue-600">আলোয় সাজুক ঘর</p>
@@ -35,8 +40,8 @@ const Poster = () => {
                             </Link>
 
                             <p className="mt-5 text-gray-600">
-                                Already joined us?
-                                <Link to="/login" title="" className="text-black transition-all duration-200 hover:underline">Log in</Link>
+                                Already joined with us?
+                                <Link to="/login" title="" className="text-black transition-all duration-200 hover:underline"> Log in</Link>
                             </p>
                         </div>
 

@@ -32,7 +32,6 @@ import TopSelling from './Pages/Dashboard/TopSelling/TopSelling.jsx';
 import PopularProducts from './Pages/Dashboard/PopularProducts/PopularProducts.jsx';
 import OrderHistory from './Pages/Dashboard/OrderHistory/OrderHistory.jsx';
 import AdminHome from './Pages/AdminHome/AdminHome.jsx';
-import FooterSection from './Pages/FooterSection/FooterSection.jsx';
 import AboutUs from './Component/AboutUs/AboutUs.jsx';
 import ErrorPage from './Pages/ErrorPage/ErrorPage.jsx';
 const queryClient = new QueryClient()

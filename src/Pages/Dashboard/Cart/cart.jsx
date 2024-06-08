@@ -75,8 +75,8 @@ const cart = () => {
         const mobileNumber = formValues[0].va1;
         const deliveryAddress = formValues[1].va2;
 
-        console.log("Mobile Number:", mobileNumber);
-        console.log("Delivery Address:", deliveryAddress);
+        // console.log("Mobile Number:", mobileNumber);
+        // console.log("Delivery Address:", deliveryAddress);
         if (mobileNumber.length > 10 && deliveryAddress.length > 10) {
             const orderDetails = {
                 email: user.email, name: user.displayName, photo: user?.photoURL, orderItems: addToCart,
@@ -226,8 +226,8 @@ const cart = () => {
 
                                         </div>
 
-                                        <div className="flex justify-end">
-                                            <button className="text-lg btn bg-green-500 hover:bg-green-600 flex justify-center" onClick={handleOrder}>Order Now</button>
+                                        <div className=" flex justify-end">
+                                            <button className=" py-3 px-5 rounded-full  bg-indigo-100 text-indigo-600 dark:text-white  text-lg font-semibold transition-all duration-500 hover:bg-indigo-300 ease-in-out flex gap-2 justify-center items-center mt-4" onClick={handleOrder}>Order Now</button>
                                         </div>
 
                                     </div>
@@ -268,7 +268,7 @@ const cart = () => {
                     <section className="py-16">
                         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                             <div
-                                className="lg:py-14 lg:px-20 p-10 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 flex items-center justify-between flex-col lg:flex-row"
+                                className="lg:py-14 lg:px-20 p-10 rounded-2xl bg-gradient-to-r  from-green-600 to-red-600 flex items-center justify-between flex-col lg:flex-row"
                             >
                                 <div className="block text-center mb-5 lg:text-left lg:mb-0">
                                     <h2

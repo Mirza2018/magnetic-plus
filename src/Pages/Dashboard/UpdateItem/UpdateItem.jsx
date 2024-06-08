@@ -59,7 +59,7 @@ const UpdateItem = () => {
         ///Img check
 
         if (imgName) {
-            console.log("asi");
+            // console.log("asi");
             const image = formData.get('img');
             const imageFile = new FormData()
             imageFile.append('image', image)
@@ -68,7 +68,7 @@ const UpdateItem = () => {
                 name, desc, price: parseFloat(price), categories, img: imageFile
             }
 
-            console.log(product);
+            // console.log(product);
             // setDataProcessing(<progress className="progress w-56"></progress>)
 
 
@@ -78,14 +78,14 @@ const UpdateItem = () => {
                 }
             });
             if (res.data.success) {
-                console.log(res.data);
+                // console.log(res.data);
                 const product = {
                     name, desc, price: parseFloat(price), categories, img: res.data.data.url
                 }
-                console.log(product);
+                // console.log(product);
 
                 const itemRes = await axiosSecure.patch(`/item/${item._id}`, product)
-                console.log(itemRes.data);
+                // console.log(itemRes.data);
                 if (itemRes.data.matchedCount > 0) {
                     //show pop up
 
@@ -109,10 +109,10 @@ const UpdateItem = () => {
             const product = {
                 name, desc, price: parseFloat(price), categories, img: item.img
             }
-            console.log(product);
+            // console.log(product);
 
             const itemRes = await axiosSecure.patch(`item/${item._id}`, product)
-            console.log(itemRes.data);
+            // console.log(itemRes.data);
             if (itemRes.data.matchedCount > 0) {
                 //show pop up
                 e.target.reset()

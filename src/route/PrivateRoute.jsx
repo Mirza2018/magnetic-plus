@@ -6,7 +6,7 @@ import LoadingOverlay from '../Pages/LoadingOverlay/LoadingOverlay';
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext)
     const location = useLocation()
-    console.log(location);
+    // console.log(location);
     
     if (loading) {
         return <LoadingOverlay loading={loading}></LoadingOverlay>
