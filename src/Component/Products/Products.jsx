@@ -1,5 +1,6 @@
 import Product from './Product';
 import useItems from '../../Hooks/useItems';
+import { Link } from 'react-router-dom';
 const Products = () => {
 
     const [items] = useItems()
@@ -8,7 +9,12 @@ const Products = () => {
     
 
         <div>
+   <span className='ms-2'>
 
+<Link to="/" className='btn-link no-underline underline-offset-8'> Home </Link>
+<Link to="/shop" className='btn-link no-underline underline-offset-4'> /shop </Link>
+
+</span>
             <div className="text-center p-10">
             <h2 className="font-manrope font-bold text-4xl leading-10 text-black text-center">
                     <step className="text-green-500">Magnetic </step>

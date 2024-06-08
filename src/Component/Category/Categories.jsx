@@ -17,6 +17,12 @@ import { Link } from 'react-router-dom';
 const Categories = () => {
   const [categories] = useCategories();
   const navigate = useNavigate();
+
+  const handleNavigation = (category) => {
+    navigate(category);
+    window.scrollTo(0, 0);
+  };
+
   
   return (
     <div className="bg-gray-50 py-10">
@@ -58,8 +64,8 @@ const Categories = () => {
             {
               categories.map((category) => (
                 <SwiperSlide key={category.name}>
-                  <Link to={`${category.name}`}>
-                    <div className="bg-white shadow-lg rounded-xl overflow-hidden transform transition-transform hover:scale-105 ">
+                  {/* <Link to={`${category.name}`}> */}
+                    <div  onClick={()=>handleNavigation(category.name)} className="bg-white shadow-lg rounded-xl overflow-hidden transform transition-transform hover:scale-105 ">
                        <div className="p-4">
                         <h4 className="text-xl font-bold text-pink-500 text-center">
                           {category?.name}
@@ -74,7 +80,7 @@ const Categories = () => {
 
                      
                     </div>
-                  </Link>
+                  {/* </Link> */}
                 </SwiperSlide>
               ))
             }

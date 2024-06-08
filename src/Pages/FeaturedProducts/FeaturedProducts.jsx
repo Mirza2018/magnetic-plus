@@ -10,18 +10,12 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-
-
-
-
-
 
 const FeaturedProducts = ({ products }) => {
 
-    // console.log(products);
+    const navigate = useNavigate()
 
     const [items, setItems] = useState([]);
     useEffect(() => {
@@ -30,8 +24,11 @@ const FeaturedProducts = ({ products }) => {
 
     }, [products])
 
+    const handleNavigation = (id) => {
+        navigate(`/category/${id}`);
+        window.scrollTo(0, 0);
+      };
 
-    // console.log(items);
 
     return (
         <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4">
@@ -73,8 +70,8 @@ const FeaturedProducts = ({ products }) => {
                                 <SwiperSlide key={item._id}>
 
 
-                                    <Link to={`/category/${item._id}`}>
-                                        <div>
+                                    
+                                        <div  onClick={()=>handleNavigation(item._id)}>
                                             <img
                                                 src={item.img}
                                                 alt={item.name}
@@ -93,7 +90,7 @@ const FeaturedProducts = ({ products }) => {
                                             </div>
                                         </div>
 
-                                    </Link>
+                                  
 
 
 

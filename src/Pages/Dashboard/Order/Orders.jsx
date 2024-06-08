@@ -42,10 +42,10 @@ const Orders = () => {
                 {
                     orders.map(order =>
 
-                        <div key={order._id} className="main-box border border-gray-200 rounded-xl pt-6 max-w-xl max-lg:mx-auto lg:max-w-full my-20">
+                        <div key={order._id} className="main-box border border-gray-200 bg-white rounded-xl pt-6 max-w-xl max-lg:mx-auto lg:max-w-full my-20">
 
                             <div
-                                className="flex flex-col lg:flex-row lg:items-center justify-between px-6 pb-6 border-b border-gray-200">
+                                className="flex flex-col lg:flex-row lg:items-center justify-between px-6 pb-6 border-b border-gray-200 ">
                                 <div className="data">
                                     <p className="font-semibold text-base leading-7 text-black">Order Id: <span className="text-indigo-600 font-medium">{order._id}</span></p>
                                     <p className="font-semibold text-base leading-7 text-black mt-4">Order Date : <span className="text-gray-400 font-medium">{order.date} </span></p>
@@ -71,7 +71,7 @@ const Orders = () => {
 
 
                             {/* Order single Product */}
-                            <div className="w-full px-3 min-[400px]:px-6">
+                            <div className="w-full px-3 min-[400px]:px-6 bg-sky-50">
 
                                 {/* Single order Item */}
                                 {
@@ -209,7 +209,7 @@ const Orders = () => {
 
 
                             {/* Order single Product */}
-                            <div className="w-full px-3 min-[400px]:px-6">
+                            <div className="w-full px-3 min-[400px]:px-6 bg-red-50">
 
                                 {/* Single order Item */}
                                 {

@@ -93,7 +93,7 @@ const Dashboard = () => {
 
             {/* Main Content */}
             <div className='flex-1 lg:ml-64  '>
-                <div className='flex justify-between items-center p-3 mb-5 lg:hidden bg-rose-100'>
+                <div className='flex justify-between items-center p-3 mb-5 lg:hidden bg-slate-300'>
                 <Link to="/">
                     <div className='flex justify-center items-center'>
                         <img className="h-10 w-10 rounded-full"

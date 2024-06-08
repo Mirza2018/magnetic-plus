@@ -10,7 +10,7 @@ import UserPopulatSection from '../userPopularSection/UserPopulatSection';
 const HomePage = () => {
     return (
         <>
-            <SearchBar></SearchBar>
+            {/* <SearchBar></SearchBar> */}
             <Poster></Poster>
             <Categories></Categories>
             <UserPopulatSection></UserPopulatSection>

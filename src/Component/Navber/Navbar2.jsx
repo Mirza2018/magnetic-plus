@@ -22,6 +22,7 @@ import useCart from '../../Hooks/useCart';
 import { useQuery } from '@tanstack/react-query';
 
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useAdmin from '../../Hooks/useAdmin';
 
 
 
@@ -33,24 +34,19 @@ const Navbar2 = () => {
     const [addToCart, againFetch] = useCart()
 
     againFetch()
-    const axiosSecure = useAxiosSecure()
-    const { data: users = [] } = useQuery({
-        queryKey: ['users'],
-        queryFn: async () => {
-            const res = await axiosSecure.get('/users');
-            return res.data;
-        }
-    })
+    // const axiosSecure = useAxiosSecure()
+    // const { data: users = [] } = useQuery({
+    //     queryKey: ['users'],
+    //     queryFn: async () => {
+    //         const res = await axiosSecure.get('/users');
+    //         return res.data;
+    //     }
+    // })
 
+    // const findUser = users.find(u => u.email == user?.email)
 
-
-
-    // console.log(allOrders);
-
-    const findUser = users.find(u => u.email == user?.email)
-
-    const isAdmin = findUser?.role === "admin"
-
+    // const isAdmin = findUser?.role === "admin"
+const [isAdmin]=useAdmin()
 
     const { data: allOrders = [], refetch } = useQuery({
         queryKey: ['allOrders'],

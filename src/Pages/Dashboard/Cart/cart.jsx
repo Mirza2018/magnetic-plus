@@ -25,12 +25,12 @@ const cart = () => {
     const handleDelete = id => {
         Swal.fire({
             title: 'Delete!!',
-            text: 'Are you want to delete this item',
+            text: 'Do you want to remove this product from cart',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, Delete!'
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, Remove It!'
         }).then((result) => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/addtocart/${id}`)
@@ -40,7 +40,7 @@ const cart = () => {
                             Swal.fire({
                                 position: 'center',
                                 icon: 'success',
-                                title: `Deleted`,
+                                title: `Removed`,
                                 showConfirmButton: false,
                                 timer: 700
                             })
@@ -58,10 +58,10 @@ const cart = () => {
             title: "Give Some Information",
             html: `
             <p>Mobile Number</p>
-              <input  type="text" id="mobile" placeholder="017--" className="swal2-input">
-              <p>Delivery address</p>
-              <input  type="text" id="address" placeholder="জেলা,থানা, জায়গার নাম, রোড নং, বাড়ির  নাম " className="swal2-input">
-            `,
+            <input type="text" id="mobile" placeholder="017--" class="swal2-input" style="border: 1px solid #ccc; padding: 5px;">
+            <p>Delivery address</p>
+            <input id="address" placeholder="জেলা, থানা, জায়গার নাম, রোড নং, বাড়ির নাম" class="swal2-input" style="border: 1px solid #ccc; padding: 5px; width: 80%;"></input>
+    `,
             showCancelButton: true,
             confirmButtonText: "Make a Order",
             preConfirm: () => {
@@ -109,9 +109,7 @@ const cart = () => {
                 })
             }
         }
-        else {
-            console.log("no");
-        }
+       
 
     }
 
@@ -200,7 +198,7 @@ const cart = () => {
         //     </div>
 
         // </div>
-        <div>
+        <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto">
             <h2 className="font-manrope font-bold text-4xl leading-10 text-black text-center py-10">
                 <step className="text-green-500">Magnetic </step>
                 <step className="text-red-500">plus </step>
@@ -209,13 +207,13 @@ const cart = () => {
 
             {
                 addToCart.length > 0 ?
-                    <section className="py-24 relative">
+                    <section className="py-24 relative bg-slate-200">
                         <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto">
 
 
                             <div className="flex items-start flex-col gap-6 xl:flex-row ">
                                 <div className="w-full max-w-sm md:max-w-3xl xl:max-w-sm flex items-start flex-col gap-8 max-xl:mx-auto">
-                                    <div className="p-6 border border-gray-200 rounded-3xl w-full group transition-all duration-500 hover:border-gray-400 ">
+                                    <div className="p-6 border bg-white border-gray-200 rounded-3xl w-full group transition-all duration-500 hover:border-gray-400 ">
                                         <h2
                                             className="font-manrope font-bold text-3xl leading-10 text-black pb-6 border-b border-gray-200 ">
                                             Cart Summary
@@ -225,21 +223,11 @@ const cart = () => {
                                                 <p className="font-normal text-lg leading-8 text-gray-400 transition-all duration-500 group-hover:text-gray-700">Product Cost</p>
                                                 <p className="font-medium text-lg leading-8 text-gray-900">{totalPrice} Tk</p>
                                             </div>
-                                            {/* <div className="flex items-center justify-between gap-4 mb-5">
-                                    <p className="font-normal text-lg leading-8 text-gray-400 transition-all duration-500 group-hover:text-gray-700">Shipping</p>
-                                    <p className="font-medium text-lg leading-8 text-gray-600">$40.00</p>
-                                </div> */}
-                                            {/* <div className="flex items-center justify-between gap-4 ">
-                                    <p className="font-normal text-lg leading-8 text-gray-400 transition-all duration-500 group-hover:text-gray-700 ">Coupon Code</p>
-                                    <p className="font-medium text-lg leading-8 text-emerald-500">#APPLIED</p>
-                                </div> */}
+
                                         </div>
-                                        {/* <div className="total flex items-center justify-between pt-6">
-                                <p className="font-normal text-xl leading-8 text-black ">Subtotal</p>
-                                <h5 className="font-manrope font-bold text-2xl leading-9 text-indigo-600">$400.00</h5>
-                            </div> */}
+
                                         <div className="flex justify-end">
-                                            <button className="text-xl btn btn-primary flex justify-center" onClick={handleOrder}>Order Now</button>
+                                            <button className="text-lg btn bg-green-500 hover:bg-green-600 flex justify-center" onClick={handleOrder}>Order Now</button>
                                         </div>
 
                                     </div>
@@ -286,7 +274,7 @@ const cart = () => {
                                     <h2
                                         className="font-manrope text-4xl text-white font-semibold mb-5 lg:mb-2"
                                     >
-                                        You Don&#39;tAdd any Product
+                                        You Don&#39;t Add any Product
                                     </h2>
                                     <p className="text-xl text-indigo-100">
                                         Continue to shopping with Magnetic Plus

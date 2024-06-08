@@ -6,7 +6,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './Pages/Home/Home.jsx';
-import About from './Pages/About/About.jsx';
 import HomePage from './Pages/HomePage/HomePage.jsx';
 import Register from './Pages/Login/Register.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
@@ -33,6 +32,7 @@ import TopSelling from './Pages/Dashboard/TopSelling/TopSelling.jsx';
 import PopularProducts from './Pages/Dashboard/PopularProducts/PopularProducts.jsx';
 import OrderHistory from './Pages/Dashboard/OrderHistory/OrderHistory.jsx';
 import AdminHome from './Pages/AdminHome/AdminHome.jsx';
+import FooterSection from './Pages/FooterSection/FooterSection.jsx';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About></About>
+        element: <FooterSection></FooterSection>
       },
       {
         path: "/register",
@@ -131,7 +131,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
     <QueryClientProvider client={queryClient}>
-     <RouterProvider router={router} />
+     <RouterProvider router={router} >
+     </RouterProvider>
     </QueryClientProvider>
     </AuthProvider>
   </React.StrictMode>
