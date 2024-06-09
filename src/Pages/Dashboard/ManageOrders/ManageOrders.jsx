@@ -61,7 +61,7 @@ const ManageOrders = () => {
 
 
     return (
-        <div>
+        <div >
             <div className="flex justify-evenly">
                 <h2 className="text-4xl">
                     All Orders

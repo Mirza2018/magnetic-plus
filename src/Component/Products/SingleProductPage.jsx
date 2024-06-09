@@ -16,7 +16,7 @@ const SingleProductPage = ({ id, item }) => {
   const location = useLocation();
   const axiosSecure = useAxiosSecure();
   const [, refetch] = useCart();
-  const [quantity, setQuantity] = useState(1); // Add state for quantity
+  const [quantity, setQuantity] = useState(1); 
 
 
   const increment = () => setQuantity(quantity + 1);
@@ -95,9 +95,9 @@ const SingleProductPage = ({ id, item }) => {
       <div className="container px-6 py-10 mx-auto flex flex-col-reverse sm:flex-row items-center justify-center">
         <div className="sm:w-2/3 lg:w-2/5 flex flex-col  relative text-center sm:text-left">
         
-          <h1 className="font-bebas-neue uppercase text-5xl sm:text-5xl font-black flex leading-none dark:text-white text-gray-800 mt-7">
+          <h3 className="font-bebas-neue uppercase md:text-5xl sm:text-4xl font-black flex leading-none dark:text-white text-gray-800 mt-7">
             {item?.name}
-          </h1>
+          </h3>
           <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 py-4">
             {item?.desc}
           </p>
@@ -137,8 +137,8 @@ const SingleProductPage = ({ id, item }) => {
           <AiOutlinePlus />
         </button>
       </div>
-      <button  onClick={handleAddToCart}  className="uppercase py-3 px-5 rounded-full  bg-indigo-100 text-indigo-600 dark:text-white  text-lg font-semibold transition-all duration-500 hover:bg-indigo-300 ease-in-out flex gap-2 justify-center items-center">
-        <span><CiShoppingCart  className=' text-3xl'  /></span>
+      <button  onClick={handleAddToCart}  className=" py-3 px-5 rounded-full  bg-indigo-100 text-indigo-600 dark:text-white md:text-xl font-semibold transition-all duration-500 hover:bg-indigo-300 ease-in-out flex gap-2 justify-center items-center  ">
+        <span><CiShoppingCart  className=' md:text-2xl '  /></span>
         <span>Add To Cart</span>
       </button>
     </div>

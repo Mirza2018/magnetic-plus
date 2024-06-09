@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
  
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000/'
+    baseURL: 'https://magnetic-plus-server.onrender.com/'
 })
 const useAxiosSecure = () => {
     const navigate = useNavigate();

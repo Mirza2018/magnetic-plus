@@ -92,7 +92,7 @@ const Dashboard = () => {
             </div>
 
             {/* Main Content */}
-            <div className='flex-1 lg:ml-64  '>
+            <div className='flex-1 lg:ml-64  bg-slate-50'>
                 <div className='flex justify-between items-center p-3 mb-5 lg:hidden bg-slate-300'>
                 <Link to="/">
                     <div className='flex justify-center items-center'>

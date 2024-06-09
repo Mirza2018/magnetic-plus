@@ -95,30 +95,34 @@ const AddItems = () => {
             <form onSubmit={ProductData} className="space-y-8">
                 <div className="bg-white p-6 rounded-lg shadow-md">
                     <div className="grid grid-cols-1 gap-y-6 gap-x-6 sm:grid-cols-2">
-                        <div >
-                            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Product Name</label>
-                            <input
-                                type="text"
-                                name="name"
-                                id="name"
-                                autoComplete="name"
-                                required
-                                className="input input-bordered input-primary w-full max-w-xs"
-                                placeholder="Give a name"
-                            />
+                        <div className='flex gap-3 md:flex-row flex-col'>
+                            <div >
+                                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Product Name</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    id="name"
+                                    autoComplete="name"
+                                    required
+                                    className="input input-bordered input-primary w-full max-w-xs"
+                                    placeholder="Give a name"
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="price" className="block text-sm font-medium text-gray-700">Product Price</label>
+                                <input
+                                    type="number"
+                                    name="price"
+                                    id="price"
+                                    required
+                                    autoComplete="price"
+                                    className="input input-bordered input-primary w-full max-w-xs"
+                                    placeholder="Price"
+                                />
+                            </div>
+
                         </div>
-                        <div>
-                            <label htmlFor="price" className="block text-sm font-medium text-gray-700">Product Price</label>
-                            <input
-                                type="number"
-                                name="price"
-                                id="price"
-                                required
-                                autoComplete="price"
-                                className="input input-bordered input-primary w-full max-w-xs"
-                                placeholder="Price"
-                            />
-                        </div>
+
                         <div className="col-span-2">
                             <label htmlFor="desc" className="block text-sm font-medium text-gray-700">Description</label>
                             <textarea

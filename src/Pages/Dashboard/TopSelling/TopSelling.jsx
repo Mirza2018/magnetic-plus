@@ -64,10 +64,10 @@ const TopSelling = () => {
                     </button>
                 </div>
 
-                <div className="border-b border-gray-900/10 pb-12">
+                <div className="border-b border-gray-900/10 pb-12  ps-10">
                     <div className="mt-10 space-y-10">
                         <fieldset >
-                            <legend className="text-base font-bold leading-6 text-blue-700 ">Select Top selling Products List </legend>
+                            <legend className="text-xl font-bold leading-6 text-blue-700 ">Select Top selling Products List </legend>
 
 
                             {

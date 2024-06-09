@@ -58,7 +58,7 @@ const cart = () => {
             title: "Give Some Information",
             html: `
             <p>Mobile Number</p>
-            <input type="text" id="mobile" placeholder="017--" class="swal2-input" style="border: 1px solid #ccc; padding: 5px;">
+            <input type="tel" id="mobile" placeholder="+88017--" value="+880" class="swal2-input" style="border: 1px solid #ccc; padding: 5px; width: 80%;"">
             <p>Delivery address</p>
             <input id="address" placeholder="জেলা, থানা, জায়গার নাম, রোড নং, বাড়ির নাম" class="swal2-input" style="border: 1px solid #ccc; padding: 5px; width: 80%;"></input>
     `,
@@ -77,12 +77,12 @@ const cart = () => {
 
         // console.log("Mobile Number:", mobileNumber);
         // console.log("Delivery Address:", deliveryAddress);
-        if (mobileNumber.length > 10 && deliveryAddress.length > 10) {
+        if (mobileNumber.length == 14 && deliveryAddress.length > 7) {
             const orderDetails = {
                 email: user.email, name: user.displayName, photo: user?.photoURL, orderItems: addToCart,
                 mobileNumber, deliveryAddress, date, totalPrice, status: "waiting for confirmation"
             }
-            console.log(orderDetails);
+            // console.log(orderDetails);
             const orderRes = await axiosSecure.post('/orders', orderDetails)
 
             if (orderRes.data.insertedId) {
@@ -109,7 +109,16 @@ const cart = () => {
                 })
             }
         }
-       
+        else {
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'সঠিক Mobile Number দিন +880 সহ',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }
+
 
     }
 
@@ -198,7 +207,7 @@ const cart = () => {
         //     </div>
 
         // </div>
-        <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto">
+        <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto bg-slate-200 container mt-32">
             <h2 className="font-manrope font-bold text-4xl leading-10 text-black text-center py-10">
                 <step className="text-green-500">Magnetic </step>
                 <step className="text-red-500">plus </step>
@@ -220,7 +229,7 @@ const cart = () => {
                                         </h2>
                                         <div className="data py-6 border-b border-gray-200">
                                             <div className="flex items-center justify-between gap-4 mb-5">
-                                                <p className="font-normal text-lg leading-8 text-gray-400 transition-all duration-500 group-hover:text-gray-700">Product Cost</p>
+                                                <p className="font-normal text-lg leading-8 text-gray-400 transition-all duration-500 group-hover:text-gray-700">Total product costs</p>
                                                 <p className="font-medium text-lg leading-8 text-gray-900">{totalPrice} Tk</p>
                                             </div>
 
@@ -234,7 +243,7 @@ const cart = () => {
                                 </div>
 
 
-                                <div className="w-full max-w-sm md:max-w-3xl max-xl:mx-auto">
+                                <div className="w-full max-w-sm md:max-w-3xl max-xl:mx-auto ">
                                     <div className="grid grid-cols-1 gap-6">
 
                                         {

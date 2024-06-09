@@ -3,7 +3,7 @@ import logo from '../../assets/logo.jpg';
 
 const LoadingOverlay = ({ loading }) => {
     if (!loading) return null;
-
+ 
     return (
         <div className="fixed inset-0 bg-gray-100 bg-opacity-75 flex items-center justify-center z-50">
             <div className="flex items-center">

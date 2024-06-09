@@ -9,29 +9,29 @@ const Orders = () => {
     // console.log(userOrderHistory);
 
 
-    
+
     orders.sort((a, b) => {
         if (b.status < a.status) return -1;
         if (b.status > a.status) return 1;
         return 0;
-      });
+    });
 
     userOrderHistory.sort((a, b) => {
         if (b.status < a.status) return -1;
         if (b.status > a.status) return 1;
         return 0;
-      });
+    });
 
 
 
     return (
 
-        <section className="py-24 relative">
+        <section className="py-24 relative container bg-slate-100">
             <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto">
                 <h2 className="font-manrope font-bold text-4xl leading-10 text-black text-center">
                     <step className="text-green-500">Magnetic </step>
                     <step className="text-red-500">plus </step>
-                     Order Page
+                    Order Page
                 </h2>
                 <p className="mt-4 font-normal text-lg leading-8 text-gray-500 mb-11 text-center">Thanks for making a purchase
                     you can
@@ -42,7 +42,7 @@ const Orders = () => {
                 {
                     orders.map(order =>
 
-                        <div key={order._id} className="main-box border border-gray-200 bg-white rounded-xl pt-6 max-w-xl max-lg:mx-auto lg:max-w-full my-20">
+                        <div key={order._id} className="main-box border pb-2 border-indigo-900 bg-white rounded-xl pt-6 max-w-xl max-lg:mx-auto lg:max-w-full my-20">
 
                             <div
                                 className="flex flex-col lg:flex-row lg:items-center justify-between px-6 pb-6 border-b border-gray-200 ">
@@ -55,16 +55,68 @@ const Orders = () => {
 
 
 
-                                <ul className="steps steps-horizontal py-3 px-7 font-semibold text-sm leading-7  max-lg:mt-5  ">
-                                    <li className={`step step-primary`}>waiting for confirmation</li>
+                                {/* <ul className="steps steps-horizontal py-3 px-7 font-semibold text-sm leading-7  max-lg:mt-5  ">
+                                    <li className={`step step-primary `}>
+                                        waiting for confirmation
+                                        
+                                        
+                                        </li>
 
                                     <li className={`step
-                                     ${(order?.status == 'Payment successful' || (order?.status == 'Out for Delivery')) && ' step-primary'} `}>Payment successful</li>
+                                     ${(order?.status == 'Payment successful' || (order?.status == 'Out for Delivery')) && ' step-primary '} `}>
+                                        
+                                        Payment successful
+                                        
+                                        </li>
 
-                                    <li className={`step ${order?.status == 'Out for Delivery' && 'step-primary'} `}>Out for Delivery</li>
+                                    <li className={`step ${order?.status == 'Out for Delivery' && 'step-primary'} `}>
+                                        
+                                        Out for Delivery
+                                        
+                                        </li>
 
-                                    <li className={`step `}>Delevared</li>
+                                    <li className={`step `}>
+                                        
+                                        Delevared
+                                        </li>
+                                </ul> */}
+                                <ul className="steps steps-horizontal py-3 px-7 font-semibold text-sm leading-7 pt-11 ">
+                                    <li className="step step-primary relative ">
+                                        <span className="">Waiting for confirmation</span>
+                                    </li>
+
+                                    <li className={`step relative ${(order?.status === 'Payment successful' || order?.status === 'Out for Delivery') ? 'step-primary' : ''}`}>
+                                        <span className="absolute inset-x-0 -top-12">Payment successful</span>
+                                    </li>
+
+                                    <li className={`step relative ${order?.status === 'Out for Delivery' ? 'step-primary' : ''}`}>
+                                        <span className="">Out for Delivery</span>
+                                    </li>
+
+                                    <li className="step relative">
+                                        <span className="absolute  inset-x-0 -top-6">Delivered</span>
+                                    </li>
                                 </ul>
+
+
+                                {/* <ul className="flex space-x-4">
+      <li className="relative flex-1 text-center">
+        <span className="absolute inset-x-0 -bottom-6">Register</span>
+        <div className="step step-primary w-full h-4 bg-blue-500"></div>
+      </li>
+      <li className="relative flex-1 text-center">
+        <span className="absolute inset-x-0 -top-6">Choose plan</span>
+        <div className="step step-primary w-full h-4 bg-blue-500"></div>
+      </li>
+      <li className="relative flex-1 text-center">
+        <span className="absolute inset-x-0 -bottom-6">Purchase</span>
+        <div className="step w-full h-4 bg-gray-300"></div>
+      </li>
+      <li className="relative flex-1 text-center">
+        <span className="absolute inset-x-0 -top-6">Receive Product</span>
+        <div className="step w-full h-4 bg-gray-300"></div>
+      </li>
+    </ul> */}
 
 
                             </div>
@@ -173,7 +225,7 @@ const Orders = () => {
                 {
                     userOrderHistory.map(order =>
 
-                        <div key={order._id} className="main-box border border-gray-200 rounded-xl pt-6 max-w-xl max-lg:mx-auto lg:max-w-full my-20">
+                        <div key={order._id} className="main-box border border-indigo-900 bg-white  pb-2 rounded-xl pt-6 max-w-xl max-lg:mx-auto lg:max-w-full my-20">
 
                             <div
                                 className="flex flex-col lg:flex-row lg:items-center justify-between px-6 pb-6 border-b border-gray-200">
@@ -187,19 +239,44 @@ const Orders = () => {
                                     order.status == 'Cancel' ? <button
                                         className="rounded-full py-3 px-7 font-semibold text-sm leading-7 text-white bg-red-600 max-lg:mt-5 shadow-sm shadow-transparent transition-all duration-500 hover:bg-red-700 hover:shadow-red-400"> {order?.status}</button>
 
-                                        : <ul className="steps steps-horizontal py-3 px-7 font-semibold text-sm leading-7  max-lg:mt-5  ">
+                                        : <ul className="steps steps-horizontal py-3 px-7 font-semibold text-sm leading-7 pt-11 ">
                                             <li className='step step-primary' >waiting for confirmation</li>
 
-                                            <li className='step step-primary'>Payment successful</li>
+                                            <li className='step step-primary relative'>
+                                            <span className="absolute inset-x-0 -top-12">Payment successful</span>
+                                                </li>
 
                                             <li className='step step-primary'>Out for Delivery</li>
 
-                                            <li className='step step-primary'>Delevared</li>
+                                            <li className='step step-primary relative'>
+                                            <span className="absolute  inset-x-0 -top-6">Delivered</span>
+                                                
+                                                </li>
                                         </ul>
 
 
                                 }
 
+
+
+
+                                {/* <ul className="steps steps-horizontal py-3 px-7 font-semibold text-sm leading-7 pt-11 ">
+                                    <li className="step step-primary relative ">
+                                        <span className="">Waiting for confirmation</span>
+                                    </li>
+
+                                    <li className={`step relative ${(order?.status === 'Payment successful' || order?.status === 'Out for Delivery') ? 'step-primary' : ''}`}>
+                                        <span className="absolute inset-x-0 -top-12">Payment successful</span>
+                                    </li>
+
+                                    <li className={`step relative ${order?.status === 'Out for Delivery' ? 'step-primary' : ''}`}>
+                                        <span className="">Out for Delivery</span>
+                                    </li>
+
+                                    <li className="step relative">
+                                        <span className="absolute  inset-x-0 -top-6">Delivered</span>
+                                    </li>
+                                </ul> */}
 
 
 
@@ -307,43 +384,43 @@ const Orders = () => {
                 {
                     orders.length == 0 && userOrderHistory.length == 0 &&
                     <section className="py-16">
-                    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                      <div
-                        className="lg:py-14 lg:px-20 p-10 rounded-2xl bg-gradient-to-r from-green-600 to-red-600 flex items-center justify-between flex-col lg:flex-row"
-                      >
-                        <div className="block text-center mb-5 lg:text-left lg:mb-0">
-                          <h2
-                            className="font-manrope text-4xl text-white font-semibold mb-5 lg:mb-2"
-                          >
-                            You Don&#39;t Have any Order
-                          </h2>
-                          <p className="text-xl text-indigo-100">
-                            Continue to shopping with Magnetic Plus
-                          </p>
+                        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                            <div
+                                className="lg:py-14 lg:px-20 p-10 rounded-2xl bg-gradient-to-r from-green-600 to-red-600 flex items-center justify-between flex-col lg:flex-row"
+                            >
+                                <div className="block text-center mb-5 lg:text-left lg:mb-0">
+                                    <h2
+                                        className="font-manrope text-4xl text-white font-semibold mb-5 lg:mb-2"
+                                    >
+                                        You Don&#39;t Have any Order
+                                    </h2>
+                                    <p className="text-xl text-indigo-100">
+                                        Continue to shopping with Magnetic Plus
+                                    </p>
+                                </div>
+                                <Link
+                                    to="/shop"
+                                    className="flex items-center gap-2 bg-white rounded-full shadow-sm text-lg text-indigo-600 font-semibold py-4 px-8 transition-all duration-500"
+                                >Shop
+                                    <svg
+                                        width="19"
+                                        height="14"
+                                        viewBox="0 0 19 14"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M1.75 7L16.4167 7M11.8333 12.5L16.6852 7.64818C16.9907 7.34263 17.1435 7.18985 17.1435 7C17.1435 6.81015 16.9907 6.65737 16.6852 6.35182L11.8333 1.5"
+                                            stroke="#4F46E5"
+                                            strokeWidth="2.4"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        />
+                                    </svg>
+                                </Link>
+                            </div>
                         </div>
-                        <Link
-                          to="/shop"
-                          className="flex items-center gap-2 bg-white rounded-full shadow-sm text-lg text-indigo-600 font-semibold py-4 px-8 transition-all duration-500"
-                          >Shop
-                          <svg
-                            width="19"
-                            height="14"
-                            viewBox="0 0 19 14"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M1.75 7L16.4167 7M11.8333 12.5L16.6852 7.64818C16.9907 7.34263 17.1435 7.18985 17.1435 7C17.1435 6.81015 16.9907 6.65737 16.6852 6.35182L11.8333 1.5"
-                              stroke="#4F46E5"
-                              strokeWidth="2.4"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </Link>
-                      </div>
-                    </div>
-                  </section>
+                    </section>
                 }
 
 

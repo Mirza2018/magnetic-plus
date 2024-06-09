@@ -133,10 +133,6 @@ const UpdateItem = () => {
         }
 
 
-
-
-
-
     };
 
 
@@ -151,7 +147,7 @@ const UpdateItem = () => {
 
 
 
-            <form onSubmit={ProductData}>
+            <form onSubmit={ProductData} className="ps-10">
                 <div className="space-y-12">
                     <div className="border-b border-gray-900/10 pb-12">
                         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
