@@ -32,6 +32,7 @@ const Navbar2 = () => {
 
     const { user, logOut } = useContext(AuthContext)
     const [addToCart, againFetch] = useCart()
+    const axiosSecure=useAxiosSecure()
 
     againFetch()
  
@@ -55,7 +56,7 @@ const [isAdmin]=useAdmin()
 
 
         <div className="min-h-full">
-            <Disclosure as="nav" className="bg-gradient-to-r from-green-600 via-green-500 to-red-400">
+            <Disclosure as="nav" className="bg-gradient-to-r from-green-300 to-red-300">
                 {({ open }) => (
                     <>
                         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -68,7 +69,7 @@ const [isAdmin]=useAdmin()
                                                 src={logo}
                                                 alt="Magnetic plus"
                                             />
-                                            <p className='ps-2 text-2xl font-semibold text-white font-sans'> Magnetic Plus</p>
+                                            <p className='ps-2 text-2xl font-semibold  opacity-80 '> Magnetic Plus</p>
                                         </Link>
 
                                     </div>
