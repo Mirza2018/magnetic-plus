@@ -63,13 +63,13 @@ const SearchBar = () => {
     return (
         <nav className="p-4 flex justify-center items-center relative bg-white">
             <form onSubmit={handleSearch} className="flex items-center relative" ref={searchRef}>
-                <label className="input input-bordered input-info flex items-center gap-2">
+                <label className="input  input-info flex items-center gap-2">
                     <input
                         type="text"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         placeholder="Search Product . . ."
-                        className="input w-full max-w-xs"
+                        className="input  max-w-xs"
                         ref={inputRef}
                     />
                     <kbd className="kbd kbd-sm">Ctrl</kbd>

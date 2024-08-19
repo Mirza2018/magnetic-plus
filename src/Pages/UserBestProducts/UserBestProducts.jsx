@@ -3,10 +3,11 @@ import useAxiousPublic from '../../Hooks/useAxiousPublic';
 import { useQuery } from '@tanstack/react-query';
 import useItems from '../../Hooks/useItems';
 import FeaturedProducts from '../FeaturedProducts/FeaturedProducts';
+import LoadingOverlay from '../LoadingOverlay/LoadingOverlay';
 
 const UserBestProducts = () => {
     const axiousPublic = useAxiousPublic()
-    const [items] = useItems()
+    const [items,refetch, loading] = useItems()
 
     const { data: bestProducts = [] } =
         useQuery({
@@ -29,6 +30,11 @@ const UserBestProducts = () => {
 
         })
     })
+
+    if (items.length == 0) {
+        refetch()
+        return <LoadingOverlay loading={loading} />
+    }
     return (
         <div>
             <div className="text-center max-w-screen-2xl container mx-auto xl:px-28 px-10 mt-10">

@@ -46,8 +46,8 @@ const useItems = () => {
             const res = await axiousPublic.get("/items");
             return res.data;
         },
-        staleTime: 1000 * 60 * 5, // 5 minutes
-        cacheTime: 1000 * 60 * 10, // 10 minutes
+        // staleTime:  1, // 5 minutes
+        // cacheTime:  10, // 10 minutes
     });
 
 

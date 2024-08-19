@@ -4,10 +4,11 @@ import useItems from '../../../Hooks/useItems';
 import ProductsCheckBox from '../ProductsCheckBox/ProductsCheckBox';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import LoadingOverlay from '../../LoadingOverlay/LoadingOverlay';
 
 
 const TopSelling = () => {
-    const [items] = useItems()
+    const [items,refetch, loading] = useItems()
     const axiosSecure = useAxiosSecure()
     const ProductData = async (e) => {
         e.preventDefault();
@@ -38,6 +39,11 @@ const TopSelling = () => {
                         })
                     }
                 })
+    }
+
+    if (items.length == 0) {
+        refetch()
+        return <LoadingOverlay loading={loading} />
     }
 
 

@@ -64,19 +64,18 @@ const FeaturedProducts = ({ products }) => {
                     className="mySwiper"
                 >
 
-                    <section className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4  justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+                    <section className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4  justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5 ">
                         {
                             items.map((item) => (
                                 <SwiperSlide key={item._id}>
 
-
-                                    
-                                        <div  onClick={()=>handleNavigation(item._id)}>
+                                        <div className='relative'  onClick={()=>handleNavigation(item._id)}>
                                             <img
                                                 src={item.img}
                                                 alt={item.name}
-                                                className="mx-auto w-full hover:scale-105 transition-all duration-300 h-80  object-cover rounded-t-xl"
+                                                className="mx-auto w-full hover:scale-105 transition-all duration-300 h-80  object-cover rounded-t-xl  "
                                             />
+                                             <p className="bg-white font-medium font-sans text-black top-0 absolute right-0 px-4 mt-4 mr-4 p-1 rounded  ">{"\u09F3"}{item.price}</p>
                                         </div>
 
 
@@ -85,9 +84,13 @@ const FeaturedProducts = ({ products }) => {
                                             <h4 className="text-base font-semibold mb-2">Name: <span className='font-bold'>{item.name}</span></h4>
 
                                             <div className="flex justify-between">
-                                                <p className="text-black/50"> Category:{item.categories[0]}</p>
-                                                <p className="font-semibold">{"\u09F3"}{item.price}</p>
+                                                {/* <p className="text-black/50"> Category:{item.categories[0]}</p> */}
+                                               
                                             </div>
+                                            <div className='text-center pb-11'>
+                                                  <button className='bg-teal-600 btn text-white'>Buy Now</button>
+                                            </div>
+                                          
                                         </div>
 
                                   

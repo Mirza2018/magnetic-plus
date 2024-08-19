@@ -65,9 +65,9 @@ const Categories = () => {
               categories.map((category) => (
                 <SwiperSlide key={category.name}>
                   {/* <Link to={`${category.name}`}> */}
-                    <div  onClick={()=>handleNavigation(category.name)} className="bg-white shadow-lg rounded-xl overflow-hidden transform transition-transform hover:scale-105 ">
+                    <div  onClick={()=>handleNavigation(category.name)} className="bg-teal-600 shadow-lg rounded-xl overflow-hidden transform transition-transform hover:scale-105 ">
                        <div className="p-4">
-                        <h4 className="text-xl font-bold text-pink-500 text-center">
+                        <h4 className="text-xl font-bold text-white text-center">
                           {category?.name}
                         </h4>
                       </div>

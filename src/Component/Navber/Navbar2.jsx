@@ -15,7 +15,7 @@ import { FaRegCircleUser, FaXmark } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../Providers/AuthProvider';
 
-import logo from '../../assets/logo.jpg'
+import logo from '../../assets/logo2.png'
 
 import useCart from '../../Hooks/useCart';
 
@@ -56,7 +56,7 @@ const [isAdmin]=useAdmin()
 
 
         <div className="min-h-full">
-            <Disclosure as="nav" className="bg-gradient-to-r from-green-300 to-red-300">
+            <Disclosure as="nav" className="bg-white">
                 {({ open }) => (
                     <>
                         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -65,11 +65,11 @@ const [isAdmin]=useAdmin()
                                     <div className="flex-shrink-0">
                                         <Link to='/' className='flex items-center'>
                                             <img
-                                                className="h-10 w-10 rounded-full"
+                                                className="h-10 "
                                                 src={logo}
                                                 alt="Magnetic plus"
                                             />
-                                            <p className='ps-2 text-2xl font-semibold  opacity-80 '> Magnetic Plus</p>
+                                            {/* <p className='ps-2 text-2xl font-semibold  opacity-80 '> Magnetic Plus</p> */}
                                         </Link>
 
                                     </div>
