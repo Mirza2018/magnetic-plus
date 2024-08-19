@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 
-const cart = () => {
+const Cart = () => {
     const { user } = useContext(AuthContext)
     const axiosSecure = useAxiosSecure();
     const [addToCart, againFetch] = useCart()
@@ -123,90 +123,7 @@ const cart = () => {
     }
 
     return (
-        // <div>
-        //     <div className="flex lg:justify-evenly justify-evenly sm:flex-col">
-
-        //         <h2 className="text-4xl sm:m-4 sm:text-2xl">
-        //             Total Item: {addToCart.length} Items
-        //         </h2>
-        //         <h2 className="text-4xl  sm:m-4 sm:text-2xl">
-        //             Total Price:{totalPrice} Tk
-        //         </h2>
-        //         <button className="btn btn-primary  sm:btn-sm" onClick={handleOrder}>Order</button>
-        //     </div>
-
-
-
-
-        //     <div className="overflow-x-auto mb-8">
-        //         <table className="table">
-        //             {/* head */}
-        //             <thead>
-        //                 <tr>
-        //                     {/* <th>
-        //                         <label>
-        //                             <input type="checkbox" className="checkbox" />
-        //                         </label>
-        //                     </th> */}
-        //                     <th>#</th>
-        //                     <th>Name</th>
-        //                     <th className="sm:invisible">price</th>
-        //                     <th className="sm:invisible">Quantity</th>
-        //                     <th>Total</th>
-        //                     <th>delete</th>
-        //                     <th></th>
-        //                 </tr>
-        //             </thead>
-        //             <tbody>
-        //                 {
-        //                     addToCart.map((item, index) =>
-        //                         <tr key={item._id}>
-        //                             {/* <th>
-        //                         <label>
-        //                             <input type="checkbox" className="checkbox" />
-        //                         </label>
-        //                     </th> */}
-        //                             <th>{index + 1}</th>
-        //                             <th>
-
-        //                                 <div className="flex items-center gap-3">
-        //                                     <div className="avatar">
-        //                                         <div className="mask mask-squircle w-12 h-12">
-        //                                             <img src={item.img} />
-        //                                         </div>
-        //                                     </div>
-        //                                     <div>
-        //                                         <div className="font-bold">{item.name}</div>
-
-        //                                     </div>
-        //                                 </div>
-        //                             </th>
-
-
-        //                             <td className="sm:invisible">{item.price} Tk</td>
-        //                             <td className="sm:invisible">{item?.quantity} Pcs</td>
-        //                             <td >
-        //                                 {item.price} * {item?.quantity}={item.price * item?.quantity} Tk
-        //                             </td>
-
-
-
-        //                             <th>
-        //                                 <button
-        //                                     onClick={() => handleDelete(item._id)}
-        //                                     className="btn btn-ghost btn-lg text-red-600"><FaTrashAlt /></button>
-        //                             </th>
-        //                         </tr>
-        //                     )
-        //                 }
-
-        //             </tbody>
-
-
-        //         </table>
-        //     </div>
-
-        // </div>
+  
         <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto bg-slate-200 container mt-32">
             <h2 className="font-manrope font-bold text-4xl leading-10 text-black text-center py-10">
                 <step className="text-green-500">Magnetic </step>
@@ -334,4 +251,4 @@ const cart = () => {
 
 };
 
-export default cart;
+export default Cart;

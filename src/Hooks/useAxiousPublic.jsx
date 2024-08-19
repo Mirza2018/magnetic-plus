@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiousPublic =axios.create({
-    baseURL:'https://magnetic-plus-server.onrender.com/'
+    baseURL:'http://localhost:5000/'
 })
  
 const useAxiousPublic = () => {

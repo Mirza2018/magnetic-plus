@@ -62,22 +62,95 @@ const SingleProductPage = ({ id, item }) => {
             refetch();
           }
         });
-    } else {
-      Swal.fire({
-        title: 'You are not Logged In',
-        text: 'Please login to add to cart',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, Login!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate('/login', { state: { from: location } });
+    } 
+    
+    
+    
+    else {
+      // Swal.fire({
+      //   title: 'You are not Logged In',
+      //   text: 'Please login to add to cart',
+      //   icon: 'warning',
+      //   showCancelButton: true,
+      //   confirmButtonColor: '#3085d6',
+      //   cancelButtonColor: '#d33',
+      //   confirmButtonText: 'Yes, Login!'
+      // }).then((result) => {
+      //   if (result.isConfirmed) {
+      //     navigate('/login', { state: { from: location } });
+      //   }
+      // });
+
+
+let myCart = [{
+  ItemId: item._id,
+  quantity // Include quantity in the addToCart object
+}];
+
+
+const local=localStorage.getItem('myCart')
+
+if(local){
+  
+  let localParse=JSON.parse(local)
+
+
+  let outherItems=localParse.filter((i)=>i.ItemId!==item._id) 
+
+  let existingItem=localParse.find((i)=>i.ItemId===item._id)
+
+
+    if(existingItem){
+     
+
+        let existingItemQuantityAdd={
+          ItemId: item._id,
+          quantity:existingItem.quantity + quantity
         }
-      });
+
+
+
+
+  let FinalList=[...outherItems,existingItemQuantityAdd]
+
+
+
+    localStorage.setItem("myCart",JSON.stringify(FinalList));
+ 
+      }
+      
+      else{
+
+        let FinalList=[...localParse,{
+          ItemId: item._id,quantity}]
+
+
+    
+
+    localStorage.setItem("myCart",JSON.stringify(FinalList));
+
+      }
+  
+
+}
+else{
+
+  
+  console.log(3);
+
+  localStorage.setItem("myCart",JSON.stringify(myCart));
+}
+
+
+
+
     }
   };
+
+
+
+
+
 
   return (
     <div>

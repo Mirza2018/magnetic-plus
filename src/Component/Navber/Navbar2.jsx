@@ -65,7 +65,7 @@ const [isAdmin]=useAdmin()
                                     <div className="flex-shrink-0">
                                         <Link to='/' className='flex items-center'>
                                             <img
-                                                className="h-10 "
+                                                className="h-14 "
                                                 src={logo}
                                                 alt="Magnetic plus"
                                             />

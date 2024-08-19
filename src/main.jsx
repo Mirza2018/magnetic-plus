@@ -16,7 +16,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import Dashboard from './Layout/Dashboard.jsx';
-import Cart from './Pages/Dashboard/Cart/cart.jsx'
+import Cart from './Pages/Dashboard/Cart/Cart.jsx'
 import Allusers from './Pages/Dashboard/AllUsers/Allusers.jsx';
 import AddItems from './Pages/Dashboard/AddItems/AddItems.jsx';
 import AdminRoute from './route/AdminRoute.jsx';
@@ -71,7 +71,11 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <ErrorPage /> 
-      }
+      },
+      {
+        path:'/dashboard/cart',
+        element:<Cart></Cart>
+      },
       
     ]
   },
@@ -127,11 +131,13 @@ const router = createBrowserRouter([
       {
         path:'updateItem/:id',
         element:<AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
-        loader:({params})=>fetch(`https://magnetic-plus-server.onrender.com/item/${params.id}`)
+        loader:({params})=>fetch(`http://localhost:5000/item/${params.id}`)
       },
     ]
   }
 ]);
+
+// http://localhost:5000
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
