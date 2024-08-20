@@ -30,6 +30,87 @@ const FeaturedProducts = ({ products }) => {
       };
 
 
+      const handlesingle=(id)=>{
+        console.log(id);
+
+
+
+
+
+
+let myCart = [{
+  ItemId: id,
+  quantity:1 // Include quantity in the addToCart object
+}];
+
+
+const local=localStorage.getItem('myCart')
+
+if(local){
+  
+  let localParse=JSON.parse(local)
+
+
+  let outherItems=localParse.filter((i)=>i.ItemId!==id) 
+
+  let existingItem=localParse.find((i)=>i.ItemId===id)
+
+
+    if(existingItem){
+     
+
+        let existingItemQuantityAdd={
+          ItemId: id,
+          quantity:existingItem.quantity + 1
+        }
+  let FinalList=[...outherItems,existingItemQuantityAdd]
+
+
+
+    localStorage.setItem("myCart",JSON.stringify(FinalList));
+ 
+      }
+      
+      else{
+
+        let FinalList=[...localParse,{
+          ItemId: id,quantity:1}]
+
+
+    
+
+    localStorage.setItem("myCart",JSON.stringify(FinalList));
+
+      }
+  
+
+}
+else{
+
+  
+  console.log(3);
+
+  localStorage.setItem("myCart",JSON.stringify(myCart));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        navigate("/cart");
+        window.scrollTo(0, 0);
+        
+      }
+
     return (
         <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4">
             
@@ -88,7 +169,7 @@ const FeaturedProducts = ({ products }) => {
                                                
                                             </div>
                                             <div className='text-center pb-11'>
-                                                  <button className='bg-teal-600 btn text-white'>Buy Now</button>
+                                                  <button onClick={()=>handlesingle(item._id)} className='bg-teal-600 btn text-white hover:scale-105 hover:bg-teal-500 transition duration-300 ' >Buy Now</button>
                                             </div>
                                           
                                         </div>

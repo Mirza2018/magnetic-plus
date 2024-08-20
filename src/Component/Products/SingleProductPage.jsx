@@ -67,19 +67,7 @@ const SingleProductPage = ({ id, item }) => {
     
     
     else {
-      // Swal.fire({
-      //   title: 'You are not Logged In',
-      //   text: 'Please login to add to cart',
-      //   icon: 'warning',
-      //   showCancelButton: true,
-      //   confirmButtonColor: '#3085d6',
-      //   cancelButtonColor: '#d33',
-      //   confirmButtonText: 'Yes, Login!'
-      // }).then((result) => {
-      //   if (result.isConfirmed) {
-      //     navigate('/login', { state: { from: location } });
-      //   }
-      // });
+  
 
 
 let myCart = [{
@@ -107,10 +95,6 @@ if(local){
           ItemId: item._id,
           quantity:existingItem.quantity + quantity
         }
-
-
-
-
   let FinalList=[...outherItems,existingItemQuantityAdd]
 
 
