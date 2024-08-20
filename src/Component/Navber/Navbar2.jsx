@@ -89,6 +89,9 @@ const [isAdmin]=useAdmin()
                                             <Link to='/aboutUs' className='text-black font-bold hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm '>
                                             Contact Us
                                             </Link>
+                                            <Link to='/cart' className='text-black font-bold hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm '>
+                                            Cart
+                                            </Link>
 
 
                                         </div>

@@ -34,6 +34,7 @@ import OrderHistory from './Pages/Dashboard/OrderHistory/OrderHistory.jsx';
 import AdminHome from './Pages/AdminHome/AdminHome.jsx';
 import AboutUs from './Component/AboutUs/AboutUs.jsx';
 import ErrorPage from './Pages/ErrorPage/ErrorPage.jsx';
+import CartWithOutLogIn from './Pages/Dashboard/Cart/CartWithOutLogIn.jsx';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -73,8 +74,8 @@ const router = createBrowserRouter([
         element: <ErrorPage /> 
       },
       {
-        path:'/dashboard/cart',
-        element:<Cart></Cart>
+        path:'/cart',
+        element:<CartWithOutLogIn/>
       },
       
     ]
