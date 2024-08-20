@@ -117,10 +117,10 @@ console.log(isAdmin);
                                     ) : (
                                         <div className="hidden md:block">
                                             <div className="ml-4 flex items-center md:ml-6">
-                                                <Link to="dashboard/cart">
-                                                    <button className="btn">
-                                                        <FaShoppingCart className="h-6 w-6" aria-hidden="true" />
-                                                        <div className="badge badge-secondary">+{addToCart.length}</div>
+                                                <Link to="dashboard/cart" >
+                                                    <button className="btn bg-transparent hover:bg-slate-100 border-stone-300 outline-none">
+                                                        <FaShoppingCart className="h-6 w-6 text-black" aria-hidden="true" />
+                                                        <div className="badge badge-secondary text-white">+{addToCart.length}</div>
                                                     </button>
                                                 </Link>
                                                 <Menu as="div" className="relative ml-3">
@@ -155,9 +155,9 @@ console.log(isAdmin);
                                 ) : (
                                     <>
                                         <Link to="/cart">
-                                            <button className="btn">
-                                                <FaShoppingCart className="h-6 w-6" aria-hidden="true" />
-                                                <div className="badge badge-secondary">+{localItemLength.length || 0}</div>
+                                            <button className="btn bg-transparent hover:bg-slate-100 border-stone-300 outline-none ">
+                                                <FaShoppingCart className="h-6 w-6 text-black" aria-hidden="true" />
+                                                <div className="badge badge-secondary text-white">+{localItemLength.length || 0}</div>
                                             </button>
                                         </Link>
                                         <Link to="/Login" className="text-black font-bold hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm hidden md:block">
@@ -190,7 +190,315 @@ console.log(isAdmin);
                                     Contact Us
                                 </DisclosureButton>
                             </div>
+
+
+
+
+                            {
+
+
+
+user ?
+
+    (isAdmin ?
+
+
+
+
+
+        <div className="border-t border-gray-700 pb-3 pt-4 bg-white text-black">
+
+            <div className="flex items-center px-5">
+
+                <div className="flex-shrink-0">
+
+                    {user?.photoURL ? <img className="h-10 w-10 rounded-full" src={user?.photoURL} alt="" /> : <FaRegCircleUser className="h-10 w-10 rounded-full" />}
+
+
+
+                </div>
+
+                <div className="ml-3">
+
+                    <div className="text-base font-medium leading-none text-blue-600">{user?.displayName}</div>
+
+                    <div className="text-sm font-medium leading-none text-blue-600 pt-2">{user?.email}</div>
+
+                </div>
+
+
+
+
+
+                <Link className='relative ml-auto flex-shrink-0 ' to='dashboard/manageOrders'>
+
+                    <button className="btn relative ml-auto flex-shrink-0 ">
+
+                        <span className="absolute -inset-1.5" />
+
+                        <FaCartPlus className="h-6 w-6" aria-hidden="true" />
+
+                        <div className="badge badge-secondary">+{allOrders.length}</div>
+
+                    </button>
+
+                </Link>
+
+            </div>
+
+
+
+
+
+
+
+            <div className="mt-3 space-y-1 px-2 ">
+
+
+
+
+
+                <DisclosureButton className="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-700 hover:text-white">
+
+                    <Link to='/dashboard/adminHome'  >
+
+                        Admin Home
+
+                    </Link>
+
+                </DisclosureButton>
+
+
+
+                <DisclosureButton className="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-700 hover:text-white">
+
+                    <Link to='dashboard/manageOrders' >
+
+                        Manage Orders
+
+                    </Link>
+
+                </DisclosureButton>
+
+
+
+                <DisclosureButton className="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-700 hover:text-white">
+
+                    <Link to='/dashboard/manageItems' >
+
+                        Manage Items
+
+                    </Link>
+
+                </DisclosureButton>
+
+
+
+                <DisclosureButton className="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-700 hover:text-white">
+
+                    <Link to='/dashboard/addItems' >
+
+                        Add Items
+
+                    </Link>
+
+                </DisclosureButton>
+
+
+
+                <DisclosureButton className="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-700 hover:text-white">
+
+                    <Link to='/dashboard/allUsers' >
+
+                        All Users
+
+                    </Link>
+
+                </DisclosureButton>
+
+
+
+
+
+                <DisclosureButton className="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-700 hover:text-white">
+
+                    <a onClick={() => { logOut() }} >
+
+                        Log out
+
+                    </a>
+
+                </DisclosureButton>
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+        :
+
+        <div className="border-t border-gray-700 pb-3 pt-4 bg-white text-black">
+
+            <div className="flex items-center px-5">
+
+                <div className="flex-shrink-0">
+
+                    {user?.photoURL ? <img className="h-10 w-10 rounded-full" src={user?.photoURL} alt="" /> : <FaRegCircleUser className="h-10 w-10 rounded-full" />}
+
+
+
+                </div>
+
+                <div className="ml-3">
+
+                    <div className="text-base font-medium leading-none text-blue-600">{user?.displayName}</div>
+
+                    <div className="text-sm font-medium leading-none text-blue-600 pt-2">{user?.email}</div>
+
+                </div>
+
+
+
+
+
+                <Link className='relative ml-auto flex-shrink-0 ' to='dashboard/cart'>
+
+                    <button className="btn relative ml-auto flex-shrink-0 bg-transparent hover:bg-slate-100 border-stone-300 outline-none">
+
+                        <span className="absolute -inset-1.5" />
+
+                        <FaShoppingCart className="h-6 w-6 text-black" aria-hidden="true" />
+
+                        <div className="badge badge-secondary text-white">+{addToCart.length}</div>
+
+                    </button>
+
+                </Link>
+
+            </div>
+
+
+
+
+
+
+
+            <div className="mt-3 space-y-1 px-2 ">
+
+
+
+
+
+                <DisclosureButton className="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-700 hover:text-white">
+
+                    <Link to='dashboard/cart'>
+
+                        Shooping Cart
+
+                    </Link>
+
+                </DisclosureButton>
+
+
+
+                <DisclosureButton className="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-700 hover:text-white">
+
+                    <Link to='dashboard/orders'>
+
+                        Orders
+
+                    </Link>
+
+                </DisclosureButton>
+
+
+
+                <DisclosureButton className="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-700 hover:text-white">
+
+                    <Link to='' onClick={() => { logOut() }} >
+
+                        Log out
+
+                    </Link>
+
+                </DisclosureButton>
+
+
+
+            </div>
+
+        </div>) :
+
+    <div className="border-t border-gray-700 pb-3 pt-4 bg-white text-black">
+
+
+
+        <div className="mt-3 space-y-1 px-2 ">
+
+            <DisclosureButton className="block rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-700 hover:text-white">
+
+                <Link to='/logIn' >
+
+                    Login
+
+                </Link>
+
+            </DisclosureButton>
+
+        </div>
+
+    </div>
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         </DisclosurePanel>
+                        
                     </>
                 )}
             </Disclosure>

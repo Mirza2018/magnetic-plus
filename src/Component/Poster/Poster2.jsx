@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Poster2 = () => {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-r from-green-200 to-red-200 text-white py-20">
+    <div className="relative overflow-hidden bg-gradient-to-r from-red-100 to-green-200 text-white py-20">
       <div className="pt-16 pb-32 sm:pt-24 sm:pb-32 lg:pt-32 lg:pb-32 md:mx-10 mx-auto">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="sm:max-w-lg">
@@ -47,7 +47,8 @@ const Poster2 = () => {
                 </div>
               </div>
 
-              <Link to="/shop" className="inline-block rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-center font-medium text-white hover:bg-indigo-500 transition duration-300 transform hover:scale-105">Shop Now</Link>
+              <Link to="/shop" className="inline-block rounded-md border border-transparent bg-teal-600 py-3 px-8 text-center font-medium text-white hover:bg-teal-500 transition duration-300 transform hover:scale-105">Shop Now</Link>
+              
             </div>
           </div>
         </div>

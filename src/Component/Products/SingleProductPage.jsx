@@ -132,12 +132,80 @@ else{
 
 
     }
+
+
+
   };
 
-  const handlesingle=(id)=>{
-console.log(id);
+  const handlesingle=()=>{
+   
 
-  }
+    
+    
+
+  
+
+
+let myCart = [{
+  ItemId: item._id,
+  quantity // Include quantity in the addToCart object
+}];
+
+
+const local=localStorage.getItem('myCart')
+
+if(local){
+  
+  let localParse=JSON.parse(local)
+
+
+  let outherItems=localParse.filter((i)=>i.ItemId!==item._id) 
+
+  let existingItem=localParse.find((i)=>i.ItemId===item._id)
+
+
+    if(existingItem){
+     
+
+        let existingItemQuantityAdd={
+          ItemId: item._id,
+          quantity:existingItem.quantity + quantity
+        }
+  let FinalList=[...outherItems,existingItemQuantityAdd]
+
+
+  setLocalItemLength(FinalList)
+    localStorage.setItem("myCart",JSON.stringify(FinalList));
+ 
+      }
+      
+      else{
+
+        let FinalList=[...localParse,{
+          ItemId: item._id,quantity}]
+
+
+    
+          setLocalItemLength(FinalList)
+    localStorage.setItem("myCart",JSON.stringify(FinalList));
+
+      }
+  
+
+}
+else{
+
+  
+  console.log(3);
+  setLocalItemLength(myCart)
+  localStorage.setItem("myCart",JSON.stringify(myCart));
+}
+  
+            
+            navigate("/cart");
+            window.scrollTo(0, 0);
+            
+          }
 
 
 
@@ -189,7 +257,7 @@ console.log(id);
       <div className="flex items-center border-2 border-green-100 rounded-full overflow-hidden justify-center mx-4">
 
         <button 
-          className="w-full h-full  flex items-center justify-center hover:bg-green-300"
+          className="w-full h-full  flex items-center justify-center hover:bg-red-300"
           onClick={decrement}
         >
           <AiOutlineMinus />
@@ -218,7 +286,7 @@ console.log(id);
       <span>Add To Cart</span></button>
                                        
 
- <div className='col-span-2 lg:col-span-1 '><button onClick={()=>handlesingle(item._id)} className='bg-teal-600 btn  border-none text-white hover:scale-105 hover:bg-teal-500 transition duration-300 ' >Buy Now</button></div>
+ <div className='col-span-2 lg:col-span-1 '><button onClick={handlesingle} className='bg-teal-600 btn  border-none text-white hover:scale-105 hover:bg-teal-500 transition duration-300 ' >Buy Now</button></div>
                                                   
                                        
     </div>

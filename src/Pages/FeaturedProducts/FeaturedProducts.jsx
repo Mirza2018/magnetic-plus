@@ -40,13 +40,7 @@ const FeaturedProducts = ({ products }) => {
 
 
       const handlesingle=(id)=>{
-        console.log(id);
-
-
-
-
-
-
+   
 let myCart = [{
   ItemId: id,
   quantity:1 // Include quantity in the addToCart object
@@ -179,7 +173,7 @@ else{
                                                
                                             </div>
                                             <div className='text-center pb-11'>
-                                                  <button onClick={()=>handlesingle(item._id)} className='bg-teal-600 btn text-white hover:scale-105 hover:bg-teal-500 transition duration-300 ' >Buy Now</button>
+                                                  <button onClick={()=>handlesingle(item._id)} className='bg-teal-600 btn text-white hover:scale-105 hover:bg-teal-500 transition duration-300 border-none' >Buy Now</button>
                                             </div>
                                           
                                         </div>

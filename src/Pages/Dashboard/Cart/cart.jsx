@@ -153,7 +153,7 @@ const Cart = () => {
                                         </div>
 
                                         <div className=" flex justify-end">
-                                            <button className=" py-3 px-5 rounded-full  bg-indigo-100 text-indigo-600 dark:text-white  text-lg font-semibold transition-all duration-500 hover:bg-indigo-300 ease-in-out flex gap-2 justify-center items-center mt-4" onClick={handleOrder}>Order Now</button>
+                                            <button className="bg-teal-600 btn text-white hover:scale-105 hover:bg-teal-500 transition duration-300  border-none mt-2" onClick={handleOrder}>Order Now</button>
                                         </div>
 
                                     </div>

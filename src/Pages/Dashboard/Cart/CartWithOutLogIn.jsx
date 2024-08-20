@@ -3,12 +3,12 @@ import useItems from "../../../Hooks/useItems";
 import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAxiousPublic from "../../../Hooks/useAxiousPublic";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 
 const CartWithOutLogIn = () => {
+    const { user } = useContext(AuthContext)
     const [items, refetch, loading] = useItems()
 
 const [itemLists,setItemLists]=useState([])
@@ -72,7 +72,9 @@ const handleOrder=async ()=>{
                 padding: 12px;
                 border: 1px solid #ccc;
                 border-radius: 4px;
-                resize: vertical;"></input>
+                resize: vertical;
+                background-color: white; color: black;
+                "></input>
 
 
                 <p style="margin-top: 20px; font-size: 1.25rem; font-weight: 600; display: flex; justify-content: flex-start;">Phone No (ফোন নাম্বার) </p>
@@ -81,7 +83,7 @@ const handleOrder=async ()=>{
                 padding: 12px;
                 border: 1px solid #ccc;
                 border-radius: 4px;
-                resize: vertical;">
+                resize: vertical;background-color: white; color: black;">
 
                 
         
@@ -91,7 +93,7 @@ const handleOrder=async ()=>{
                 padding: 12px;
                 border: 1px solid #ccc;
                 border-radius: 4px;
-                resize: vertical;"></input>
+                resize: vertical;background-color: white; color: black;"></input>
         
              
         
@@ -102,7 +104,7 @@ const handleOrder=async ()=>{
                 padding: 12px;
                 border: 1px solid #ccc;
                 border-radius: 4px;
-                resize: vertical;"></textarea>
+                resize: vertical;background-color: white; color: black;"></textarea>
                       </div>
 
 
@@ -132,7 +134,7 @@ const handleOrder=async ()=>{
 if (mobileNumber.length == 14 && deliveryAddress.length > 7) {
 
     const orderDetails = {
-        email: "WithOut LogIn Order", name: name, orderItems: itemLists,
+        email: user?.email || "WithOut LogIn Order", name: name, orderItems: itemLists,
         mobileNumber, deliveryAddress, date, totalPrice, status: "waiting for confirmation",info
     }
     // console.log(orderDetails);
@@ -260,7 +262,7 @@ const handleDelete=(id)=>{
                                     </div>
 
                                     <div className=" flex justify-end">
-                                        <button className=" py-3 px-5 rounded-full  bg-indigo-100 text-indigo-600 dark:text-white  text-lg font-semibold transition-all duration-500 hover:bg-indigo-300 ease-in-out flex gap-2 justify-center items-center mt-4" onClick={handleOrder}>Order Now</button>
+                                        <button className="bg-teal-600 btn text-white hover:scale-105 hover:bg-teal-500 transition duration-300  border-none mt-2" onClick={handleOrder}>Order Now</button>
                                     </div>
 
                                 </div>

@@ -21,13 +21,18 @@ const Poster = () => {
                             </h1>
                             <p className="mt-4 text-base lg:mt-8 sm:text-xl text-blue-600">আলোয় সাজুক ঘর</p>
 
+
+
+
+
+
+                          
                             <Link
                                 to="shop"
                                 title=""
-                                className="inline-flex items-center px-6 py-4 mt-8 font-semibold text-black transition-transform duration-200 bg-green-300 rounded-full lg:mt-16 hover:bg-green-400 focus:bg-green-400 transform hover:scale-105"
-                                role="button"
-                            >
-                                Shop Now
+                                className="bg-teal-600 btn text-white hover:scale-105 hover:bg-teal-500 transition duration-300  border-none p-3 m-4"
+                            >  Shop Now
+                            
                                 <svg
                                     className="w-6 h-6 ml-8 -mr-2"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +46,7 @@ const Poster = () => {
 
                             <p className="mt-5 text-gray-600">
                                 Already joined with us?
-                                <Link to="/login" title="" className="text-black transition-all duration-200 hover:underline"> Log in</Link>
+                                <Link to="/login" title="" className="text-blue-500 transition-all duration-200 hover:underline"> Log in</Link>
                             </p>
                         </div>
 

@@ -63,20 +63,21 @@ const SearchBar = () => {
     return (
         <nav className="p-4 flex justify-center items-center relative bg-white">
             <form onSubmit={handleSearch} className="flex items-center relative" ref={searchRef}>
-                <label className="input  input-info flex items-center gap-2">
+                <label className="input  bg-white border-black flex items-center gap-2">
+                    {/* <FcSearch className="text-2xl" /> */}
                     <input
                         type="text"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         placeholder="Search Product . . ."
-                        className="input  max-w-xs"
+                        className="input text-black max-w-xs"
                         ref={inputRef}
                     />
-                    <kbd className="kbd kbd-sm">Ctrl</kbd>
-                    <kbd className="kbd kbd-sm">S</kbd>
+                    <kbd className="kbd kbd-sm bg-gray-200 border-gray-400 text-black">Ctrl</kbd>
+                    <kbd className="kbd kbd-sm bg-gray-200 border-gray-400 text-black">S</kbd>
                 </label>
-                <button type="submit" className="btn btn-ghost btn-info">
-                    <FcSearch className="text-2xl" />
+                <button type="submit" className="">
+                    
                 </button>
                 {showResults && (
                     <ul className="absolute top-full mt-2 w-full bg-white border rounded-md z-10">

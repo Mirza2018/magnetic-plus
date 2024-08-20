@@ -127,7 +127,7 @@ else{
                           
                         </div>
                         <div className='text-center pb-11'>
-                                                  <button onClick={()=>handlesingle(_id)} className='bg-teal-600 btn text-white hover:scale-105 hover:bg-teal-500 transition duration-300 ' >Buy Now</button>
+                                                  <button onClick={()=>handlesingle(_id)} className='bg-teal-600 btn text-white hover:scale-105 hover:bg-teal-500 transition duration-300 border-none ' >Buy Now</button>
                                             </div>
 
 
