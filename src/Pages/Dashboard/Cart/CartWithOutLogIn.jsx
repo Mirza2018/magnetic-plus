@@ -1,20 +1,25 @@
 import { FaTrashAlt } from "react-icons/fa";
 import useItems from "../../../Hooks/useItems";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const CartWithOutLogIn = () => {
     const [items, refetch, loading] = useItems()
 
+const [itemLists,setItemLists]=useState([])
 
- let local=JSON.parse(localStorage.getItem("myCart")) || []
 
- let finalItemList=[]
 
-  console.log(items);
-  console.log(items);
-  console.log(items);
 
  
+
+useEffect(()=>{
+ let local=JSON.parse(localStorage.getItem("myCart")) 
+
+
+   let finalItemList=[] 
+
 local.map(item=>{
 
 let findItem=items.find(i=>i._id===item.ItemId)
@@ -22,11 +27,17 @@ let findItem=items.find(i=>i._id===item.ItemId)
 const findItemWithQuantity={...findItem, quantity:item.quantity}
 
 finalItemList=[...finalItemList,findItemWithQuantity]
+setItemLists(finalItemList)
+
 
  })
+
+},[items])
  
 
- let totalPrice = finalItemList.reduce((acc, item) => {
+ 
+
+ let totalPrice = itemLists.reduce((acc, item) => {
     // Use a default quantity of 1 if quantity is not provided or is zero
     const quantity = item.quantity || 1;
     return acc + (item.price * quantity);
@@ -36,10 +47,50 @@ const handleOrder=()=>{
 
 
 }
-const handleDelete=()=>{
+const handleDelete=(id)=>{
+
+
+    Swal.fire({
+        title: 'Delete!!',
+        text: 'Do you want to remove this product from cart',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, Remove It!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let local=JSON.parse(localStorage.getItem("myCart")) 
+            let existingItem=local.find((i)=>i.ItemId===id)
+
+            let outherItems=itemLists.filter((i)=>i._id!==existingItem.ItemId) 
+
+
+            
+  let outherItems2=local.filter((i)=>i.ItemId!==existingItem.ItemId) 
+
+console.log(outherItems);
+console.log(outherItems2);
+
+
+            setItemLists(outherItems)
+            
+            localStorage.setItem("myCart",JSON.stringify(outherItems2));
+                    
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: `Removed`,
+                            showConfirmButton: false,
+                            timer: 700
+                        })
+
+        }
+    })
 
 }
 
+console.log(itemLists.length);
 
 
     return (
@@ -51,7 +102,7 @@ const handleDelete=()=>{
         </h2>
 
         {
-            finalItemList.length > 0 ?
+            itemLists.length > 0 ?
                 <section className="py-24 relative bg-slate-200">
                     <div className="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto">
 
@@ -83,7 +134,7 @@ const handleDelete=()=>{
                                 <div className="grid grid-cols-1 gap-6">
 
                                     {
-                                        finalItemList.map((item) => <div key={item._id} className="rounded-3xl p-6 bg-gray-100 border border-gray-100 flex flex-col md:flex-row md:items-center gap-5 transition-all duration-500 hover:border-gray-400">
+                                        itemLists.map((item) => <div key={item.ItemId} className="rounded-3xl p-6 bg-gray-100 border border-gray-100 flex flex-col md:flex-row md:items-center gap-5 transition-all duration-500 hover:border-gray-400">
                                             <div className="img-box ">
                                                 <img src={item?.img} alt="Denim Jacket image" className="w-full md:max-w-[122px]" />
                                             </div>
