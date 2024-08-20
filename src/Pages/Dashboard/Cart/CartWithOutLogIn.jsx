@@ -3,6 +3,8 @@ import useItems from "../../../Hooks/useItems";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import useAxiousPublic from "../../../Hooks/useAxiousPublic";
 
 const CartWithOutLogIn = () => {
     const [items, refetch, loading] = useItems()
@@ -10,7 +12,8 @@ const CartWithOutLogIn = () => {
 const [itemLists,setItemLists]=useState([])
 
 
-
+let date = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
+const axiousPublic = useAxiousPublic();
 
  
 
@@ -43,10 +46,131 @@ setItemLists(finalItemList)
     return acc + (item.price * quantity);
 }, 0);
 
-const handleOrder=()=>{
+
+
+
+const handleOrder=async ()=>{
+
+
+    const { value: formValues } = await Swal.fire({
+        // title: "Give Some Information",
+        html: `
+         <div styly="max-width: 700px; height: 700px;" >
+
+                <p  style=" font-size: 1.25rem; font-weight: 600; display: flex; justify-content: flex-start;">Full Name (পুরো নাম)</p>
+                <input type="text" id="name" placeholder="Enter your Name (আপনার নাম লিখুন)" style="  width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                resize: vertical;"></input>
+
+
+                <p style="margin-top: 20px; font-size: 1.25rem; font-weight: 600; display: flex; justify-content: flex-start;">Phone No (ফোন নাম্বার) </p>
+        
+                <input type="tel" id="mobile" placeholder="+88017--" value="+880"  style="  width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                resize: vertical;">
+
+                
+        
+                <p  style="font-size: 1.25rem; font-weight: 600; display: flex; justify-content: flex-start;
+                  margin-top: 20px; ">Delivery Address (ঠিকানা)</p>
+                <input type="text" id="address" placeholder="জেলা, থানা, জায়গার নাম, রোড নং, বাড়ির নাম"style=" width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                resize: vertical;"></input>
+        
+             
+        
+                <p  style=" margin-top: 20px; font-size: 1.25rem; font-weight: 600; display: flex; justify-content: flex-start;">Additional information</p>
+                <span   style=" margin-top: 2px; font-size: 1rem; font-weight: 400; display: flex; justify-content: flex-start;">Order notes (optional)</span>
+                
+                <textarea id="info" placeholder="Notes about your order, e.g. special notes for delivery"  style="  width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                resize: vertical;"></textarea>
+                      </div>
+
+
+
+
+`,
+        showCancelButton: true,
+        confirmButtonText: "Make an Order",
+        preConfirm: () => {
+            return [
+                { va1: document.getElementById("name").value },
+                { va2: document.getElementById("mobile").value },
+                { va3: document.getElementById("address").value },
+                { va4: document.getElementById("info").value },
+            ];
+        }
+    });
+    const name = formValues[0].va1;
+    const mobileNumber = formValues[1].va2;
+    const deliveryAddress = formValues[2].va3;
+    const info = formValues[3].va4;
+
+
+console.log(mobileNumber, deliveryAddress);
+
+
+if (mobileNumber.length == 14 && deliveryAddress.length > 7) {
+
+    const orderDetails = {
+        email: "WithOut LogIn Order", name: name, orderItems: itemLists,
+        mobileNumber, deliveryAddress, date, totalPrice, status: "waiting for confirmation",info
+    }
+    console.log(orderDetails);
+
+    const orderRes = await axiousPublic.post('/orders', orderDetails)
+
+    if (orderRes.data.insertedId) {
+        Swal.fire({
+            position: "center",
+            title: `আপনার Order টি সম্পন্ন হয়েছে`,
+            text: ` Order ID ${orderRes.data.insertedId}. 
+            আমাদের প্রতিনিধি কিছুক্ষনের মধ্যে আপনার সাথে যোগাযোগ করবে। Magnetic-Plus এর সাথে থাকার জন্য ধন্যবাদ।
+            `,
+            icon: "success",
+            showConfirmButton: false,
+            timer: 15000
+        });
+
+   setItemLists([])
+
+        localStorage.setItem("myCart",JSON.stringify([]));
+    }
+}   else {
+    Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'সঠিক Mobile Number দিন +880 সহ',
+        showConfirmButton: false,
+        timer: 2000
+    })
+}
+
+
+
+
+
+
+
+
 
 
 }
+
+
+
+
+
+
 const handleDelete=(id)=>{
 
 
