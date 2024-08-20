@@ -12,7 +12,7 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Link, useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import localItems from '../../Hooks/localItems';
+
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const FeaturedProducts = ({ products }) => {
@@ -20,8 +20,7 @@ const FeaturedProducts = ({ products }) => {
     const navigate = useNavigate()
 
     const [items, setItems] = useState([]);
-    const { localItemLength,
-        setLocalItemLength}=useContext(AuthContext)
+    const {setLocalItemLength}=useContext(AuthContext)
 
 
 

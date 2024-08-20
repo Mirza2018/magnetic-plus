@@ -16,6 +16,16 @@ const AuthProvider = ({ children }) => {
 
     const [localItemLength,setLocalItemLength]=useState([])
 
+//     useEffect(()=>{
+//  const  local=localStorage.getItem("myCart")
+//     const localparse=JSON.parse(local)
+//   const last=localparse.map(item=>item.quantity==1)
+  
+  
+//   setLocalItemLength(last)
+
+//     },[])
+   
 
 
     const createUser = (email, password) => {

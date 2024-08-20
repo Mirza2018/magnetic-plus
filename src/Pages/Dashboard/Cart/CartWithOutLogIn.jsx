@@ -36,6 +36,9 @@ let findItem=items.find(i=>i._id===item.ItemId)
 const findItemWithQuantity={...findItem, quantity:item.quantity}
 
 finalItemList=[...finalItemList,findItemWithQuantity]
+
+// console.log(finalItemList);
+
 setItemLists(finalItemList)
 
 
@@ -43,6 +46,7 @@ setItemLists(finalItemList)
 
 },[items])
  
+
 
  
 
@@ -122,7 +126,7 @@ const handleOrder=async ()=>{
     const info = formValues[3].va4;
 
 
-console.log(mobileNumber, deliveryAddress);
+// console.log(mobileNumber, deliveryAddress);
 
 
 if (mobileNumber.length == 14 && deliveryAddress.length > 7) {
@@ -131,7 +135,7 @@ if (mobileNumber.length == 14 && deliveryAddress.length > 7) {
         email: "WithOut LogIn Order", name: name, orderItems: itemLists,
         mobileNumber, deliveryAddress, date, totalPrice, status: "waiting for confirmation",info
     }
-    console.log(orderDetails);
+    // console.log(orderDetails);
 
     const orderRes = await axiousPublic.post('/orders', orderDetails)
 
@@ -202,6 +206,7 @@ const handleDelete=(id)=>{
 
 
 
+// console.log(outherItems);
 
             setItemLists(outherItems)
 
@@ -221,6 +226,7 @@ const handleDelete=(id)=>{
 
 }
 
+// console.log("100",itemLists);
 
 
 
@@ -265,7 +271,7 @@ const handleDelete=(id)=>{
                                 <div className="grid grid-cols-1 gap-6">
 
                                     {
-                                        itemLists.map((item) => <div key={item.ItemId} className="rounded-3xl p-6 bg-gray-100 border border-gray-100 flex flex-col md:flex-row md:items-center gap-5 transition-all duration-500 hover:border-gray-400">
+                                        itemLists.map((item,index) => <div key={item._id || index} className="rounded-3xl p-6 bg-gray-100 border border-gray-100 flex flex-col md:flex-row md:items-center gap-5 transition-all duration-500 hover:border-gray-400">
                                             <div className="img-box ">
                                                 <img src={item?.img} alt="Denim Jacket image" className="w-full md:max-w-[122px]" />
                                             </div>

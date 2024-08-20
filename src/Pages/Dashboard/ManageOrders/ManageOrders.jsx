@@ -115,11 +115,12 @@ const ManageOrders = () => {
                                             </div>
 
                                             <div>
-                                                <div className="font-semibold">{order.name}</div>
-                                                <div className="font-semibold">{order.email}</div>
-                                                <div className="font-bold py-1">Order ID: {order._id}</div>
-                                                <div className=" py-1 font-bold">{order.deliveryAddress}</div>
-                                                <div className="font-bold py-1 ">Mobile: {order.mobileNumber}</div>
+                                                <div className="font-semibold"><span className='text-pink-600'>Name: </span>{order.name}</div>
+                                                <div className="font-semibold"><span className='text-pink-600'>Email: </span>{order.email}</div>
+                                                <div className="font-semibold py-1"><span className='text-pink-600'>Order ID: </span> {order._id}</div>
+                                                <div className=" font-semibold"><span className='text-pink-600'>Address: </span>{order.deliveryAddress}</div>
+                                                <div className="font-semibold "><span className='text-pink-600'>Mobile: </span> {order.mobileNumber}</div>
+                                                <div className="font-semibold "><span className='text-pink-600'>Info: </span> {order?.info}</div>
                                             </div>
 
                                         </div>

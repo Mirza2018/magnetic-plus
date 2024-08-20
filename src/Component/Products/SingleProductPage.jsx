@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
@@ -19,12 +19,14 @@ const SingleProductPage = ({ id, item }) => {
   const [quantity, setQuantity] = useState(1); 
 
 
-
+// setQuantity(1)
   const increment = () => setQuantity(quantity + 1);
   const decrement = () => setQuantity(quantity > 1 ? quantity - 1 : 1);
 
 
-
+useEffect(()=>{
+  setQuantity(1)
+},[id])
 
 
   const handleAddToCart = () => {
@@ -132,6 +134,10 @@ else{
     }
   };
 
+  const handlesingle=(id)=>{
+console.log(id);
+
+  }
 
 
 
@@ -149,14 +155,14 @@ else{
 
 
 
-       <div className="bg-white dark:bg-gray-800 flex relative items-center overflow-hidden">
+       <div className="bg-white dark:text-black flex relative items-center overflow-hidden">
       <div className="container px-6 py-10 mx-auto flex flex-col-reverse sm:flex-row items-center justify-center">
         <div className="sm:w-2/3 lg:w-2/5 flex flex-col  relative text-center sm:text-left">
         
-          <h3 className="font-bebas-neue uppercase md:text-5xl sm:text-4xl font-black flex leading-none dark:text-white text-gray-800 mt-7">
+          <h3 className="font-bebas-neue uppercase md:text-5xl sm:text-4xl font-black flex leading-none  text-gray-800 mt-7">
             {item?.name}
           </h3>
-          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 py-4">
+          <p className="text-sm sm:text-base text-gray-700  py-4">
             {item?.desc}
           </p>
           <div>
@@ -179,26 +185,42 @@ else{
 
 
 
-<div className="flex items-center space-x-4 justify-center">
-      <div className="flex items-center border-2 border-blue-100 rounded-full overflow-hidden">
+<div className="grid  grid-cols-2 xl:grid-cols-3   gap-5 ">
+      <div className="flex items-center border-2 border-green-100 rounded-full overflow-hidden justify-center mx-4">
+
         <button 
-          className=" w-12 h-12 flex items-center justify-center hover:bg-indigo-300"
+          className="w-full h-full  flex items-center justify-center hover:bg-green-300"
           onClick={decrement}
         >
           <AiOutlineMinus />
         </button>
+
         <div className="px-4 py-2">{quantity.toString().padStart(2, '0')}</div>
+
         <button 
-          className=" w-12 h-12 flex items-center justify-center hover:bg-indigo-300 "
+          className="w-full h-full flex items-center justify-center hover:bg-green-300 "
           onClick={increment}
         >
           <AiOutlinePlus />
         </button>
       </div>
-      <button  onClick={handleAddToCart}  className=" py-3 px-5 rounded-full  bg-indigo-100 text-indigo-600 dark:text-white md:text-xl font-semibold transition-all duration-500 hover:bg-indigo-300 ease-in-out flex gap-2 justify-center items-center  ">
+
+
+      {/* <button  onClick={handleAddToCart}  className=" py-3 px-5 rounded-full  bg-indigo-100 text-indigo-600 dark:text-white md:text-xl font-semibold transition-all duration-500 hover:bg-indigo-300 ease-in-out flex gap-2 justify-center items-center  ">
+
+
+
         <span><CiShoppingCart  className=' md:text-2xl '  /></span>
         <span>Add To Cart</span>
-      </button>
+      </button> */}
+
+      <button onClick={handleAddToCart} className='bg-teal-500 btn text-white hover:scale-105 hover:bg-teal-600 transition duration-300 outline-offset-8 border-none' ><span><CiShoppingCart  className=' md:text-2xl '  /></span>
+      <span>Add To Cart</span></button>
+                                       
+
+ <div className='col-span-2 lg:col-span-1 '><button onClick={()=>handlesingle(item._id)} className='bg-teal-600 btn  border-none text-white hover:scale-105 hover:bg-teal-500 transition duration-300 ' >Buy Now</button></div>
+                                                  
+                                       
     </div>
 
 
