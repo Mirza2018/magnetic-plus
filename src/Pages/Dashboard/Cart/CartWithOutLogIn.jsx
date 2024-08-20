@@ -1,15 +1,21 @@
 import { FaTrashAlt } from "react-icons/fa";
 import useItems from "../../../Hooks/useItems";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAxiousPublic from "../../../Hooks/useAxiousPublic";
+import { AuthContext } from "../../../Providers/AuthProvider";
+
 
 const CartWithOutLogIn = () => {
     const [items, refetch, loading] = useItems()
 
 const [itemLists,setItemLists]=useState([])
+
+const { localItemLength,
+    setLocalItemLength}=useContext(AuthContext)
+
 
 
 let date = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
@@ -141,6 +147,7 @@ if (mobileNumber.length == 14 && deliveryAddress.length > 7) {
             timer: 15000
         });
 
+        setLocalItemLength([])
    setItemLists([])
 
         localStorage.setItem("myCart",JSON.stringify([]));
@@ -193,12 +200,12 @@ const handleDelete=(id)=>{
             
   let outherItems2=local.filter((i)=>i.ItemId!==existingItem.ItemId) 
 
-console.log(outherItems);
-console.log(outherItems2);
+
 
 
             setItemLists(outherItems)
-            
+
+            setLocalItemLength(outherItems2)
             localStorage.setItem("myCart",JSON.stringify(outherItems2));
                     
                         Swal.fire({
@@ -214,7 +221,7 @@ console.log(outherItems2);
 
 }
 
-console.log(itemLists.length);
+
 
 
     return (

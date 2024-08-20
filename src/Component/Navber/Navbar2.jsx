@@ -9,7 +9,7 @@ import {
     MenuItems,
     Transition,
 } from '@headlessui/react'
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { FaBars, FaCartPlus, FaShoppingCart } from 'react-icons/fa'
 import { FaRegCircleUser, FaXmark } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
@@ -28,11 +28,30 @@ import useAdmin from '../../Hooks/useAdmin';
 
 
 
+
 const Navbar2 = () => {
 
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut, localItemLength } = useContext(AuthContext)
+        
     const [addToCart, againFetch] = useCart()
+
+   
+
     const axiosSecure=useAxiosSecure()
+
+  let local=JSON.parse(localStorage.getItem("myCart")).toString()
+
+
+
+// useEffect(()=>{
+  
+//     setLocalItems(local.length)
+
+// },[local])
+
+    console.log(localItemLength.length);
+
+
 
     againFetch()
  
@@ -75,7 +94,7 @@ const [isAdmin]=useAdmin()
                                     </div>
                                     
 
-                                    {/* Big menu hom */}
+                                    {/* Big menu home */}
                                     <div className="hidden md:block">
                                         <div className="ml-10 flex items-baseline space-x-4">
 
@@ -89,9 +108,7 @@ const [isAdmin]=useAdmin()
                                             <Link to='/aboutUs' className='text-black font-bold hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm '>
                                             Contact Us
                                             </Link>
-                                            <Link to='/cart' className='text-black font-bold hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm '>
-                                            Cart
-                                            </Link>
+                                         
 
 
                                         </div>
@@ -217,10 +234,21 @@ const [isAdmin]=useAdmin()
 
 
                                     :
+                                    <>
+                                     <Link to="/cart">
+                                                    <button className="btn">
+                                                        <FaShoppingCart className="h-6 w-6" aria-hidden="true" />
+                                                        <div className="badge badge-secondary">+{ localItemLength.length || 0}</div>
+                                                    </button>
+                                                </Link>
+{/* 
+                                       <Link to='/cart' className='text-black font-bold hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm '>
+                                       Cart
+                                       </Link> */}
+
                                     <Link to='/Login' className='text-black font-bold hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm hidden md:block'>
                                         Login
-                                    </Link>
-
+                                    </Link></>
                                 }
 
 

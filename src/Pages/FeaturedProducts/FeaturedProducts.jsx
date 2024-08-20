@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 // Import Swiper React components
 // import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -12,12 +12,22 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Link, useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import localItems from '../../Hooks/localItems';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const FeaturedProducts = ({ products }) => {
 
     const navigate = useNavigate()
 
     const [items, setItems] = useState([]);
+    const { localItemLength,
+        setLocalItemLength}=useContext(AuthContext)
+
+
+
+
+
+
     useEffect(() => {
 
         setItems(products)
@@ -65,7 +75,7 @@ if(local){
         }
   let FinalList=[...outherItems,existingItemQuantityAdd]
 
-
+setLocalItemLength(FinalList)
 
     localStorage.setItem("myCart",JSON.stringify(FinalList));
  
@@ -76,7 +86,7 @@ if(local){
         let FinalList=[...localParse,{
           ItemId: id,quantity:1}]
 
-
+setLocalItemLength(FinalList)
     
 
     localStorage.setItem("myCart",JSON.stringify(FinalList));
@@ -89,6 +99,7 @@ else{
 
   
   console.log(3);
+  setLocalItemLength(myCart)
 
   localStorage.setItem("myCart",JSON.stringify(myCart));
 }

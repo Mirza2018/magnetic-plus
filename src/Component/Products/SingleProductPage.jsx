@@ -10,13 +10,14 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { TbCurrencyTaka } from 'react-icons/tb';
 
 const SingleProductPage = ({ id, item }) => {
-  const { user } = useContext(AuthContext);
+  const { user,setLocalItemLength } = useContext(AuthContext);
   const [isAdmin] = useAdmin();
   const navigate = useNavigate();
   const location = useLocation();
   const axiosSecure = useAxiosSecure();
   const [, refetch] = useCart();
   const [quantity, setQuantity] = useState(1); 
+
 
 
   const increment = () => setQuantity(quantity + 1);
@@ -98,7 +99,7 @@ if(local){
   let FinalList=[...outherItems,existingItemQuantityAdd]
 
 
-
+  setLocalItemLength(FinalList)
     localStorage.setItem("myCart",JSON.stringify(FinalList));
  
       }
@@ -110,7 +111,7 @@ if(local){
 
 
     
-
+          setLocalItemLength(FinalList)
     localStorage.setItem("myCart",JSON.stringify(FinalList));
 
       }
@@ -121,7 +122,7 @@ else{
 
   
   console.log(3);
-
+  setLocalItemLength(myCart)
   localStorage.setItem("myCart",JSON.stringify(myCart));
 }
 

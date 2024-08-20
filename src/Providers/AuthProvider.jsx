@@ -14,6 +14,8 @@ const AuthProvider = ({ children }) => {
     const axiosPublic = useAxiousPublic()
 
 
+    const [localItemLength,setLocalItemLength]=useState([])
+
 
 
     const createUser = (email, password) => {
@@ -80,7 +82,9 @@ const AuthProvider = ({ children }) => {
         signIn,
         updateUserProfile,
         logOut,
-        googleSignIn
+        googleSignIn,
+        localItemLength,
+        setLocalItemLength
     }
 
     return (

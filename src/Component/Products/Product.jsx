@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Product = ({ item }) => {
     const { _id,name,price,img } = item
+    const { localItemLength,
+      setLocalItemLength}=useContext(AuthContext)
 
 
     const navigate = useNavigate()
@@ -50,7 +53,7 @@ if(local){
         }
   let FinalList=[...outherItems,existingItemQuantityAdd]
 
-
+  setLocalItemLength(FinalList)
 
     localStorage.setItem("myCart",JSON.stringify(FinalList));
  
@@ -61,7 +64,7 @@ if(local){
         let FinalList=[...localParse,{
           ItemId: id,quantity:1}]
 
-
+          setLocalItemLength(FinalList)
     
 
     localStorage.setItem("myCart",JSON.stringify(FinalList));
@@ -74,7 +77,7 @@ else{
 
   
   console.log(3);
-
+  setLocalItemLength(myCart)
   localStorage.setItem("myCart",JSON.stringify(myCart));
 }
 
