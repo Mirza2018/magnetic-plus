@@ -61,7 +61,7 @@ const SearchBar = () => {
     }, []);
 
     return (
-        <nav className="p-4 flex justify-center items-center relative bg-white">
+        <nav className="p-6 flex justify-center items-center relative bg-white">
             <form onSubmit={handleSearch} className="flex items-center relative" ref={searchRef}>
                 <label className="input  bg-white border-black flex items-center gap-2">
                     {/* <FcSearch className="text-2xl" /> */}
@@ -70,7 +70,7 @@ const SearchBar = () => {
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         placeholder="Search Product . . ."
-                        className="input text-black max-w-xs"
+                        className="input text-black max-w-xs px-3"
                         ref={inputRef}
                     />
                     <kbd className="kbd kbd-sm bg-gray-200 border-gray-400 text-black">Ctrl</kbd>

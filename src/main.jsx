@@ -132,13 +132,13 @@ const router = createBrowserRouter([
       {
         path:'updateItem/:id',
         element:<AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/item/${params.id}`)
+        loader:({params})=>fetch(`https://magneticplus.sirony.me/item/${params.id}`)
       },
     ]
   }
 ]);
 
-// http://localhost:5000
+// https://magneticplus.sirony.me
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
