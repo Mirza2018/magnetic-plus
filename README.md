@@ -50,16 +50,15 @@ And It has fully funcional Admin Panel.
 To get started with this project, clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/your-username/ecommerce-app.git
-cd ecommerce-app
+git clone https://github.com/Mirza2018/magnetic-plus.git
+cd magnetic-plus
 npm install
 ```
 
 ### **Running the App**
 ```bash
-git clone https://github.com/your-username/ecommerce-app.git
-cd ecommerce-app
-npm install
+cd magnetic-plus
+npm run dev
 ```
 
 ## **Project Structure**
