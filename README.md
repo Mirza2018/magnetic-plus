@@ -65,7 +65,7 @@ npm run dev
 ## **Project Structure**
 
 ```plaintext
-ecommerce-app/
+magnetic-plus/
 ├── public/
 ├── src/
 │   ├── assets/          # Images, icons, etc.
