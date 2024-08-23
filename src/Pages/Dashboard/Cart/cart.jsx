@@ -77,7 +77,7 @@ const Cart = () => {
 
         // console.log("Mobile Number:", mobileNumber);
         // console.log("Delivery Address:", deliveryAddress);
-        if (mobileNumber.length == 14 && deliveryAddress.length > 7) {
+        if (mobileNumber.length == 14 || mobileNumber.length == 11) {
             const orderDetails = {
                 email: user.email, name: user.displayName, photo: user?.photoURL, orderItems: addToCart,
                 mobileNumber, deliveryAddress, date, totalPrice, status: "waiting for confirmation"

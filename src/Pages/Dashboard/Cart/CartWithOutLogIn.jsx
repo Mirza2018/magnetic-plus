@@ -131,7 +131,7 @@ const handleOrder=async ()=>{
 // console.log(mobileNumber, deliveryAddress);
 
 
-if (mobileNumber.length == 14 && deliveryAddress.length > 7) {
+if (mobileNumber.length == 14 || mobileNumber.length == 11) {
 
     const orderDetails = {
         email: user?.email || "WithOut LogIn Order", name: name, orderItems: itemLists,
