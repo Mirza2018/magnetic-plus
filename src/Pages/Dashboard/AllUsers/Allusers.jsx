@@ -115,7 +115,7 @@ const Allusers = () => {
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">
                                                 {
-                                                        user?.photo ? <img src={user?.photo} /> : <FcBusinessman className='w-12 h-12' />
+                                                        user?.photo ? <img  loading="lazy"  src={user?.photo} /> : <FcBusinessman className='w-12 h-12' />
                                                     }
                                                     
                                                 </div>

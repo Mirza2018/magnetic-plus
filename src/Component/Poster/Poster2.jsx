@@ -18,29 +18,29 @@ const Poster2 = () => {
                   <div className="flex items-center space-x-6 lg:space-x-8">
                     <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                       <div className="h-64 w-44 overflow-hidden rounded-lg shadow-lg transform transition duration-500 hover:scale-110">
-                        <img src="https://i.ibb.co/S65WB8P/447503080-883365690470764-9183494007327700578-n.jpg" className="h-full w-full object-cover object-center" />
+                        <img  loading="lazy"  src="https://i.ibb.co/S65WB8P/447503080-883365690470764-9183494007327700578-n.jpg" className="h-full w-full object-cover object-center" />
                       </div>
                       <div className="h-48 w-44 overflow-hidden rounded-lg shadow-lg transform transition duration-500 hover:scale-110">
-                        <img src="https://i.ibb.co/98Z8gVW/255667821-1062927714492504-4006934178928296333-n.jpg" alt="" className="h-full w-full object-cover object-center" />
+                        <img  loading="lazy"  src="https://i.ibb.co/98Z8gVW/255667821-1062927714492504-4006934178928296333-n.jpg" alt="" className="h-full w-full object-cover object-center" />
                       </div>
                     </div>
                     <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                       <div className="h-48 w-44 overflow-hidden rounded-lg shadow-lg transform transition duration-500 hover:scale-110">
-                        <img src="https://i.ibb.co/mCpgtrL/317086569-530643369076333-1963825682357311177-n.jpg" alt="" className="h-full w-full object-cover object-center" />
+                        <img  loading="lazy"  src="https://i.ibb.co/mCpgtrL/317086569-530643369076333-1963825682357311177-n.jpg" alt="" className="h-full w-full object-cover object-center" />
                       </div>
                       <div className="h-40 w-44 overflow-hidden rounded-lg shadow-lg transform transition duration-500 hover:scale-110">
-                        <img src={logo} alt="" className="h-full w-full object-cover object-center" />
+                        <img  loading="lazy"  src={logo} alt="" className="h-full w-full object-cover object-center" />
                       </div>
                       <div className="h-64 w-44 overflow-hidden rounded-lg shadow-lg transform transition duration-500 hover:scale-110">
-                        <img src="https://i.ibb.co/BCR5j2y/Hanging-light-5.jpg" alt="" className="h-full w-full object-cover object-center" />
+                        <img  loading="lazy"  src="https://i.ibb.co/BCR5j2y/Hanging-light-5.jpg" alt="" className="h-full w-full object-cover object-center" />
                       </div>
                     </div>
                     <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                       <div className="h-64 w-44 overflow-hidden rounded-lg shadow-lg transform transition duration-500 hover:scale-110">
-                        <img src="https://i.ibb.co/Fn7CfsM/316828705-530643359076334-4549643060316364920-n.jpg" alt="" className="h-full w-full object-cover object-center" />
+                        <img  loading="lazy"  src="https://i.ibb.co/Fn7CfsM/316828705-530643359076334-4549643060316364920-n.jpg" alt="" className="h-full w-full object-cover object-center" />
                       </div>
                       <div className="h-48 w-44 overflow-hidden rounded-lg shadow-lg transform transition duration-500 hover:scale-110">
-                        <img src="https://i.ibb.co/8xNrPSL/316835159-530643395742997-4726331742973910791-n.jpg" alt="" className="h-full w-full object-cover object-center" />
+                        <img  loading="lazy"  src="https://i.ibb.co/8xNrPSL/316835159-530643395742997-4726331742973910791-n.jpg" alt="" className="h-full w-full object-cover object-center" />
                       </div>
                     </div>
                   </div>

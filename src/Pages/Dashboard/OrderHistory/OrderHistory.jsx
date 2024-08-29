@@ -71,7 +71,7 @@ const OrderHistory = () => {
 
                                                 <div className="mask mask-squircle w-12 h-12">
                                                     {
-                                                        order?.photo ? <img src={order?.photo} /> : <FcBusinessman className='w-12 h-12' />
+                                                        order?.photo ? <img  loading="lazy"  src={order?.photo} /> : <FcBusinessman className='w-12 h-12' />
                                                     }
 
                                                 </div>
@@ -105,7 +105,7 @@ const OrderHistory = () => {
                                                 <div key={singleItem._id} className="flex items-center gap-3">
                                                     <div className="avatar">
                                                         <div className="mask mask-squircle w-12 h-12">
-                                                            <img src={singleItem?.img} />
+                                                            <img  loading="lazy"  src={singleItem?.img} />
                                                         </div>
                                                     </div>
                                                     <div className='py-4'>

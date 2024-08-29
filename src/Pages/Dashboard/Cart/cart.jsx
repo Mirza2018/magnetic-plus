@@ -166,7 +166,7 @@ const Cart = () => {
                                         {
                                             addToCart.map((item) => <div key={item._id} className="rounded-3xl p-6 bg-gray-100 border border-gray-100 flex flex-col md:flex-row md:items-center gap-5 transition-all duration-500 hover:border-gray-400">
                                                 <div className="img-box ">
-                                                    <img src={item?.img} alt="Denim Jacket image" className="w-full md:max-w-[122px]" />
+                                                    <img  loading="lazy"  src={item?.img} alt="Denim Jacket image" className="w-full md:max-w-[122px]" />
                                                 </div>
                                                 <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-3 md:gap-8">
                                                     <div className="">

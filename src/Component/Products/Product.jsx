@@ -110,7 +110,7 @@ else{
     <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
                 <div  onClick={handleNavigation}  className='cursor-pointer' >
                     <div className='relative'>
-                        <img src={img}
+                        <img  loading="lazy"  src={img}
                             alt="Product" className="h-80 w-72 object-cover rounded-t-xl" />
                             <p className="bg-white font-medium font-sans text-black top-0 absolute right-0 px-4 mt-4 mr-4 p-1 rounded  ">{ "\u09F3"}{price}</p>
                             </div>

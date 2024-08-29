@@ -155,7 +155,7 @@ else{
                                 <SwiperSlide key={item._id}>
 
                                         <div className='relative'  onClick={()=>handleNavigation(item._id)}>
-                                            <img
+                                            <img  loading="lazy" 
                                                 src={item.img}
                                                 alt={item.name}
                                                 className="mx-auto w-full hover:scale-105 transition-all duration-300 h-80  object-cover rounded-t-xl  "

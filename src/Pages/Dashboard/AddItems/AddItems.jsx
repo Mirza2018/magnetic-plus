@@ -138,7 +138,7 @@ const AddItems = () => {
                             <label htmlFor="img" className="block text-sm font-medium text-gray-700">Product Photo</label>
                             <div className="mt-1 flex items-center">
                                 {imgPreview ? (
-                                    <img src={imgPreview} alt="Preview" className="h-20 w-20 object-cover rounded-md" />
+                                    <img  loading="lazy"  src={imgPreview} alt="Preview" className="h-20 w-20 object-cover rounded-md" />
                                 ) : (
                                     <FaUserCircle className="h-12 w-12 text-gray-400" aria-hidden="true" />
                                 )}

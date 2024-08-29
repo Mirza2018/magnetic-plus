@@ -51,7 +51,7 @@ const Poster = () => {
                         </div>
 
                         <div className="flex justify-center lg:justify-end">
-                            <img className="w-full max-w-2xl animate-fadeIn" src={poster} alt="Promotional Poster" />
+                            <img  loading="lazy"  className="w-full max-w-2xl animate-fadeIn" src={poster} alt="Promotional Poster" />
                         </div>
                     </div>
                 </div>

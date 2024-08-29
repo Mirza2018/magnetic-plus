@@ -49,7 +49,7 @@ const Login = () => {
         //     <div className="hero-content flex-col lg:flex-row">
         //         <div className="mr-12 w-1/2">
 
-        //             <img src='https://scontent.fdac45-1.fna.fbcdn.net/v/t39.30808-6/305215262_473556804784990_4532781082980495912_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEWrJzoIqprNL8MZB1Fse13mxRq-q5AckybFGr6rkByTMrm4POfPkmKyVhgCiakg93CGXQIfNp0SUZATozaMvea&_nc_ohc=rU6gOdxNZd0Q7kNvgFu23PL&_nc_ht=scontent.fdac45-1.fna&oh=00_AYDp9Huwj5VghLa1W0aK1_VIxU40hSGCx6ICslPtRTDIzw&oe=665CF6A3' alt="" />
+        //             <img  loading="lazy"  src='https://scontent.fdac45-1.fna.fbcdn.net/v/t39.30808-6/305215262_473556804784990_4532781082980495912_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEWrJzoIqprNL8MZB1Fse13mxRq-q5AckybFGr6rkByTMrm4POfPkmKyVhgCiakg93CGXQIfNp0SUZATozaMvea&_nc_ohc=rU6gOdxNZd0Q7kNvgFu23PL&_nc_ht=scontent.fdac45-1.fna&oh=00_AYDp9Huwj5VghLa1W0aK1_VIxU40hSGCx6ICslPtRTDIzw&oe=665CF6A3' alt="" />
         //         </div>
         //         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         //             <div className="card-body">
@@ -88,7 +88,7 @@ const Login = () => {
         // </div>
         <div className="mirza">
             <div className="logo">
-                <img src={logo} alt="" />
+                <img  loading="lazy"  src={logo} alt="" />
             </div>
             <div className="text-center mt-4 name">
                 <span className='text-green-500'>Login</span>

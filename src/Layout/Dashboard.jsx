@@ -27,7 +27,7 @@ const Dashboard = () => {
                 <Link to="/">
                 <div className='flex items-center p-4 bg-white'>
                 
-                    <img className="h-10 w-10 rounded-full"
+                    <img  loading="lazy"  className="h-10 w-10 rounded-full"
                         src={logo}
                         alt="Magnetic plus" />
                     <p className='ml-2 text-xl font-bold'>
@@ -96,7 +96,7 @@ const Dashboard = () => {
                 <div className='flex justify-between items-center p-3 mb-5 lg:hidden bg-slate-300'>
                 <Link to="/">
                     <div className='flex justify-center items-center'>
-                        <img className="h-10 w-10 rounded-full"
+                        <img  loading="lazy"  className="h-10 w-10 rounded-full"
                         src={logo}
                         alt="Magnetic plus" />  
                          <p className='ml-2 text-xl font-bold'>

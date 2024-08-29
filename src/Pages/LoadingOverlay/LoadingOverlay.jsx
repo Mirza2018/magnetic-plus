@@ -18,7 +18,7 @@ const LoadingOverlay = ({ loading }) => {
                 <span className="ml-3 text-white text-lg">
 
 
-                    <img className='h-10 w-10 rounded-full' src={logo} alt="Magnetic plus" /></span>
+                    <img  loading="lazy"  className='h-10 w-10 rounded-full' src={logo} alt="Magnetic plus" /></span>
                 <span className="ml-3 text-white text-lg">
                     <span className='text-green-500'>Magnetic</span>
                     <span  className='text-red-500'>Plus</span>

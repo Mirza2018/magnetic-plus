@@ -131,7 +131,7 @@ const Orders = () => {
 
                                         <div key={singleItem._id} className="flex flex-col lg:flex-row items-center  py-6 border-b border-gray-200 gap-6 w-full">
                                             <div className="img-box max-lg:w-full">
-                                                <img src={singleItem.img} alt="Premium Watch image"
+                                                <img  loading="lazy"  src={singleItem.img} alt="Premium Watch image"
                                                     className="aspect-square w-full lg:max-w-[140px]" />
                                             </div>
                                             <div className="flex flex-row items-center w-full ">
@@ -294,7 +294,7 @@ const Orders = () => {
 
                                         <div key={singleItem._id} className="flex flex-col lg:flex-row items-center  py-6 border-b border-gray-200 gap-6 w-full">
                                             <div className="img-box max-lg:w-full">
-                                                <img src={singleItem.img} alt="Premium Watch image"
+                                                <img  loading="lazy"  src={singleItem.img} alt="Premium Watch image"
                                                     className="aspect-square w-full lg:max-w-[140px]" />
                                             </div>
                                             <div className="flex flex-row items-center w-full ">

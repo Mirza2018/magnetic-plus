@@ -22,7 +22,7 @@ const Footer = () => {
                 <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
                     <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
                         <div className='flex justify-start items-center'>
-                            <img className="w-auto h-16 rounded-full" src={logo} alt="" />
+                            <img  loading="lazy"  className="w-auto h-16 rounded-full" src={logo} alt="" />
                             <p className='text-2xl font-bold'> Magnetic Plus</p>
                         </div>
 

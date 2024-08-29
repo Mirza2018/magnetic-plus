@@ -49,7 +49,7 @@ console.log(isAdmin);
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0">
                                         <Link to="/" className="flex items-center">
-                                            <img className="h-14" src={logo} alt="Magnetic Plus" />
+                                            <img  loading="lazy"  className="h-14" src={logo} alt="Magnetic Plus" />
                                         </Link>
                                     </div>
                                     <div className="hidden md:block">
@@ -80,7 +80,7 @@ console.log(isAdmin);
                                                 <Menu as="div" className="relative ml-3">
                                                     <MenuButton className="relative flex max-w-xs items-center rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                                         <span className="sr-only">Open user menu</span>
-                                                        {user?.photoURL ? <img className="h-8 w-8 rounded-full" src={user?.photoURL} alt="" /> : <FaRegCircleUser className="h-8 w-8 rounded-full" />}
+                                                        {user?.photoURL ? <img  loading="lazy"  className="h-8 w-8 rounded-full" src={user?.photoURL} alt="" /> : <FaRegCircleUser className="h-8 w-8 rounded-full" />}
                                                     </MenuButton>
                                                     <Transition
                                                         enter="transition ease-out duration-100"
@@ -126,7 +126,7 @@ console.log(isAdmin);
                                                 <Menu as="div" className="relative ml-3">
                                                     <MenuButton className="relative flex max-w-xs items-center rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                                         <span className="sr-only">Open user menu</span>
-                                                        {user?.photoURL ? <img className="h-8 w-8 rounded-full" src={user?.photoURL} alt="" /> : <FaRegCircleUser className="h-8 w-8 rounded-full" />}
+                                                        {user?.photoURL ? <img  loading="lazy"  className="h-8 w-8 rounded-full" src={user?.photoURL} alt="" /> : <FaRegCircleUser className="h-8 w-8 rounded-full" />}
                                                     </MenuButton>
                                                     <Transition
                                                         enter="transition ease-out duration-100"
@@ -212,7 +212,7 @@ user ?
 
                 <div className="flex-shrink-0">
 
-                    {user?.photoURL ? <img className="h-10 w-10 rounded-full" src={user?.photoURL} alt="" /> : <FaRegCircleUser className="h-10 w-10 rounded-full" />}
+                    {user?.photoURL ? <img  loading="lazy"  className="h-10 w-10 rounded-full" src={user?.photoURL} alt="" /> : <FaRegCircleUser className="h-10 w-10 rounded-full" />}
 
 
 
@@ -352,7 +352,7 @@ user ?
 
                 <div className="flex-shrink-0">
 
-                    {user?.photoURL ? <img className="h-10 w-10 rounded-full" src={user?.photoURL} alt="" /> : <FaRegCircleUser className="h-10 w-10 rounded-full" />}
+                    {user?.photoURL ? <img  loading="lazy"  className="h-10 w-10 rounded-full" src={user?.photoURL} alt="" /> : <FaRegCircleUser className="h-10 w-10 rounded-full" />}
 
 
 

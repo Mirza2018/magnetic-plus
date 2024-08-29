@@ -10,7 +10,7 @@ const ErrorPage = () => {
     return (
 
         <div className=' flex flex-col justify-center items-center my-40' >
-            <img className='w-28 h-28 rounded-full' src={logo} alt="" />
+            <img  loading="lazy"  className='w-28 h-28 rounded-full' src={logo} alt="" />
 
             <section className="py-16">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

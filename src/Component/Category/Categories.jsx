@@ -72,7 +72,7 @@ const Categories = () => {
                         </h4>
                       </div>
                       
-                      <img
+                      <img  loading="lazy" 
                         src={category?.img}
                         alt={category?.name}
                         className="w-full  h-60 object-cover"

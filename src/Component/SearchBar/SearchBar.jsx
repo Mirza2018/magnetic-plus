@@ -61,9 +61,9 @@ const SearchBar = () => {
     }, []);
 
     return (
-        <nav className="p-6 flex justify-center items-center relative bg-white">
+        <nav className="p-6 flex justify-center text-center items-center relative bg-white">
             <form onSubmit={handleSearch} className="flex items-center relative" ref={searchRef}>
-                <label className="input  bg-white border-black flex items-center gap-2">
+                <label className="input p-6 px-4 bg-white border-black flex items-center gap-2">
                     {/* <FcSearch className="text-2xl" /> */}
                     <input
                         type="text"
@@ -88,7 +88,7 @@ const SearchBar = () => {
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={item?.img} alt={item.name} />
+                                                    <img  loading="lazy"  src={item?.img} alt={item.name} />
                                                 </div>
                                             </div>
                                             <div>

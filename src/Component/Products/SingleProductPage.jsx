@@ -296,7 +296,7 @@ else{
           </div>
         </div>
         <div className="sm:w-1/3 lg:w-3/5 flex justify-center sm:ml-20">
-          <img src={item?.img} className="max-w-xs md:max-w-sm m-auto transition-transform transform hover:scale-105" alt={item?.name} />
+          <img  loading="lazy"  src={item?.img} className="max-w-xs md:max-w-sm m-auto transition-transform transform hover:scale-105" alt={item?.name} />
         </div>
       </div>
     </div></div>

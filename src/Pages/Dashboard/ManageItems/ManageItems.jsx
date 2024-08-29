@@ -83,7 +83,7 @@ const ManageItems = () => {
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={item?.img} />
+                                                    <img  loading="lazy"  src={item?.img} />
                                                 </div>
                                             </div>
                                             <div>

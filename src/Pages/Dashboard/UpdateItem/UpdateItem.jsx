@@ -212,9 +212,9 @@ const UpdateItem = () => {
                                 </label>
                                 <div className="mt-2 flex items-center gap-x-3">
                                     {imgPreview ? (
-                                        <img src={imgPreview} alt="Preview" className="h-20 w-20 object-cover" />
+                                        <img  loading="lazy"  src={imgPreview} alt="Preview" className="h-20 w-20 object-cover" />
                                     ) : (
-                                        <img src={item.img} alt="Preview" className="h-20 w-20 object-cover" />
+                                        <img  loading="lazy"  src={item.img} alt="Preview" className="h-20 w-20 object-cover" />
                                     )}
                                 </div>
                                 <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
