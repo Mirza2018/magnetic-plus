@@ -1,6 +1,6 @@
 # **Magnetic Plus E-Commerce App**
 
-![Logo](https://i.ibb.co/c3sYZ7Z/logo2.png) 
+![Logo](/public/h1.png) 
 
 
 
@@ -88,40 +88,41 @@ magnetic-plus/
 ## **Screenshots**
 
 #### **Running the App**
-![Home Page 1](https://i.ibb.co/t2yDtYw/Screenshot-2024-08-21-002601.png) 
-![Home Page 2](https://i.ibb.co/Wgmq0hn/Screenshot-2024-08-21-002720.png) 
-![Home Page 3](https://i.ibb.co/YWGbHky/Screenshot-2024-08-21-002900.png) 
-![Home Page 4](https://i.ibb.co/vL9whFx/Screenshot-2024-08-21-002912.png) 
+![Home Page 1](/public/h1.png) 
+![Home Page 2](/public/h2.png) 
+![Home Page 3](/public/h3.png) 
+![Home Page 4](/public/h4.png) 
 #### **Shopping page**
-![Shopping page](https://i.ibb.co/18tMRtY/Screenshot-2024-08-21-002942.png) 
+![Shopping page 1](/public/s1.png) 
+![Shopping page 2](/public/s2.png) 
 #### **Order Page**
-![Order Page 1](https://i.ibb.co/hcWKV8G/Screenshot-2024-08-21-003109.png) 
-![Order Page 2](https://i.ibb.co/p02qKB0/Screenshot-2024-08-21-103643.png) 
+![Order Page 1](/public/o1.png) 
+![Order Page 2](/public/o2.png) 
 #### **Search**
-![Search](https://i.ibb.co/SnxY3sg/Screenshot-2024-08-21-003139.png) 
+![Search](/public/se.png) 
 #### **Register Page**
-![Register Page](https://i.ibb.co/QJ6N2Yt/Screenshot-2024-08-21-003231.png) 
+![Register Page](/public/r1.png)
 #### **Login Page**
-![Login Page](https://i.ibb.co/4Vnkdy1/Screenshot-2024-08-21-003312.png) 
+![Login Page](/public/r1.png)
 #### **Order History Page**
-![Order History Page](https://i.ibb.co/xjf39k6/Screenshot-2024-08-21-003416.png) 
+![Order History Page](/public/c1.png)
 #### **Admin Home Page**
-![Admin Home Page](https://i.ibb.co/T0TjjJm/Screenshot-2024-08-21-003507.png) 
+![Admin Home Page](/public/a1.png)
 #### **Admin Add Items Page**
-![Admin Add Items Page](https://i.ibb.co/WPYQ5d4/Screenshot-2024-08-21-003537.png) 
+![Admin Add Items Page](/public/a2.png)
 #### **Admin Manage Items**
-![Admin Manage Items](https://i.ibb.co/Zmcdzy9/Screenshot-2024-08-21-003557.pngg) 
+![Admin Manage Items](/public/a3.png)
 #### **Admin Manage Orders**
-![Admin Manage Orders](https://i.ibb.co/StfN4sJ/Screenshot-2024-08-21-003654.png) 
+![Admin Manage Orders](/public/a4.png)
 #### **Admin All Order History Page**
-![Admin All Order History Page](https://i.ibb.co/qRsW5Rz/Screenshot-2024-08-21-003719.png) 
+![Admin All Order History Page](/public/a5.png)
 #### **Admin All User Page**
-![Admin All User Page](https://i.ibb.co/RDzmntF/Screenshot-2024-08-21-003752.png) 
+![Admin All User Page](/public/a6.png)
 #### **Admin Feature Products selection Pages**
-![Admin Feature Products selection Pages 1](https://i.ibb.co/74YSZGC/Screenshot-2024-08-21-003811.png) 
-![Admin Feature Products selection Pages 2](https://i.ibb.co/vJpffnq/Screenshot-2024-08-21-003824.png) 
+![Admin Feature Products selection Pages 1](/public/a7.png)
+![Admin Feature Products selection Pages 2](/public/a8.png)
 #### **Admin Don't Buy page**
-![Admin Don't Buy page](https://i.ibb.co/CKY0QrJ/Screenshot-2024-08-21-003855.png) 
+![Admin Don't Buy page](/public/a0.png)
 
 
 ## **License**
