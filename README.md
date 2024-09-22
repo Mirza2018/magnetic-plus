@@ -91,7 +91,6 @@ magnetic-plus/
 ![Home Page 1](/public/h1.png) 
 ![Home Page 2](/public/h2.png) 
 ![Home Page 3](/public/h3.png) 
-![Home Page 4](/public/h4.png) 
 #### **Shopping page**
 ![Shopping page 1](/public/s1.png) 
 ![Shopping page 2](/public/s2.png) 
@@ -162,6 +161,6 @@ SOFTWARE. dev
 
 - **Name**: Takibul Hasan.
 - **Email**: [web.takib@gmail.com](https://mail.google.com/mail/u/0/?fs=1&to=web.takib@gmail.com&tf=cm)
-- **GitHub**: [Mirza2028](https://github.com/Mirza2018)
-- **LinkedIn**: [Takibul Hasan.](https://www.linkedin.com/in/takibul-hasan-619389242/)
-- **Facebook**: [Takibul Hasan.](https://www.facebook.com/takibul.hassan.56)
+- **GitHub**: [Follow me on GitHub](https://github.com/Mirza2018)
+- **LinkedIn**: [Follow me on LinkedIn](https://www.linkedin.com/in/takibul-hasan-619389242/)
+- **Facebook**: [Follow me on Facebook](https://www.facebook.com/takibul.hassan.56)

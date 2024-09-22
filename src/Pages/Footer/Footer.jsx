@@ -108,7 +108,7 @@ const Footer = () => {
 
                 <p className="text-sm text-center text-black ">© Copyright 2024 | Magnetic plus | 
         <span> </span>
-                     <a href='https://www.facebook.com/takibul.hassan.56' target="_blank" className=" link link-neutral text-sky-600 underline-offset-8 font-semibold font-sans"> Takibul hasan.</a> </p>
+                     <a href='https://github.com/Mirza2018' target="_blank" className=" link link-neutral text-sky-600 underline-offset-8 font-semibold font-sans"> Takibul hasan.</a> </p>
                      {/* <Link className=" btn-link underline-offset-4" to="/register">Register</Link> */}
                    
             </div>

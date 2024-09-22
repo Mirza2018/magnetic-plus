@@ -61,7 +61,7 @@ console.log(isAdmin);
                                                 Shop
                                             </Link>
                                             <Link to="/aboutUs" className="text-black font-bold hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm">
-                                                Contact Us
+                                                About Us
                                             </Link>
                                         </div>
                                     </div>
