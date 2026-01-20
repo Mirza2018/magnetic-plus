@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 
-
+ 
 
 const Cart = () => {
     const { user } = useContext(AuthContext)
