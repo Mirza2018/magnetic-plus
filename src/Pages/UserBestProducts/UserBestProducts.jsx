@@ -37,7 +37,7 @@ const UserBestProducts = () => {
     }
     return (
         <div>
-            <div className="text-center max-w-screen-2xl container mx-auto xl:px-28 px-10 mt-10">
+            <div className="text-center   px-10 mt-10">
                 <h2 className="text-2xl font-bold capitalize flex mb-5">
                     Best Products:
                 </h2>

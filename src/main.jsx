@@ -171,7 +171,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://${import.meta.env.VITE_BASE_URL}/item/${params.id}`,
+            `${import.meta.env.VITE_BASE_URL}/item/${params.id}`,
           ),
       },
     ],

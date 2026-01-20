@@ -116,7 +116,7 @@ else{
       }
 
     return (
-        <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4">
+        <div className=" px-4">
             
             {/* best seller products card */}
             <div className='mb-16'>

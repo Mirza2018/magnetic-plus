@@ -213,7 +213,7 @@ else{
 
   return (
     <div>
-      <span className='ms-2'>
+      <span className='ms-2 '>
       <Link to="/" className='btn-link no-underline underline-offset-8'> Home </Link>
       <Link to="/shop" className='btn-link no-underline underline-offset-4'> /shop </Link>
         <Link to={`/shop/${item?.categories[0]}`} className='btn-link no-underline underline-offset-8'> /{item?.categories[0]}</Link>

@@ -9,7 +9,7 @@ import UserPopulatSection from '../userPopularSection/UserPopulatSection';
 
 const HomePage = () => {
     return (
-        <>
+        <div className='max-w-7xl mx-auto '>
        <Poster></Poster>
           
             <Categories></Categories>
@@ -18,7 +18,7 @@ const HomePage = () => {
             <UserBestProducts></UserBestProducts>
             <UserTopSellingProducts></UserTopSellingProducts>
 
-        </>
+        </div>
     );
 };
 

@@ -20,6 +20,8 @@ import useAdmin from '../../Hooks/useAdmin';
 
 const Navbar2 = () => {
     const { user, logOut, localItemLength } = useContext(AuthContext);
+    console.log(user);
+    
     const [addToCart] = useCart();
     const axiosSecure = useAxiosSecure();
     const [isAdmin] = useAdmin();
@@ -40,11 +42,11 @@ console.log(isAdmin);
     
 
     return (
-        <div className="min-h-full">
+        <div className="min-h-full mb-5">
             <Disclosure as="nav" className="bg-white">
                 {({ open }) => (
                     <>
-                        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <div className="mx-auto container px-4 sm:px-6 lg:px-8">
                             <div className="flex h-16 items-center justify-between">
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0">

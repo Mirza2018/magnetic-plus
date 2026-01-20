@@ -31,7 +31,7 @@ const Categories = () => {
           Categories :
         </h2>
       </div>
-      <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4">
+      <div className="   px-4">
         <div className='mb-16'>
           <Swiper
             slidesPerView={1}

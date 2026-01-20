@@ -13,7 +13,7 @@ const Products = () => {
     return (
 
 
-        <div>
+        <div className=''>
             <span className='ms-2'>
 
                 <Link to="/" className='btn-link no-underline underline-offset-8'> Home </Link>

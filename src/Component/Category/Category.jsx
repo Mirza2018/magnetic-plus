@@ -10,8 +10,8 @@ const Category = () => {
 
     const finalItems = []
 
-    items.filter(item => {
-        const cats = item.categories;
+    items?.filter(item => {
+        const cats = item?.categories;
         // console.log(cats);
         for (let cat of cats) {
 
