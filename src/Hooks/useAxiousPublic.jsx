@@ -1,12 +1,11 @@
 import axios from "axios";
 
-const axiousPublic =axios.create({
-    baseURL:'https://magneticplus.sirony.xyz/'
-})
- 
+const axiousPublic = axios.create({
+  baseURL: `https://${import.meta.env.VITE_BASE_URL}/`,
+});
+
 const useAxiousPublic = () => {
-    return axiousPublic
+  return axiousPublic;
 };
 
-export default useAxiousPublic; 
- 
+export default useAxiousPublic;
